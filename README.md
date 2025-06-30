@@ -1,36 +1,176 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GUNDYREV - Портфолио проектов
 
-## Getting Started
+Добро пожаловать в портфолио проектов **GUNDYREV**! Это веб-приложение демонстрирует различные решения в области информационной безопасности, разработки и технологий.
 
-First, run the development server:
+## 🚀 Проекты
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### SECURE-T - Система информационной безопасности
+Комплексная система защиты корпоративных данных и IT-инфраструктуры.
+
+**Основные возможности:**
+- 🔐 Криптографическая защита (AES-256, RSA-4096, SHA-3)
+- 🛡️ Сетевая безопасность (Firewall, IDS/IPS, WAF)
+- 📊 Мониторинг и SIEM интеграция
+- 🔍 Аудит безопасности
+- ⚙️ Интеграция с существующими системами
+- 📚 Обучение персонала
+
+**Документация:**
+- [Полная документация](docs/SECURE-T_Documentation.md)
+- [Быстрый старт](docs/SECURE-T_Quick_Start.md)
+- [Примеры конфигурации](docs/SECURE-T_Configuration_Examples.md)
+
+### Другие проекты
+- **Development** - Решения для разработки ПО
+- **Dr.Web** - Антивирусные решения
+- **Electronics** - Электронные системы
+- **Solovey** - Специализированные решения
+- **UX Software** - Пользовательские интерфейсы
+
+## 🛠️ Технологии
+
+- **Frontend:** Next.js 14, React, TypeScript, Tailwind CSS
+- **Backend:** Node.js, API Routes
+- **Безопасность:** Криптографические алгоритмы, PKI
+- **Интеграции:** LDAP, SIEM, Prometheus, Grafana
+
+## 🏗️ Архитектура
+
+```
+my-app/
+├── src/app/
+│   ├── secure-t/              # SECURE-T система
+│   │   ├── page.tsx           # Главная страница
+│   │   └── documentation/     # Документация
+│   ├── components/            # Общие компоненты
+│   ├── api/                   # API роуты
+│   └── [other-projects]/      # Другие проекты
+├── docs/                      # Документация
+│   ├── SECURE-T_Documentation.md
+│   ├── SECURE-T_Quick_Start.md
+│   └── README.md
+└── public/                    # Статические файлы
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Быстрый старт
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Установка
+```bash
+# Клонирование репозитория
+git clone https://gittea.biveki.ru/BivekiGroup/gunderev.git
+cd gunderev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Установка зависимостей
+npm install
 
-## Learn More
+# Запуск в режиме разработки
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Доступ к проектам
+- **Главная страница:** http://localhost:3000
+- **SECURE-T:** http://localhost:3000/secure-t
+- **Документация SECURE-T:** http://localhost:3000/secure-t/documentation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📋 Системные требования
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Для разработки
+- Node.js 18+
+- npm или yarn
+- Git
 
-## Deploy on Vercel
+### Для продакшена
+- Node.js 18+
+- 2GB RAM минимум
+- SSL сертификат (рекомендуется)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔧 Конфигурация
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Переменные окружения
+```bash
+# .env.local
+NEXTAUTH_SECRET=your-secret-key
+NEXTAUTH_URL=http://localhost:3000
+DATABASE_URL=postgresql://...
+```
+
+### Сборка для продакшена
+```bash
+npm run build
+npm start
+```
+
+## 📚 Документация
+
+### SECURE-T
+Полная документация системы информационной безопасности:
+- [Обзор системы](docs/SECURE-T_Documentation.md#обзор-системы)
+- [Установка и настройка](docs/SECURE-T_Documentation.md#установка-и-настройка)
+- [API документация](docs/SECURE-T_Documentation.md#api-документация)
+- [Примеры конфигурации](docs/SECURE-T_Configuration_Examples.md)
+
+### Быстрые ссылки
+- [Системные требования](docs/SECURE-T_Documentation.md#системные-требования)
+- [Troubleshooting](docs/SECURE-T_Quick_Start.md#troubleshooting)
+- [Поддержка](docs/SECURE-T_Documentation.md#поддержка)
+
+## 🛡️ Безопасность
+
+Проект соответствует следующим стандартам:
+- **ГОСТ Р 57580.1-2017** - Безопасность финансовых услуг
+- **ISO 27001** - Системы менеджмента информационной безопасности
+- **NIST Cybersecurity Framework** - Основы кибербезопасности
+- **PCI DSS** - Стандарт безопасности данных платежных карт
+
+## 🤝 Вклад в проект
+
+Мы приветствуем вклад в развитие проекта:
+
+1. Fork репозитория
+2. Создайте ветку для новой функции
+3. Внесите изменения
+4. Создайте Pull Request
+
+## 📞 Поддержка
+
+### Контакты
+- **Email:** support@gundyrev.com
+- **Техподдержка:** support@secure-t.com
+- **Телефон:** +7 (495) 123-45-67
+
+### Полезные ссылки
+- [Официальный сайт](https://gundyrev.com)
+- [Документация SECURE-T](docs/)
+- [Gitea репозиторий](https://gittea.biveki.ru/BivekiGroup/gunderev)
+
+## 📄 Лицензия
+
+© 2024 GUNDYREV. Все права защищены.
+
+---
+
+## 🎯 Статус проекта
+
+- ✅ **SECURE-T** - Полнофункциональная система с документацией
+- 🚧 **Development** - В разработке
+- 🚧 **Dr.Web** - В разработке  
+- 🚧 **Electronics** - В разработке
+- 🚧 **Solovey** - В разработке
+- 🚧 **UX Software** - В разработке
+
+## 🔄 Обновления
+
+### Версия 1.0 (2024)
+- ✅ Создана система SECURE-T
+- ✅ Полная документация (20+ страниц)
+- ✅ Веб-интерфейс документации
+- ✅ API для просмотра документов
+- ✅ Адаптивный дизайн
+- ✅ Темная тема
+
+### Планы на будущее
+- 🔄 Завершение остальных проектов
+- 🔄 Интеграция с базами данных
+- 🔄 Система аутентификации
+- 🔄 Админ панель
+- 🔄 Мониторинг и аналитика
