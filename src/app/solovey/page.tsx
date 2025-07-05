@@ -1,6 +1,121 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 
 export default function Solovey() {
+  const [isCallActive, setIsCallActive] = useState(false);
+  const [participants, setParticipants] = useState(3);
+  const [soundWaves, setSoundWaves] = useState<Array<{
+    id: number;
+    delay: string;
+    duration: string;
+    scale: number;
+  }>>([]);
+  const [networkNodes, setNetworkNodes] = useState<Array<{
+    id: number;
+    x: string;
+    y: string;
+    connected: boolean;
+    pulse: boolean;
+  }>>([]);
+  const [liveStats, setLiveStats] = useState({
+    activeUsers: 1247,
+    callsToday: 8934,
+    dataTransferred: 2.3,
+    uptime: 99.97
+  });
+  const [calculatorData, setCalculatorData] = useState({
+    employees: 50,
+    meetingsPerWeek: 10,
+    travelCostPerMeeting: 5000
+  });
+
+  const avatars = [
+    { name: 'Анна', role: 'Менеджер', status: 'speaking', avatar: '👩‍💼' },
+    { name: 'Михаил', role: 'Разработчик', status: 'listening', avatar: '👨‍💻' },
+    { name: 'Елена', role: 'Дизайнер', status: 'muted', avatar: '👩‍🎨' },
+    { name: 'Дмитрий', role: 'Аналитик', status: 'listening', avatar: '👨‍💼' },
+    { name: 'Ольга', role: 'HR', status: 'speaking', avatar: '👩‍🏫' },
+    { name: 'Алексей', role: 'CEO', status: 'listening', avatar: '👨‍🚀' }
+  ];
+
+  // Генерация звуковых волн соловья
+  useEffect(() => {
+    const waves = Array.from({ length: 8 }, (_, i) => ({
+      id: i,
+      delay: `${i * 0.2}s`,
+      duration: `${2 + (i * 0.3)}s`,
+      scale: 0.5 + (i * 0.1)
+    }));
+    setSoundWaves(waves);
+  }, []);
+
+  // Генерация сетевых узлов
+  useEffect(() => {
+    const predefinedPositions = [
+      { x: '25%', y: '30%' }, { x: '75%', y: '25%' }, { x: '15%', y: '60%' },
+      { x: '85%', y: '70%' }, { x: '45%', y: '15%' }, { x: '55%', y: '85%' },
+      { x: '30%', y: '45%' }, { x: '70%', y: '55%' }, { x: '20%', y: '75%' },
+      { x: '80%', y: '40%' }, { x: '40%', y: '80%' }, { x: '60%', y: '20%' }
+    ];
+    
+    const nodes = predefinedPositions.map((pos, i) => ({
+      id: i,
+      x: pos.x,
+      y: pos.y,
+      connected: i % 3 !== 0, // 2 из 3 узлов подключены
+      pulse: i % 2 === 0 // каждый второй пульсирует
+    }));
+    setNetworkNodes(nodes);
+  }, []);
+
+  // Обновление живой статистики
+  useEffect(() => {
+    let counter = 0;
+    const patterns = [
+      { users: 3, calls: 2, data: 0.05, uptime: 0.01 },
+      { users: -1, calls: 1, data: 0.08, uptime: 0.02 },
+      { users: 5, calls: 3, data: 0.03, uptime: -0.01 },
+      { users: -2, calls: 1, data: 0.07, uptime: 0.01 },
+      { users: 4, calls: 2, data: 0.04, uptime: 0.02 }
+    ];
+    
+    const interval = setInterval(() => {
+      const pattern = patterns[counter % patterns.length];
+      setLiveStats(prev => ({
+        activeUsers: Math.max(1200, prev.activeUsers + pattern.users),
+        callsToday: prev.callsToday + pattern.calls,
+        dataTransferred: prev.dataTransferred + pattern.data,
+        uptime: Math.min(99.99, Math.max(99.95, prev.uptime + pattern.uptime))
+      }));
+      counter++;
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const calculateSavings = () => {
+    const { employees, meetingsPerWeek, travelCostPerMeeting } = calculatorData;
+    const monthlyTravelCost = meetingsPerWeek * 4 * travelCostPerMeeting;
+    const yearlyTravelCost = monthlyTravelCost * 12;
+    const soloveyYearlyCost = employees * 1000; // примерная стоимость за пользователя в год
+    const savings = yearlyTravelCost - soloveyYearlyCost;
+    return { yearlyTravelCost, soloveyYearlyCost, savings };
+  };
+
+  const formatNumber = (num: number) => {
+    return new Intl.NumberFormat('ru-RU').format(Math.floor(num));
+  };
+
+  const formatCurrency = (num: number) => {
+    return new Intl.NumberFormat('ru-RU', {
+      style: 'currency',
+      currency: 'RUB',
+      minimumFractionDigits: 0
+    }).format(num);
+  };
+
   return (
     <>
       <Navigation />
@@ -8,6 +123,24 @@ export default function Solovey() {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-900 via-black to-yellow-900"></div>
+        
+        {/* Анимированные звуковые волны соловья */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          {soundWaves.map((wave) => (
+            <div
+              key={wave.id}
+              className="absolute border-2 border-amber-500/30 rounded-full animate-ping"
+              style={{
+                width: `${100 + wave.id * 50}px`,
+                height: `${100 + wave.id * 50}px`,
+                animationDelay: wave.delay,
+                animationDuration: wave.duration,
+                transform: `scale(${wave.scale})`
+              }}
+            />
+          ))}
+        </div>
+        
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500 rounded-full blur-3xl opacity-30"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500 rounded-full blur-3xl opacity-30"></div>
@@ -16,20 +149,59 @@ export default function Solovey() {
         <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
           <div className="mb-8">
             <div className="inline-flex items-center space-x-4 mb-6">
-              <div className="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center relative">
                 <span className="text-black font-bold text-2xl">🐦</span>
+                {/* Анимированные звуковые линии */}
+                <div className="absolute -right-8 top-1/2 transform -translate-y-1/2">
+                  {[...Array(4)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="w-1 bg-amber-400 rounded-full animate-pulse"
+                      style={{
+                        height: `${8 + i * 4}px`,
+                        marginLeft: `${i * 3}px`,
+                        animationDelay: `${i * 0.1}s`,
+                        animationDuration: '1s'
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
               <h1 className="text-5xl md:text-7xl font-bold text-amber-400">Соловей</h1>
             </div>
           </div>
+          
+          {/* Живая статистика */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="glass-effect p-4 rounded-lg hover-glow transition-all duration-300">
+              <div className="text-2xl font-bold text-amber-400">{formatNumber(liveStats.activeUsers)}</div>
+              <div className="text-sm text-gray-400">Активных пользователей</div>
+            </div>
+            <div className="glass-effect p-4 rounded-lg hover-glow transition-all duration-300">
+              <div className="text-2xl font-bold text-yellow-400">{formatNumber(liveStats.callsToday)}</div>
+              <div className="text-sm text-gray-400">Звонков сегодня</div>
+            </div>
+            <div className="glass-effect p-4 rounded-lg hover-glow transition-all duration-300">
+              <div className="text-2xl font-bold text-green-400">{liveStats.dataTransferred.toFixed(1)} ТБ</div>
+              <div className="text-sm text-gray-400">Передано данных</div>
+            </div>
+            <div className="glass-effect p-4 rounded-lg hover-glow transition-all duration-300">
+              <div className="text-2xl font-bold text-blue-400">{liveStats.uptime.toFixed(2)}%</div>
+              <div className="text-sm text-gray-400">Время работы</div>
+            </div>
+          </div>
+          
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
             Профессиональная платформа для видеосвязи и онлайн-встреч на вашем домене
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <button className="px-8 py-3 bg-amber-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300">
-              Попробовать демо
+            <button 
+              onClick={() => setIsCallActive(!isCallActive)}
+              className="px-8 py-3 bg-amber-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300 transform hover:scale-105"
+            >
+              {isCallActive ? 'Завершить демо' : 'Попробовать демо'}
             </button>
-            <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
+            <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
               Заказать внедрение
             </button>
           </div>
@@ -38,6 +210,256 @@ export default function Solovey() {
             <p className="text-sm text-gray-400">
               💡 Устанавливается на поддомене заказчика с нашей технической поддержкой
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Живая демонстрация видеозвонка */}
+      <section className="section-padding bg-gray-900/50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Живая <span className="text-amber-400">демонстрация</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Посмотрите, как выглядит интерфейс видеоконференции
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="glass-effect rounded-lg overflow-hidden p-6">
+              {/* Заголовок конференции */}
+              <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-700">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="font-semibold">Еженедельная планерка</span>
+                  <span className="text-sm text-gray-400">12:34</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-gray-400">Участников: {participants}</span>
+                  <button
+                    onClick={() => setParticipants(prev => Math.min(prev + 1, 6))}
+                    className="px-3 py-1 bg-amber-500/20 text-amber-400 rounded text-sm hover:bg-amber-500/30 transition-colors"
+                  >
+                    + Добавить
+                  </button>
+                </div>
+              </div>
+
+              {/* Сетка участников */}
+              <div className={`grid gap-4 mb-6 ${
+                participants <= 2 ? 'grid-cols-1 md:grid-cols-2' :
+                participants <= 4 ? 'grid-cols-2 md:grid-cols-2' :
+                'grid-cols-2 md:grid-cols-3'
+              }`}>
+                {avatars.slice(0, participants).map((participant, index) => (
+                  <div
+                    key={index}
+                    className={`relative bg-gray-800 rounded-lg aspect-video flex flex-col items-center justify-center transition-all duration-500 ${
+                      participant.status === 'speaking' ? 'ring-2 ring-amber-500 scale-105' : ''
+                    } ${isCallActive ? 'animate-fadeIn' : 'opacity-50'}`}
+                    style={{ animationDelay: `${index * 0.2}s` }}
+                  >
+                    <div className="text-4xl mb-2">{participant.avatar}</div>
+                    <div className="text-center">
+                      <div className="font-semibold text-sm">{participant.name}</div>
+                      <div className="text-xs text-gray-400">{participant.role}</div>
+                    </div>
+                    
+                    {/* Индикатор статуса */}
+                    <div className="absolute bottom-2 right-2 flex items-center gap-1">
+                      {participant.status === 'speaking' && (
+                        <div className="flex gap-1">
+                          {[...Array(3)].map((_, i) => (
+                            <div
+                              key={i}
+                              className="w-1 bg-amber-500 rounded-full animate-pulse"
+                              style={{
+                                height: `${4 + i * 2}px`,
+                                animationDelay: `${i * 0.1}s`
+                              }}
+                            />
+                          ))}
+                        </div>
+                      )}
+                      {participant.status === 'muted' && (
+                        <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                          <span className="text-xs">🔇</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Панель управления */}
+              <div className="flex justify-center gap-4">
+                <button className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">
+                  🎤
+                </button>
+                <button className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">
+                  📹
+                </button>
+                <button className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">
+                  🖥️
+                </button>
+                <button className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
+                  📞
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3D Сетевая визуализация */}
+      <section className="section-padding">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Сетевая <span className="text-amber-400">архитектура</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Распределенная система для надежной связи
+            </p>
+          </div>
+
+          <div className="relative h-96 glass-effect rounded-lg overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 to-yellow-900/20">
+              {/* Сетевые узлы */}
+              {networkNodes.map((node) => (
+                <div key={node.id}>
+                  <div
+                    className={`absolute w-4 h-4 rounded-full transition-all duration-1000 ${
+                      node.connected ? 'bg-green-500' : 'bg-red-500'
+                    } ${node.pulse ? 'animate-pulse' : ''}`}
+                    style={{ left: node.x, top: node.y }}
+                  />
+                  {/* Соединительные линии */}
+                  {node.connected && node.id < networkNodes.length - 1 && (
+                    <svg
+                      className="absolute inset-0 w-full h-full pointer-events-none"
+                      style={{ zIndex: -1 }}
+                    >
+                      <line
+                        x1={node.x}
+                        y1={node.y}
+                        x2={networkNodes[node.id + 1]?.x || '50%'}
+                        y2={networkNodes[node.id + 1]?.y || '50%'}
+                        stroke="rgba(245, 158, 11, 0.3)"
+                        strokeWidth="1"
+                        className="animate-pulse"
+                      />
+                    </svg>
+                  )}
+                </div>
+              ))}
+              
+              {/* Центральный сервер */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div className="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center animate-pulse">
+                  <span className="text-black font-bold">🖥️</span>
+                </div>
+                <div className="text-center mt-2 text-sm text-amber-400 font-semibold">
+                  Соловей Сервер
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Калькулятор экономии */}
+      <section className="section-padding bg-gray-900/50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Калькулятор <span className="text-amber-400">экономии</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Рассчитайте экономию от внедрения видеосвязи
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="glass-effect p-8 rounded-lg">
+              <h3 className="text-xl font-bold mb-6">Параметры вашей компании</h3>
+              
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Количество сотрудников</label>
+                  <input
+                    type="range"
+                    min="10"
+                    max="500"
+                    value={calculatorData.employees}
+                    onChange={(e) => setCalculatorData(prev => ({ ...prev, employees: parseInt(e.target.value) }))}
+                    className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                  />
+                  <div className="text-center mt-2 text-amber-400 font-bold">{calculatorData.employees}</div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">Встреч в неделю</label>
+                  <input
+                    type="range"
+                    min="1"
+                    max="50"
+                    value={calculatorData.meetingsPerWeek}
+                    onChange={(e) => setCalculatorData(prev => ({ ...prev, meetingsPerWeek: parseInt(e.target.value) }))}
+                    className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                  />
+                  <div className="text-center mt-2 text-amber-400 font-bold">{calculatorData.meetingsPerWeek}</div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">Стоимость командировки (₽)</label>
+                  <input
+                    type="range"
+                    min="1000"
+                    max="20000"
+                    step="500"
+                    value={calculatorData.travelCostPerMeeting}
+                    onChange={(e) => setCalculatorData(prev => ({ ...prev, travelCostPerMeeting: parseInt(e.target.value) }))}
+                    className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                  />
+                  <div className="text-center mt-2 text-amber-400 font-bold">{formatCurrency(calculatorData.travelCostPerMeeting)}</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-effect p-8 rounded-lg">
+              <h3 className="text-xl font-bold mb-6">Ваша экономия</h3>
+              
+              {(() => {
+                const savings = calculateSavings();
+                return (
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center p-4 bg-red-500/10 rounded-lg">
+                      <span>Расходы на командировки в год:</span>
+                      <span className="font-bold text-red-400">{formatCurrency(savings.yearlyTravelCost)}</span>
+                    </div>
+                    
+                    <div className="flex justify-between items-center p-4 bg-amber-500/10 rounded-lg">
+                      <span>Стоимость Соловей в год:</span>
+                      <span className="font-bold text-amber-400">{formatCurrency(savings.soloveyYearlyCost)}</span>
+                    </div>
+                    
+                    <div className="flex justify-between items-center p-4 bg-green-500/10 rounded-lg border-2 border-green-500">
+                      <span className="font-bold">Экономия в год:</span>
+                      <span className="font-bold text-green-400 text-xl">{formatCurrency(savings.savings)}</span>
+                    </div>
+                    
+                    <div className="text-center mt-6">
+                      <div className="text-3xl font-bold text-green-400 mb-2">
+                        {savings.savings > 0 ? Math.round(savings.yearlyTravelCost / savings.soloveyYearlyCost) : 0}x
+                      </div>
+                      <div className="text-sm text-gray-400">окупаемость инвестиций</div>
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
           </div>
         </div>
       </section>

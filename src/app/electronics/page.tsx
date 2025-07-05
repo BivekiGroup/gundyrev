@@ -1,6 +1,108 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 
 export default function Electronics() {
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [cartItems, setCartItems] = useState<Array<{
+    id: string;
+    name: string;
+    price: number;
+    quantity: number;
+  }>>([]);
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
+  const [deliveryStatus, setDeliveryStatus] = useState(0);
+  const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
+  const [particles, setParticles] = useState<Array<{
+    id: number;
+    left: string;
+    top: string;
+    animationDelay: string;
+    animationDuration: string;
+    icon: string;
+  }>>([]);
+
+  const categories = [
+    { id: 'all', name: 'Все товары', icon: '🛒', color: 'cyan' },
+    { id: 'computers', name: 'Компьютеры', icon: '💻', color: 'blue' },
+    { id: 'phones', name: 'Телефоны', icon: '📱', color: 'green' },
+    { id: 'accessories', name: 'Аксессуары', icon: '🔌', color: 'purple' },
+    { id: 'servers', name: 'Серверы', icon: '🖲️', color: 'orange' },
+    { id: 'network', name: 'Сеть', icon: '🌐', color: 'teal' }
+  ];
+
+  const products = [
+    { id: '1', name: 'MacBook Pro 16"', price: 250000, category: 'computers', stock: 15, rating: 4.9 },
+    { id: '2', name: 'iPhone 15 Pro', price: 120000, category: 'phones', stock: 25, rating: 4.8 },
+    { id: '3', name: 'Dell XPS 13', price: 180000, category: 'computers', stock: 8, rating: 4.7 },
+    { id: '4', name: 'Samsung Galaxy S24', price: 95000, category: 'phones', stock: 20, rating: 4.6 },
+    { id: '5', name: 'Зарядное устройство 65W', price: 3500, category: 'accessories', stock: 50, rating: 4.5 },
+    { id: '6', name: 'HP ProLiant DL380', price: 450000, category: 'servers', stock: 3, rating: 4.9 },
+    { id: '7', name: 'Cisco Catalyst 9300', price: 320000, category: 'network', stock: 5, rating: 4.8 },
+    { id: '8', name: 'Кабель USB-C 2м', price: 1200, category: 'accessories', stock: 100, rating: 4.4 }
+  ];
+
+  const deliverySteps = [
+    { name: 'Заказ получен', icon: '📋', completed: true },
+    { name: 'Подтверждение', icon: '✅', completed: true },
+    { name: 'Сборка', icon: '📦', completed: true },
+    { name: 'Отправка', icon: '🚚', completed: false },
+    { name: 'Доставка', icon: '🏠', completed: false }
+  ];
+
+  // Генерация электронных частиц
+  useEffect(() => {
+    const icons = ['⚡', '🔋', '💾', '🔌', '📡', '💻', '📱', '🖥️'];
+    const newParticles = Array.from({ length: 15 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 5}s`,
+      animationDuration: `${8 + Math.random() * 12}s`,
+      icon: icons[Math.floor(Math.random() * icons.length)]
+    }));
+    setParticles(newParticles);
+  }, []);
+
+  // Анимация прогресса доставки
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDeliveryStatus(prev => (prev + 1) % 100);
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
+
+  const filteredProducts = selectedCategory === 'all' 
+    ? products 
+    : products.filter(p => p.category === selectedCategory);
+
+  const addToCart = (product: typeof products[0]) => {
+    setCartItems(prev => {
+      const existing = prev.find(item => item.id === product.id);
+      if (existing) {
+        return prev.map(item => 
+          item.id === product.id 
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+      return [...prev, { ...product, quantity: 1 }];
+    });
+  };
+
+  const getTotalPrice = () => {
+    return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  };
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('ru-RU', {
+      style: 'currency',
+      currency: 'RUB',
+      minimumFractionDigits: 0
+    }).format(price);
+  };
+
   return (
     <>
       <Navigation />
@@ -8,6 +110,25 @@ export default function Electronics() {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-900 via-black to-teal-900"></div>
+        
+        {/* Анимированные электронные частицы */}
+        <div className="absolute inset-0">
+          {particles.map((particle) => (
+            <div
+              key={particle.id}
+              className="absolute text-2xl opacity-60 floating-particle"
+              style={{
+                left: particle.left,
+                top: particle.top,
+                animationDelay: particle.animationDelay,
+                animationDuration: particle.animationDuration
+              }}
+            >
+              {particle.icon}
+            </div>
+          ))}
+        </div>
+        
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl opacity-30"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500 rounded-full blur-3xl opacity-30"></div>
@@ -20,128 +141,191 @@ export default function Electronics() {
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
             Комплексные поставки электронного оборудования для бизнеса и государственных организаций
           </p>
+          
+          {/* Интерактивные статистики */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="glass-effect p-4 rounded-lg hover-glow transition-all duration-300 transform hover:scale-105">
+              <div className="text-3xl font-bold gradient-text">10K+</div>
+              <div className="text-sm text-gray-400">Товаров в наличии</div>
+            </div>
+            <div className="glass-effect p-4 rounded-lg hover-glow transition-all duration-300 transform hover:scale-105">
+              <div className="text-3xl font-bold gradient-text">24ч</div>
+              <div className="text-sm text-gray-400">Быстрая доставка</div>
+            </div>
+            <div className="glass-effect p-4 rounded-lg hover-glow transition-all duration-300 transform hover:scale-105">
+              <div className="text-3xl font-bold gradient-text">500+</div>
+              <div className="text-sm text-gray-400">Выигранных тендеров</div>
+            </div>
+            <div className="glass-effect p-4 rounded-lg hover-glow transition-all duration-300 transform hover:scale-105">
+              <div className="text-3xl font-bold gradient-text">99%</div>
+              <div className="text-sm text-gray-400">Довольных клиентов</div>
+            </div>
+          </div>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <button className="px-8 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300">
-              Каталог оборудования
+            <button 
+              onClick={() => setIsCalculatorOpen(true)}
+              className="px-8 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300 transform hover:scale-105"
+            >
+              Калькулятор стоимости
             </button>
-            <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
-              Получить КП
+            <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+              Каталог товаров
             </button>
           </div>
           
           <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <div className="glass-effect px-4 py-2 rounded-full">
+            <div className="glass-effect px-4 py-2 rounded-full hover-glow transition-all duration-300">
               <span className="text-cyan-400">44-ФЗ</span> • Госзакупки
             </div>
-            <div className="glass-effect px-4 py-2 rounded-full">
+            <div className="glass-effect px-4 py-2 rounded-full hover-glow transition-all duration-300">
               <span className="text-teal-400">223-ФЗ</span> • Корпоративные закупки
             </div>
-            <div className="glass-effect px-4 py-2 rounded-full">
+            <div className="glass-effect px-4 py-2 rounded-full hover-glow transition-all duration-300">
               <span className="text-green-400">B2B</span> • Коммерческие поставки
             </div>
           </div>
         </div>
       </section>
 
-      {/* Product Categories */}
+      {/* Интерактивный каталог товаров */}
       <section className="section-padding bg-gray-900/50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Категории <span className="gradient-text">оборудования</span>
+              Интерактивный <span className="gradient-text">каталог</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              От простых аксессуаров до сложного серверного оборудования
+              Выберите категорию и добавьте товары в корзину для расчета стоимости
             </p>
           </div>
 
+          {/* Фильтр категорий */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
+                  selectedCategory === category.id
+                    ? `bg-${category.color}-500 text-white shadow-lg hover-glow`
+                    : 'glass-effect text-gray-300 hover:bg-white/10'
+                }`}
+              >
+                <span className="mr-2">{category.icon}</span>
+                {category.name}
+              </button>
+            ))}
+          </div>
+
+          {/* Товары */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-cyan-400 text-4xl mb-4">🔌</div>
-              <h3 className="text-lg font-bold mb-3">Аксессуары</h3>
-              <ul className="text-sm text-gray-300 space-y-1">
-                <li>• Зарядные устройства</li>
-                <li>• Кабели и переходники</li>
-                <li>• Чехлы и защитные пленки</li>
-                <li>• Подставки и держатели</li>
-              </ul>
-            </div>
+            {filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                className="glass-effect p-6 rounded-lg hover-glow transition-all duration-500 transform hover:scale-105 hover:rotate-1 cursor-pointer"
+                onMouseEnter={() => setHoveredProduct(product.id)}
+                onMouseLeave={() => setHoveredProduct(null)}
+              >
+                <div className="relative">
+                  <div className="text-4xl mb-4 text-center">
+                    {product.category === 'computers' && '💻'}
+                    {product.category === 'phones' && '📱'}
+                    {product.category === 'accessories' && '🔌'}
+                    {product.category === 'servers' && '🖲️'}
+                    {product.category === 'network' && '🌐'}
+                  </div>
+                  
+                  {hoveredProduct === product.id && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-teal-500/20 rounded-lg animate-pulse"></div>
+                  )}
+                </div>
+                
+                <h3 className="text-lg font-bold mb-2">{product.name}</h3>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="flex text-yellow-400">
+                    {'★'.repeat(Math.floor(product.rating))}
+                    {'☆'.repeat(5 - Math.floor(product.rating))}
+                  </div>
+                  <span className="text-sm text-gray-400">{product.rating}</span>
+                </div>
+                
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-2xl font-bold gradient-text">
+                    {formatPrice(product.price)}
+                  </span>
+                  <span className={`text-sm px-2 py-1 rounded ${
+                    product.stock > 10 ? 'bg-green-500/20 text-green-400' : 
+                    product.stock > 0 ? 'bg-yellow-500/20 text-yellow-400' : 
+                    'bg-red-500/20 text-red-400'
+                  }`}>
+                    {product.stock > 0 ? `${product.stock} шт.` : 'Нет в наличии'}
+                  </span>
+                </div>
+                
+                <button
+                  onClick={() => addToCart(product)}
+                  disabled={product.stock === 0}
+                  className="w-full px-4 py-2 bg-cyan-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Добавить в корзину
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-teal-400 text-4xl mb-4">💻</div>
-              <h3 className="text-lg font-bold mb-3">Компьютеры и ноутбуки</h3>
-              <ul className="text-sm text-gray-300 space-y-1">
-                <li>• Настольные ПК</li>
-                <li>• Ноутбуки и ультрабуки</li>
-                <li>• Планшеты</li>
-                <li>• Моноблоки</li>
-              </ul>
-            </div>
+      {/* Трекер доставки */}
+      <section className="section-padding">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Трекер <span className="gradient-text">доставки</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Отслеживайте статус вашего заказа в реальном времени
+            </p>
+          </div>
 
-            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-blue-400 text-4xl mb-4">🖥️</div>
-              <h3 className="text-lg font-bold mb-3">Периферия</h3>
-              <ul className="text-sm text-gray-300 space-y-1">
-                <li>• Мониторы и проекторы</li>
-                <li>• Принтеры и МФУ</li>
-                <li>• Клавиатуры и мыши</li>
-                <li>• Веб-камеры и микрофоны</li>
-              </ul>
-            </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="glass-effect p-8 rounded-lg">
+              <div className="flex justify-between items-center mb-8">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Заказ #12345</h3>
+                  <p className="text-gray-400">Ожидаемая доставка: завтра до 18:00</p>
+                </div>
+                <div className="text-right">
+                  <div className="text-2xl font-bold gradient-text">{deliveryStatus}%</div>
+                  <div className="text-sm text-gray-400">Готовность</div>
+                </div>
+              </div>
 
-            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-green-400 text-4xl mb-4">🌐</div>
-              <h3 className="text-lg font-bold mb-3">Сетевое оборудование</h3>
-              <ul className="text-sm text-gray-300 space-y-1">
-                <li>• Маршрутизаторы</li>
-                <li>• Коммутаторы</li>
-                <li>• Точки доступа Wi-Fi</li>
-                <li>• Сетевые кабели</li>
-              </ul>
-            </div>
+              {/* Прогресс бар */}
+              <div className="mb-8">
+                <div className="w-full bg-gray-700 rounded-full h-2">
+                  <div 
+                    className="bg-gradient-to-r from-cyan-500 to-teal-500 h-2 rounded-full transition-all duration-300"
+                    style={{ width: `${deliveryStatus}%` }}
+                  ></div>
+                </div>
+              </div>
 
-            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-purple-400 text-4xl mb-4">🖨️</div>
-              <h3 className="text-lg font-bold mb-3">Офисная техника</h3>
-              <ul className="text-sm text-gray-300 space-y-1">
-                <li>• Принтеры и сканеры</li>
-                <li>• Копировальные аппараты</li>
-                <li>• Ламинаторы</li>
-                <li>• Уничтожители документов</li>
-              </ul>
-            </div>
-
-            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-red-400 text-4xl mb-4">📱</div>
-              <h3 className="text-lg font-bold mb-3">Мобильные устройства</h3>
-              <ul className="text-sm text-gray-300 space-y-1">
-                <li>• Смартфоны</li>
-                <li>• Планшеты</li>
-                <li>• Электронные книги</li>
-                <li>• Носимые устройства</li>
-              </ul>
-            </div>
-
-            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-yellow-400 text-4xl mb-4">🔊</div>
-              <h3 className="text-lg font-bold mb-3">Аудио и видео</h3>
-              <ul className="text-sm text-gray-300 space-y-1">
-                <li>• Колонки и наушники</li>
-                <li>• Микрофоны</li>
-                <li>• Камеры и видеорегистраторы</li>
-                <li>• Системы видеонаблюдения</li>
-              </ul>
-            </div>
-
-            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-orange-400 text-4xl mb-4">🖲️</div>
-              <h3 className="text-lg font-bold mb-3">Серверное оборудование</h3>
-              <ul className="text-sm text-gray-300 space-y-1">
-                <li>• Серверы и рабочие станции</li>
-                <li>• Системы хранения данных</li>
-                <li>• ИБП и стабилизаторы</li>
-                <li>• Серверные шкафы</li>
-              </ul>
+              {/* Этапы доставки */}
+              <div className="flex justify-between">
+                {deliverySteps.map((step, index) => (
+                  <div key={index} className="flex flex-col items-center text-center">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-all duration-300 ${
+                      step.completed ? 'bg-green-500 text-white' : 'bg-gray-700 text-gray-400'
+                    }`}>
+                      <span className="text-xl">{step.icon}</span>
+                    </div>
+                    <span className={`text-sm ${step.completed ? 'text-green-400' : 'text-gray-400'}`}>
+                      {step.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -331,10 +515,190 @@ export default function Electronics() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Калькулятор стоимости */}
+      {isCalculatorOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="glass-effect p-8 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold gradient-text">Калькулятор стоимости</h3>
+              <button
+                onClick={() => setIsCalculatorOpen(false)}
+                className="text-gray-400 hover:text-white transition-colors text-2xl"
+              >
+                ×
+              </button>
+            </div>
+
+            {cartItems.length === 0 ? (
+              <div className="text-center py-8">
+                <div className="text-4xl mb-4">🛒</div>
+                <p className="text-gray-400">Корзина пуста. Добавьте товары из каталога.</p>
+              </div>
+            ) : (
+              <div>
+                <div className="space-y-4 mb-6">
+                  {cartItems.map((item) => (
+                    <div key={item.id} className="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                      <div>
+                        <h4 className="font-semibold">{item.name}</h4>
+                        <p className="text-sm text-gray-400">Количество: {item.quantity}</p>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-bold">{formatPrice(item.price * item.quantity)}</div>
+                        <div className="text-sm text-gray-400">{formatPrice(item.price)} за шт.</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="border-t border-gray-700 pt-4">
+                  <div className="flex justify-between items-center text-xl font-bold">
+                    <span>Итого:</span>
+                    <span className="gradient-text">{formatPrice(getTotalPrice())}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm text-gray-400 mt-2">
+                    <span>НДС 20%:</span>
+                    <span>{formatPrice(getTotalPrice() * 0.2)}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm text-gray-400 mt-1">
+                    <span>Доставка:</span>
+                    <span>{getTotalPrice() > 50000 ? 'Бесплатно' : formatPrice(2000)}</span>
+                  </div>
+                </div>
+
+                <div className="mt-6 flex gap-4">
+                  <button className="flex-1 px-6 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300">
+                    Оформить заказ
+                  </button>
+                  <button 
+                    onClick={() => setCartItems([])}
+                    className="px-6 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
+                  >
+                    Очистить
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Корзина (фиксированная) */}
+      {cartItems.length > 0 && (
+        <div className="fixed bottom-4 right-4 z-40">
+          <button
+            onClick={() => setIsCalculatorOpen(true)}
+            className="glass-effect p-4 rounded-full hover-glow transition-all duration-300 transform hover:scale-110"
+          >
+            <div className="relative">
+              <span className="text-2xl">🛒</span>
+              <div className="absolute -top-2 -right-2 bg-cyan-500 text-black rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">
+                {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
+              </div>
+            </div>
+          </button>
+        </div>
+      )}
+
+      {/* Интерактивная карта складов */}
       <section className="section-padding bg-gray-900/50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Наши <span className="gradient-text">склады</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Быстрая доставка из ближайшего склада
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { city: 'Москва', address: 'Варшавское шоссе, 125', stock: '8500+ товаров', delivery: '2-4 часа', load: 85 },
+              { city: 'Санкт-Петербург', address: 'Индустриальный пр., 44', stock: '6200+ товаров', delivery: '4-6 часов', load: 72 },
+              { city: 'Екатеринбург', address: 'Кольцовский тракт, 18', stock: '4800+ товаров', delivery: '6-8 часов', load: 91 },
+              { city: 'Новосибирск', address: 'Красный пр., 220', stock: '3500+ товаров', delivery: '1-2 дня', load: 68 },
+              { city: 'Казань', address: 'Оренбургский тракт, 85', stock: '2900+ товаров', delivery: '1-2 дня', load: 79 },
+              { city: 'Нижний Новгород', address: 'Московское шоссе, 15', stock: '3200+ товаров', delivery: '1-2 дня', load: 83 }
+            ].map((warehouse, index) => (
+              <div
+                key={index}
+                className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 transform hover:scale-105 cursor-pointer"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="text-2xl">📍</div>
+                  <div>
+                    <h3 className="text-xl font-bold">{warehouse.city}</h3>
+                    <p className="text-sm text-gray-400">{warehouse.address}</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Товаров:</span>
+                    <span className="text-cyan-400 font-semibold">{warehouse.stock}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Доставка:</span>
+                    <span className="text-teal-400 font-semibold">{warehouse.delivery}</span>
+                  </div>
+                </div>
+                
+                <div className="mt-4 w-full bg-gray-700 rounded-full h-2">
+                  <div 
+                    className="bg-gradient-to-r from-cyan-500 to-teal-500 h-2 rounded-full transition-all duration-300"
+                    style={{ width: `${warehouse.load}%` }}
+                  ></div>
+                </div>
+                <p className="text-xs text-gray-400 mt-1">Загруженность склада: {warehouse.load}%</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Анимированная схема подключения */}
+      <section className="section-padding">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Схема <span className="gradient-text">подключения</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Как работает наша система поставок
+            </p>
+          </div>
+
+          <div className="relative">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+              {[
+                { icon: '📋', title: 'Заявка', desc: 'Получаем вашу спецификацию' },
+                { icon: '💰', title: 'Расчет', desc: 'Формируем коммерческое предложение' },
+                { icon: '📦', title: 'Сборка', desc: 'Комплектуем заказ на складе' },
+                { icon: '🚚', title: 'Доставка', desc: 'Доставляем в указанное место' },
+                { icon: '✅', title: 'Приемка', desc: 'Подписываем документы' }
+              ].map((step, index) => (
+                <div key={index} className="text-center relative">
+                  <div className="glass-effect w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 hover-glow transition-all duration-300 transform hover:scale-110">
+                    <span className="text-3xl">{step.icon}</span>
+                  </div>
+                  <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+                  <p className="text-sm text-gray-400 max-w-32">{step.desc}</p>
+                  
+                  {index < 4 && (
+                    <div className="hidden md:block absolute top-10 left-full w-16 h-0.5 bg-gradient-to-r from-cyan-500 to-teal-500"></div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="section-padding">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="glass-effect p-12 rounded-lg">
+          <div className="glass-effect p-12 rounded-lg hover-glow transition-all duration-300">
             <h2 className="text-3xl font-bold mb-6">
               Нужна поставка <span className="gradient-text">оборудования</span>?
             </h2>
@@ -342,10 +706,10 @@ export default function Electronics() {
               Отправьте нам спецификацию — подготовим коммерческое предложение в течение дня
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300">
+              <button className="px-8 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300 transform hover:scale-105">
                 Отправить спецификацию
               </button>
-              <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
+              <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
                 Заказать звонок
               </button>
             </div>

@@ -1,8 +1,43 @@
 'use client';
 
 import Navigation from '../../components/Navigation';
+import { useState } from 'react';
 
 export default function SecureTDocumentation() {
+  const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
+  const [supportForm, setSupportForm] = useState({
+    name: '',
+    email: '',
+    topic: '',
+    message: ''
+  });
+
+  const handleSupportClick = () => {
+    setIsSupportModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const handleCloseSupportModal = () => {
+    setIsSupportModalOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  const handleSupportInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setSupportForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSupportSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Здесь можно добавить логику отправки в поддержку
+    alert(`Спасибо за обращение, ${supportForm.name}! Мы ответим в течение 24 часов.`);
+    setSupportForm({ name: '', email: '', topic: '', message: '' });
+    setIsSupportModalOpen(false);
+    document.body.style.overflow = 'unset';
+  };
   return (
     <>
       <Navigation />
@@ -195,12 +230,12 @@ export default function SecureTDocumentation() {
                 Наша команда поддержки готова помочь вам разобраться с любыми вопросами
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="mailto:support@secure-t.com"
-                  className="px-8 py-3 bg-red-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300"
+                <button 
+                  onClick={handleSupportClick}
+                  className="px-8 py-3 bg-red-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:bg-red-600 active:scale-95 cursor-pointer"
                 >
                   Написать в поддержку
-                </a>
+                </button>
                 <a 
                   href="tel:+74951234567"
                   className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
@@ -227,6 +262,108 @@ export default function SecureTDocumentation() {
           </p>
         </div>
       </footer>
+
+      {/* Support Modal */}
+      {isSupportModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-900 rounded-lg p-8 max-w-md w-full relative border border-red-500/30">
+            <button 
+              onClick={handleCloseSupportModal}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
+            >
+              ×
+            </button>
+            
+            <h3 className="text-2xl font-bold mb-6 gradient-text">Написать в поддержку</h3>
+            
+            <form onSubmit={handleSupportSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                  Имя *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={supportForm.name}
+                  onChange={handleSupportInputChange}
+                  required
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-red-500"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={supportForm.email}
+                  onChange={handleSupportInputChange}
+                  required
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-red-500"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="topic" className="block text-sm font-medium text-gray-300 mb-1">
+                  Тема обращения *
+                </label>
+                <select
+                  id="topic"
+                  name="topic"
+                  value={supportForm.topic}
+                  onChange={handleSupportInputChange}
+                  required
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-red-500"
+                >
+                  <option value="">Выберите тему</option>
+                  <option value="documentation">Вопросы по документации</option>
+                  <option value="installation">Проблемы установки</option>
+                  <option value="configuration">Настройка системы</option>
+                  <option value="api">API и интеграция</option>
+                  <option value="security">Вопросы безопасности</option>
+                  <option value="other">Другое</option>
+                </select>
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
+                  Сообщение *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={supportForm.message}
+                  onChange={handleSupportInputChange}
+                  required
+                  rows={4}
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-red-500"
+                  placeholder="Опишите вашу проблему или вопрос..."
+                />
+              </div>
+              
+              <div className="flex space-x-4 pt-4">
+                <button
+                  type="button"
+                  onClick={handleCloseSupportModal}
+                  className="flex-1 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  Отмена
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                >
+                  Отправить
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 } 

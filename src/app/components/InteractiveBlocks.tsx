@@ -108,16 +108,34 @@ export default function InteractiveBlocks() {
     },
   ];
 
-  // Генерируем случайные начальные позиции для каждого блока
-  const getRandomInitialPosition = (index: number) => {
-    // Используем простую логику без зависимости от containerBounds
+  // Генерируем детерминированные начальные позиции для каждого блока
+  const getInitialPosition = (index: number) => {
     const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
     const cardWidth = 288; // w-72 = 18rem = 288px
-    const safeZoneWidth = Math.max(400, screenWidth - cardWidth - 40);
+    const safeZoneWidth = Math.max(600, screenWidth - cardWidth - 80);
+    
+    // Детерминированные позиции на основе индекса - более разбросанные
+    const positions = [
+      { x: 50, y: -300 },
+      { x: 350, y: -650 },
+      { x: 650, y: -450 },
+      { x: 150, y: -800 },
+      { x: 450, y: -350 },
+      { x: 250, y: -550 }
+    ];
+    
+    const basePos = positions[index % positions.length];
+    
+    // Адаптируем позицию под ширину экрана
+    const adaptedX = Math.min(basePos.x, safeZoneWidth - 50);
+    const finalX = adaptedX + (index * 123) % (safeZoneWidth - adaptedX - 50);
+    
+    // Добавляем дополнительную высоту для каждого блока
+    const extraHeight = (index * 200) + ((index * 17) % 300);
     
     return {
-      x: 20 + Math.random() * (safeZoneWidth - 40),
-      y: -300 - (index * 150) - Math.random() * 200
+      x: Math.max(20, Math.min(finalX, safeZoneWidth - 20)),
+      y: basePos.y - extraHeight
     };
   };
 
@@ -133,7 +151,7 @@ export default function InteractiveBlocks() {
 
       {/* Падающие блоки */}
       {blocks.map((block, index) => {
-        const initialPos = getRandomInitialPosition(index);
+        const initialPos = getInitialPosition(index);
         return (
           <DraggableCard
             key={block.id}
@@ -209,18 +227,14 @@ export default function InteractiveBlocks() {
             key={i}
             className="absolute w-1 h-1 bg-green-400 rounded-full floating-particle"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`,
+              left: `${(i * 7 + 13) % 100}%`,
+              top: `${(i * 11 + 23) % 100}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${3 + (i % 4)}s`,
             }}
           />
         ))}
       </div>
-
-      {/* Индикатор "земли" */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400/20 via-cyan-400/20 to-purple-400/20 pointer-events-none" />
-      
 
     </div>
   );
