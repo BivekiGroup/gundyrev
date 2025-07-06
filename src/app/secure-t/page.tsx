@@ -623,81 +623,147 @@ export default function SecureT() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105">
+            <div 
+              onClick={() => {
+                window.location.href = '/secure-t/documentation';
+              }}
+              className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105 cursor-pointer"
+            >
               <div className="text-red-400 text-4xl mb-4 group-hover:animate-pulse-secure">🔐</div>
               <h3 className="text-xl font-bold mb-4">Криптографическая защита</h3>
               <p className="text-gray-300">
                 Современные алгоритмы шифрования для защиты конфиденциальных данных
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="text-red-400 text-sm font-medium hover:text-red-300">
+                <a 
+                  href="/secure-t/documentation"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  className="text-red-400 text-sm font-medium hover:text-red-300 cursor-pointer"
+                >
                   Подробнее →
-                </button>
+                </a>
               </div>
             </div>
 
-            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105">
+            <div 
+              onClick={() => {
+                window.location.href = '/secure-t/documentation';
+              }}
+              className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105 cursor-pointer"
+            >
               <div className="text-orange-400 text-4xl mb-4 group-hover:animate-pulse-secure">🛡️</div>
               <h3 className="text-xl font-bold mb-4">Сетевая безопасность</h3>
               <p className="text-gray-300">
                 Комплексная защита сетевой инфраструктуры от внешних угроз
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="text-orange-400 text-sm font-medium hover:text-orange-300">
+                <a 
+                  href="/secure-t/documentation"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  className="text-orange-400 text-sm font-medium hover:text-orange-300 cursor-pointer"
+                >
                   Подробнее →
-                </button>
+                </a>
               </div>
             </div>
 
-            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105">
+            <div 
+              onClick={() => {
+                window.location.href = '/secure-t/documentation';
+              }}
+              className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105 cursor-pointer"
+            >
               <div className="text-yellow-400 text-4xl mb-4 group-hover:animate-pulse-secure">📊</div>
               <h3 className="text-xl font-bold mb-4">Мониторинг безопасности</h3>
               <p className="text-gray-300">
                 Системы мониторинга и анализа инцидентов информационной безопасности
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="text-yellow-400 text-sm font-medium hover:text-yellow-300">
+                <a 
+                  href="/secure-t/documentation"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  className="text-yellow-400 text-sm font-medium hover:text-yellow-300 cursor-pointer"
+                >
                   Подробнее →
-                </button>
+                </a>
               </div>
             </div>
 
-            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105">
+            <div 
+              onClick={() => {
+                window.location.href = '/secure-t/documentation';
+              }}
+              className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105 cursor-pointer"
+            >
               <div className="text-purple-400 text-4xl mb-4 group-hover:animate-pulse-secure">🔍</div>
               <h3 className="text-xl font-bold mb-4">Аудит безопасности</h3>
               <p className="text-gray-300">
                 Проведение комплексного аудита систем информационной безопасности
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="text-purple-400 text-sm font-medium hover:text-purple-300">
+                <a 
+                  href="/secure-t/documentation"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  className="text-purple-400 text-sm font-medium hover:text-purple-300 cursor-pointer"
+                >
                   Подробнее →
-                </button>
+                </a>
               </div>
             </div>
 
-            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105">
+            <div 
+              onClick={() => {
+                window.location.href = '/secure-t/documentation';
+              }}
+              className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105 cursor-pointer"
+            >
               <div className="text-blue-400 text-4xl mb-4 group-hover:animate-pulse-secure">⚙️</div>
               <h3 className="text-xl font-bold mb-4">Интеграция систем</h3>
               <p className="text-gray-300">
                 Интеграция решений безопасности с существующей IT-инфраструктурой
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="text-blue-400 text-sm font-medium hover:text-blue-300">
+                <a 
+                  href="/secure-t/documentation"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  className="text-blue-400 text-sm font-medium hover:text-blue-300 cursor-pointer"
+                >
                   Подробнее →
-                </button>
+                </a>
               </div>
             </div>
 
-            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105">
+            <div 
+              onClick={() => {
+                window.location.href = '/secure-t/documentation';
+              }}
+              className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105 cursor-pointer"
+            >
               <div className="text-green-400 text-4xl mb-4 group-hover:animate-pulse-secure">📚</div>
               <h3 className="text-xl font-bold mb-4">Обучение персонала</h3>
               <p className="text-gray-300">
                 Программы обучения сотрудников основам информационной безопасности
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="text-green-400 text-sm font-medium hover:text-green-300">
+                <a 
+                  href="/secure-t/documentation"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  className="text-green-400 text-sm font-medium hover:text-green-300 cursor-pointer"
+                >
                   Подробнее →
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -814,42 +880,90 @@ export default function SecureT() {
               <div className="text-blue-400 text-3xl mb-4">📄</div>
               <h4 className="text-lg font-bold mb-3">Техническая документация</h4>
               <p className="text-gray-300 mb-4">Подробные руководства по внедрению и настройке</p>
-              <button className="text-blue-400 hover:text-blue-300 font-medium">Скачать →</button>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Полная документация' }));
+                  handleDocumentationClick();
+                }}
+                className="text-blue-400 hover:text-blue-300 font-medium cursor-pointer"
+              >
+                Скачать →
+              </button>
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
               <div className="text-green-400 text-3xl mb-4">🎯</div>
               <h4 className="text-lg font-bold mb-3">Методические материалы</h4>
               <p className="text-gray-300 mb-4">Лучшие практики информационной безопасности</p>
-              <button className="text-green-400 hover:text-green-300 font-medium">Скачать →</button>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Методические материалы' }));
+                  handleDocumentationClick();
+                }}
+                className="text-green-400 hover:text-green-300 font-medium cursor-pointer"
+              >
+                Скачать →
+              </button>
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
               <div className="text-purple-400 text-3xl mb-4">🔧</div>
               <h4 className="text-lg font-bold mb-3">Инструменты настройки</h4>
               <p className="text-gray-300 mb-4">Утилиты для конфигурирования системы</p>
-              <button className="text-purple-400 hover:text-purple-300 font-medium">Скачать →</button>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Инструменты настройки' }));
+                  handleDocumentationClick();
+                }}
+                className="text-purple-400 hover:text-purple-300 font-medium cursor-pointer"
+              >
+                Скачать →
+              </button>
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
               <div className="text-red-400 text-3xl mb-4">📊</div>
               <h4 className="text-lg font-bold mb-3">Отчеты и аналитика</h4>
               <p className="text-gray-300 mb-4">Шаблоны отчетов и аналитические данные</p>
-              <button className="text-red-400 hover:text-red-300 font-medium">Скачать →</button>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Отчеты и аналитика' }));
+                  handleDocumentationClick();
+                }}
+                className="text-red-400 hover:text-red-300 font-medium cursor-pointer"
+              >
+                Скачать →
+              </button>
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
               <div className="text-yellow-400 text-3xl mb-4">🎓</div>
               <h4 className="text-lg font-bold mb-3">Обучающие материалы</h4>
               <p className="text-gray-300 mb-4">Курсы и тренинги по безопасности</p>
-              <button className="text-yellow-400 hover:text-yellow-300 font-medium">Скачать →</button>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Обучающие материалы' }));
+                  handleDocumentationClick();
+                }}
+                className="text-yellow-400 hover:text-yellow-300 font-medium cursor-pointer"
+              >
+                Скачать →
+              </button>
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
               <div className="text-cyan-400 text-3xl mb-4">📋</div>
               <h4 className="text-lg font-bold mb-3">Сертификаты и лицензии</h4>
               <p className="text-gray-300 mb-4">Документы о соответствии стандартам</p>
-              <button className="text-cyan-400 hover:text-cyan-300 font-medium">Скачать →</button>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Сертификаты и лицензии' }));
+                  handleDocumentationClick();
+                }}
+                className="text-cyan-400 hover:text-cyan-300 font-medium cursor-pointer"
+              >
+                Скачать →
+              </button>
             </div>
           </div>
         </div>
@@ -866,10 +980,22 @@ export default function SecureT() {
               Наши эксперты помогут подобрать оптимальное решение для вашей организации
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-red-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300">
+              <button 
+                onClick={() => {
+                  setSolutionsForm(prev => ({ ...prev, solution: 'Консультация' }));
+                  handleSolutionsClick();
+                }}
+                className="px-8 py-3 bg-red-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 cursor-pointer"
+              >
                 Получить консультацию
               </button>
-              <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
+              <button 
+                onClick={() => {
+                  setSolutionsForm(prev => ({ ...prev, solution: 'Аудит безопасности' }));
+                  handleSolutionsClick();
+                }}
+                className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer"
+              >
                 Заказать аудит
               </button>
             </div>

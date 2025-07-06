@@ -6,7 +6,7 @@ import Navigation from '../components/Navigation';
 export default function About() {
   const [mounted, setMounted] = useState(false);
   const [activeTimelineStep, setActiveTimelineStep] = useState(0);
-  const [teamMemberFlipped, setTeamMemberFlipped] = useState<number | null>(null);
+  const [teamMemberFlipped, setTeamMemberFlipped] = useState<number[]>([]);
   const [liveCounters, setLiveCounters] = useState({
     projects: 0,
     clients: 0,
@@ -203,7 +203,15 @@ export default function About() {
   }, []);
 
   const handleTeamMemberClick = (index: number) => {
-    setTeamMemberFlipped(teamMemberFlipped === index ? null : index);
+    setTeamMemberFlipped(prev => {
+      if (prev.includes(index)) {
+        // Если карточка уже открыта, закрываем её
+        return prev.filter(i => i !== index);
+      } else {
+        // Если карточка закрыта, открываем её
+        return [...prev, index];
+      }
+    });
   };
 
   const handleCompetencyClick = (competency: string) => {
@@ -675,12 +683,13 @@ export default function About() {
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="relative h-80 cursor-pointer"
+                className="relative h-80 cursor-pointer group"
                 onClick={() => handleTeamMemberClick(index)}
               >
-                <div className={`absolute inset-0 w-full h-full transition-all duration-700 transform-gpu ${
-                  teamMemberFlipped === index ? 'rotateY-180' : ''
-                }`} style={{ transformStyle: 'preserve-3d' }}>
+                <div className="absolute inset-0 w-full h-full transition-all duration-700 transform-gpu" style={{ 
+                  transformStyle: 'preserve-3d',
+                  transform: teamMemberFlipped.includes(index) ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                }}>
                   
                   {/* Лицевая сторона */}
                   <div className="absolute inset-0 w-full h-full glass-effect rounded-lg p-6 flex flex-col items-center justify-center text-center hover-glow transition-all duration-300"
@@ -715,6 +724,17 @@ export default function About() {
                         </span>
                       ))}
                     </div>
+                    
+                    {/* Кнопка закрытия */}
+                    <button 
+                      className="absolute top-2 right-2 w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center text-gray-300 hover:bg-gray-600"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setTeamMemberFlipped(prev => prev.filter(i => i !== index));
+                      }}
+                    >
+                      ×
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1103,7 +1123,7 @@ export default function About() {
               <button className="px-8 py-3 bg-green-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300">
                 Связаться с нами
               </button>
-              <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
+                              <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
                 Заказать консультацию
               </button>
             </div>

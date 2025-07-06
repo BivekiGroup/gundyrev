@@ -197,6 +197,64 @@ body {
   animation: code-typing 2s steps(40, end);
 }
 
+/* 3D переворот карточек команды */
+.rotateY-180 {
+  transform: rotateY(180deg);
+}
+
+/* Анимация для 3D эффекта карточек */
+@keyframes card-flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+.card-flip-container {
+  perspective: 1000px;
+}
+
+.card-flip-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-flip-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Улучшение производительности 3D анимаций */
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
 /* Улучшенные эффекты для технологий */
 @keyframes tech-orbit {
   0% {
