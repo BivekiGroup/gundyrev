@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import Navigation from './components/Navigation';
 import InteractiveBlocks from './components/InteractiveBlocks';
+import ContactModal from './components/ContactModal';
+import Footer from './components/Footer';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -15,6 +17,7 @@ export default function Home() {
   const [currentCodeExample, setCurrentCodeExample] = useState(0);
   const [techSphereRotation, setTechSphereRotation] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   // Инициализация
   useEffect(() => {
@@ -219,6 +222,28 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
                 />
               </div>
             </div>
+          </div>
+
+          {/* Призывы к действию */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <button 
+              onClick={() => setIsContactModalOpen(true)}
+              className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105"
+            >
+              🚀 Обсудить проект
+            </button>
+            <button 
+              onClick={() => setIsContactModalOpen(true)}
+              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105"
+            >
+              💡 Получить консультацию
+            </button>
+            <button 
+              onClick={() => setIsContactModalOpen(true)}
+              className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
+            >
+              📊 Заказать презентацию
+            </button>
           </div>
 
           {/* Интерактивные частицы с реакцией на мышь */}
@@ -626,6 +651,14 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
           </p>
         </div>
       </footer>
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+        defaultType="general"
+        title="Обсудить проект"
+      />
     </div>
   );
 }

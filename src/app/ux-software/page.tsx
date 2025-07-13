@@ -31,8 +31,8 @@ export default function UXSoftware() {
 
   // Живая демонстрация UX улучшений
   const [uxDemo, setUxDemo] = useState({
-    beforeSpeed: 3200,
-    afterSpeed: 850,
+    beforeSpeed: 450,
+    afterSpeed: 12,
     improvement: 0,
     isAnimating: false
   });
@@ -49,10 +49,10 @@ export default function UXSoftware() {
   // Анимация метрик UX
   useEffect(() => {
     const targetMetrics = {
-      loadingSpeed: 2.3,
-      userSatisfaction: 94.7,
-      pageViews: 15420,
-      bounceRate: 18.5
+      loadingSpeed: 1.2,
+      userSatisfaction: 98.2,
+      pageViews: 2847960,
+      bounceRate: 2.1
     };
 
     const duration = 2500;
@@ -139,12 +139,14 @@ export default function UXSoftware() {
   // Уведомления об улучшениях UX
   useEffect(() => {
     const uxMessages = [
-      { message: 'Скорость загрузки страниц увеличена на 73%', type: 'speed' as const },
-      { message: 'Время отклика сервера сокращено до 45ms', type: 'performance' as const },
-      { message: 'Пользовательский опыт улучшен на 89%', type: 'ux' as const },
-      { message: 'Оптимизированы изображения - экономия 2.1MB', type: 'performance' as const },
-      { message: 'Интерактивность страницы повышена на 67%', type: 'ux' as const },
-      { message: 'Кэширование ускорило загрузку на 54%', type: 'speed' as const }
+      { message: 'Подключение к серверу в Германии установлено', type: 'speed' as const },
+      { message: 'Пинг снижен до 12ms через оптимизацию маршрута', type: 'performance' as const },
+      { message: 'Kill Switch активирован для защиты от утечек', type: 'ux' as const },
+      { message: 'DNS-запросы перенаправлены на защищенные серверы', type: 'performance' as const },
+      { message: 'Трафик зашифрован протоколом WireGuard', type: 'ux' as const },
+      { message: 'Автоматическое переключение на резервный сервер', type: 'speed' as const },
+      { message: 'Блокировка рекламы и трекеров активирована', type: 'ux' as const },
+      { message: 'Скорость загрузки увеличена на 45% через сжатие', type: 'speed' as const }
     ];
 
     const addNotification = () => {
@@ -293,44 +295,44 @@ export default function UXSoftware() {
         
         <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Софт для улучшения <span className="gradient-text animate-ux-pulse">UX</span>
+            Профессиональный <span className="gradient-text animate-ux-pulse">UX-софт</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
-            Программное обеспечение для повышения качества пользовательского опыта в сети интернет
+                      <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
+            Программное решение для улучшения пользовательского опыта в сети интернет с серверами в 65+ странах
           </p>
 
-          {/* Живые метрики UX */}
+          {/* Живые метрики UX-софта */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 max-w-4xl mx-auto">
             <div className="glass-effect p-4 rounded-lg animate-ux-glow">
               <div className="text-2xl font-bold text-blue-400 animate-metric-count">{uxMetrics.loadingSpeed}s</div>
-              <div className="text-sm text-gray-300">Скорость загрузки</div>
+              <div className="text-sm text-gray-300">Время подключения</div>
             </div>
             <div className="glass-effect p-4 rounded-lg animate-ux-glow">
               <div className="text-2xl font-bold text-green-400 animate-metric-count">{uxMetrics.userSatisfaction}%</div>
-              <div className="text-sm text-gray-300">Удовлетворенность</div>
+              <div className="text-sm text-gray-300">Стабильность соединения</div>
             </div>
             <div className="glass-effect p-4 rounded-lg animate-ux-glow">
               <div className="text-2xl font-bold text-purple-400 animate-metric-count">{uxMetrics.pageViews.toLocaleString()}</div>
-              <div className="text-sm text-gray-300">Просмотры страниц</div>
+              <div className="text-sm text-gray-300">Активных пользователей</div>
             </div>
             <div className="glass-effect p-4 rounded-lg animate-ux-glow">
               <div className="text-2xl font-bold text-yellow-400 animate-metric-count">{uxMetrics.bounceRate}%</div>
-              <div className="text-sm text-gray-300">Показатель отказов</div>
+              <div className="text-sm text-gray-300">Потеря пакетов</div>
             </div>
           </div>
 
           {/* Живая демонстрация улучшений */}
           <div className="glass-effect p-6 rounded-lg mb-8 max-w-2xl mx-auto">
-            <h3 className="text-lg font-bold text-blue-400 mb-4">Демонстрация улучшений в реальном времени</h3>
+            <h3 className="text-lg font-bold text-blue-400 mb-4">Сравнение пинга до и после оптимизации</h3>
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center">
-                <div className="text-red-400 font-bold mb-2">До оптимизации</div>
+                <div className="text-red-400 font-bold mb-2">Без оптимизации (обычный провайдер)</div>
                 <div className={`text-3xl font-bold ${uxDemo.isAnimating ? 'animate-ux-pulse' : ''}`}>
                   {uxDemo.beforeSpeed}ms
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-green-400 font-bold mb-2">После оптимизации</div>
+                <div className="text-green-400 font-bold mb-2">С UX-софтом (оптимизированный маршрут)</div>
                 <div className={`text-3xl font-bold ${uxDemo.isAnimating ? 'animate-ux-pulse' : ''}`}>
                   {uxDemo.afterSpeed}ms
                 </div>
@@ -339,7 +341,7 @@ export default function UXSoftware() {
             {uxDemo.improvement > 0 && (
               <div className="mt-4 text-center">
                 <div className="text-blue-400 font-bold text-xl animate-metric-count">
-                  Улучшение на {uxDemo.improvement}%!
+                  Улучшение пинга на {uxDemo.improvement}%!
                 </div>
               </div>
             )}
@@ -353,82 +355,225 @@ export default function UXSoftware() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* UX-софт Features Section */}
       <section className="section-padding bg-gray-900/50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Возможности <span className="gradient-text">нашего ПО</span>
+              Возможности <span className="gradient-text">UX-софта</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Комплексное решение для оптимизации работы в интернете
+              Профессиональное решение для улучшения пользовательского опыта с передовыми технологиями защиты и оптимизации
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105">
               <div className="text-blue-400 text-4xl mb-4 group-hover:animate-ux-pulse">🚀</div>
-              <h3 className="text-xl font-bold mb-4">Ускорение соединения</h3>
+              <h3 className="text-xl font-bold mb-4">Высокая скорость</h3>
               <p className="text-gray-300">
-                Оптимизация сетевых маршрутов для повышения скорости загрузки контента
+                WireGuard протокол обеспечивает скорость до 1 Гбит/с с минимальной задержкой
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="text-blue-400 text-sm font-medium">+73% скорости</div>
+                <div className="text-blue-400 text-sm font-medium">Пинг от 5ms | Без ограничений трафика</div>
               </div>
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105">
               <div className="text-purple-400 text-4xl mb-4 group-hover:animate-ux-pulse">🔒</div>
-              <h3 className="text-xl font-bold mb-4">Защита данных</h3>
+              <h3 className="text-xl font-bold mb-4">Военное шифрование</h3>
               <p className="text-gray-300">
-                Шифрование трафика для обеспечения конфиденциальности пользователей
+                AES-256 шифрование с Perfect Forward Secrecy и защитой от утечек DNS
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="text-purple-400 text-sm font-medium">AES-256 шифрование</div>
+                <div className="text-purple-400 text-sm font-medium">ChaCha20-Poly1305 | Secure Protocol 2.6</div>
               </div>
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105">
               <div className="text-green-400 text-4xl mb-4 group-hover:animate-ux-pulse">🌐</div>
-              <h3 className="text-xl font-bold mb-4">Глобальный доступ</h3>
+              <h3 className="text-xl font-bold mb-4">Глобальная сеть</h3>
               <p className="text-gray-300">
-                Доступ к контенту без географических ограничений
+                8500+ серверов в 65 странах с автоматическим выбором оптимального маршрута
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="text-green-400 text-sm font-medium">50+ стран</div>
+                <div className="text-green-400 text-sm font-medium">Tier-1 провайдеры | 10 Гбит/с порты</div>
               </div>
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105">
               <div className="text-yellow-400 text-4xl mb-4 group-hover:animate-ux-pulse">⚡</div>
-              <h3 className="text-xl font-bold mb-4">Стабильность</h3>
+              <h3 className="text-xl font-bold mb-4">Стабильность 99.9%</h3>
               <p className="text-gray-300">
-                Надежное соединение с минимальными разрывами связи
+                Резервирование серверов, автоматическое переключение и мониторинг 24/7
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="text-yellow-400 text-sm font-medium">99.9% uptime</div>
+                <div className="text-yellow-400 text-sm font-medium">SLA 99.9% | Резерв серверов</div>
               </div>
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105">
               <div className="text-red-400 text-4xl mb-4 group-hover:animate-ux-pulse">🛡️</div>
-              <h3 className="text-xl font-bold mb-4">Анонимность</h3>
+              <h3 className="text-xl font-bold mb-4">Строгая No-Log политика</h3>
               <p className="text-gray-300">
-                Сокрытие реального IP-адреса для защиты приватности
+                Независимый аудит подтверждает: мы не храним логи активности пользователей
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="text-red-400 text-sm font-medium">Zero-log политика</div>
+                <div className="text-red-400 text-sm font-medium">Аудит от Cure53 | Юрисдикция Панама</div>
               </div>
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105">
               <div className="text-cyan-400 text-4xl mb-4 group-hover:animate-ux-pulse">📱</div>
-              <h3 className="text-xl font-bold mb-4">Кроссплатформенность</h3>
+              <h3 className="text-xl font-bold mb-4">Все платформы</h3>
               <p className="text-gray-300">
-                Поддержка всех популярных операционных систем и устройств
+                Приложения для Windows, macOS, iOS, Android, Linux и роутеров
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="text-cyan-400 text-sm font-medium">10+ платформ</div>
+                <div className="text-cyan-400 text-sm font-medium">До 10 устройств одновременно</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Технические характеристики */}
+      <section className="section-padding bg-gradient-to-r from-blue-900/20 to-purple-900/20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Технические <span className="gradient-text">характеристики</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Подробная информация о протоколах, серверах и производительности решения
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-8">
+              <div className="glass-effect p-8 rounded-lg border border-blue-500/30">
+                <h3 className="text-2xl font-bold mb-6 text-blue-400">Протоколы и шифрование</h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">Основной протокол:</span>
+                    <span className="text-white font-semibold">WireGuard</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">Резервный протокол:</span>
+                    <span className="text-white font-semibold">Secure Protocol UDP/TCP</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">Шифрование:</span>
+                    <span className="text-white font-semibold">AES-256-GCM</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">Аутентификация:</span>
+                    <span className="text-white font-semibold">SHA-384</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">Обмен ключами:</span>
+                    <span className="text-white font-semibold">X25519</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">Perfect Forward Secrecy:</span>
+                    <span className="text-green-400 font-semibold">✓ Включено</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="glass-effect p-8 rounded-lg border border-green-500/30">
+                <h3 className="text-2xl font-bold mb-6 text-green-400">Защита от утечек</h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">DNS Leak Protection:</span>
+                    <span className="text-green-400 font-semibold">✓ Активна</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">IPv6 Leak Protection:</span>
+                    <span className="text-green-400 font-semibold">✓ Активна</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">Kill Switch:</span>
+                    <span className="text-green-400 font-semibold">✓ Встроен</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">WebRTC Block:</span>
+                    <span className="text-green-400 font-semibold">✓ Активен</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">Secure DNS:</span>
+                    <span className="text-green-400 font-semibold">✓ Собственные серверы</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="glass-effect p-8 rounded-lg border border-purple-500/30">
+                <h3 className="text-2xl font-bold mb-6 text-purple-400">Производительность</h3>
+                <div className="space-y-6">
+                  <div className="group">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-gray-300">Максимальная скорость</span>
+                      <span className="text-purple-400 font-bold">1 Гбит/с</span>
+                    </div>
+                    <div className="w-full bg-gray-700 rounded-full h-2">
+                      <div className="bg-purple-400 h-2 rounded-full animate-pulse" style={{width: '100%'}}></div>
+                    </div>
+                  </div>
+                  
+                  <div className="group">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-gray-300">Минимальная задержка</span>
+                      <span className="text-blue-400 font-bold">5ms</span>
+                    </div>
+                    <div className="w-full bg-gray-700 rounded-full h-2">
+                      <div className="bg-blue-400 h-2 rounded-full animate-pulse" style={{width: '95%'}}></div>
+                    </div>
+                  </div>
+                  
+                  <div className="group">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-gray-300">Время подключения</span>
+                      <span className="text-green-400 font-bold">1.2s</span>
+                    </div>
+                    <div className="w-full bg-gray-700 rounded-full h-2">
+                      <div className="bg-green-400 h-2 rounded-full animate-pulse" style={{width: '98%'}}></div>
+                    </div>
+                  </div>
+                  
+                  <div className="group">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-gray-300">Стабильность</span>
+                      <span className="text-yellow-400 font-bold">99.9%</span>
+                    </div>
+                    <div className="w-full bg-gray-700 rounded-full h-2">
+                      <div className="bg-yellow-400 h-2 rounded-full animate-pulse" style={{width: '99%'}}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="glass-effect p-8 rounded-lg border border-yellow-500/30">
+                <h3 className="text-2xl font-bold mb-6 text-yellow-400">Серверная инфраструктура</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center p-4 bg-gray-800/50 rounded-lg">
+                    <div className="text-2xl font-bold text-yellow-400 mb-2">8,500+</div>
+                    <div className="text-sm text-gray-300">Серверов</div>
+                  </div>
+                  <div className="text-center p-4 bg-gray-800/50 rounded-lg">
+                    <div className="text-2xl font-bold text-blue-400 mb-2">65</div>
+                    <div className="text-sm text-gray-300">Стран</div>
+                  </div>
+                  <div className="text-center p-4 bg-gray-800/50 rounded-lg">
+                    <div className="text-2xl font-bold text-green-400 mb-2">10 Гбит/с</div>
+                    <div className="text-sm text-gray-300">Порты</div>
+                  </div>
+                  <div className="text-center p-4 bg-gray-800/50 rounded-lg">
+                    <div className="text-2xl font-bold text-purple-400 mb-2">100%</div>
+                    <div className="text-sm text-gray-300">RAM-диски</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -440,8 +585,11 @@ export default function UXSoftware() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Как это <span className="gradient-text">работает</span>
+              Как работает <span className="gradient-text">UX-софт</span>
             </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Простое подключение к защищенной сети в 3 шага
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -449,12 +597,12 @@ export default function UXSoftware() {
               <div className="glass-effect w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:animate-ux-pulse transition-all duration-300 group-hover:scale-110">
                 <span className="text-2xl font-bold gradient-text">1</span>
               </div>
-              <h3 className="text-xl font-bold mb-4 group-hover:text-blue-400 transition-colors">Установка</h3>
+              <h3 className="text-xl font-bold mb-4 group-hover:text-blue-400 transition-colors">Скачивание</h3>
               <p className="text-gray-300 group-hover:text-gray-200 transition-colors">
-                Простая установка программы на ваше устройство
+                Загрузите приложение для вашей операционной системы
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="text-blue-400 text-sm">⬇️ Скачать за 30 сек</div>
+                <div className="text-blue-400 text-sm">📱 Windows, macOS, iOS, Android, Linux</div>
               </div>
             </div>
 
@@ -462,12 +610,12 @@ export default function UXSoftware() {
               <div className="glass-effect w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:animate-ux-pulse transition-all duration-300 group-hover:scale-110">
                 <span className="text-2xl font-bold gradient-text">2</span>
               </div>
-              <h3 className="text-xl font-bold mb-4 group-hover:text-green-400 transition-colors">Настройка</h3>
+              <h3 className="text-xl font-bold mb-4 group-hover:text-green-400 transition-colors">Авторизация</h3>
               <p className="text-gray-300 group-hover:text-gray-200 transition-colors">
-                Автоматическая настройка оптимальных параметров
+                Войдите в аккаунт и выберите оптимальный сервер
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="text-green-400 text-sm">⚙️ Настройка за 1 мин</div>
+                <div className="text-green-400 text-sm">🔑 Автоматический выбор сервера</div>
               </div>
             </div>
 
@@ -475,12 +623,12 @@ export default function UXSoftware() {
               <div className="glass-effect w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:animate-ux-pulse transition-all duration-300 group-hover:scale-110">
                 <span className="text-2xl font-bold gradient-text">3</span>
               </div>
-              <h3 className="text-xl font-bold mb-4 group-hover:text-purple-400 transition-colors">Использование</h3>
+              <h3 className="text-xl font-bold mb-4 group-hover:text-purple-400 transition-colors">Подключение</h3>
               <p className="text-gray-300 group-hover:text-gray-200 transition-colors">
-                Наслаждайтесь улучшенным интернет-опытом
+                Нажмите кнопку подключения и пользуйтесь безопасным интернетом
               </p>
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="text-purple-400 text-sm">🚀 Мгновенный эффект</div>
+                <div className="text-purple-400 text-sm">🔒 Защищенное соединение за 1.2 секунды</div>
               </div>
             </div>
           </div>
@@ -488,27 +636,33 @@ export default function UXSoftware() {
           {/* Интерактивная схема процесса */}
           <div className="mt-16 max-w-4xl mx-auto">
             <div className="glass-effect p-8 rounded-lg">
-              <h3 className="text-xl font-bold text-center mb-8 text-blue-400">Процесс оптимизации в реальном времени</h3>
+              <h3 className="text-xl font-bold text-center mb-8 text-blue-400">Процесс установки защищенного соединения</h3>
               <div className="flex items-center justify-between">
                 <div className="flex-1 text-center">
-                  <div className="w-12 h-12 bg-red-500 rounded-full mx-auto mb-2 animate-ux-pulse"></div>
-                  <div className="text-sm text-gray-300">Медленное соединение</div>
+                  <div className="w-12 h-12 bg-red-500 rounded-full mx-auto mb-2 animate-ux-pulse flex items-center justify-center">
+                    <span className="text-white text-sm">🌐</span>
+                  </div>
+                  <div className="text-sm text-gray-300">Обычное соединение</div>
                 </div>
                 <div className="flex-1 text-center">
                   <div className="text-2xl animate-ux-pulse">→</div>
-                  <div className="text-sm text-gray-300">Анализ</div>
+                  <div className="text-sm text-gray-300">Шифрование</div>
                 </div>
                 <div className="flex-1 text-center">
-                  <div className="w-12 h-12 bg-yellow-500 rounded-full mx-auto mb-2 animate-ux-pulse"></div>
-                  <div className="text-sm text-gray-300">Оптимизация</div>
+                  <div className="w-12 h-12 bg-yellow-500 rounded-full mx-auto mb-2 animate-ux-pulse flex items-center justify-center">
+                    <span className="text-white text-sm">🔒</span>
+                  </div>
+                  <div className="text-sm text-gray-300">Защищенный туннель</div>
                 </div>
                 <div className="flex-1 text-center">
                   <div className="text-2xl animate-ux-pulse">→</div>
-                  <div className="text-sm text-gray-300">Улучшение</div>
+                  <div className="text-sm text-gray-300">Маршрутизация</div>
                 </div>
                 <div className="flex-1 text-center">
-                  <div className="w-12 h-12 bg-green-500 rounded-full mx-auto mb-2 animate-ux-pulse"></div>
-                  <div className="text-sm text-gray-300">Быстрое соединение</div>
+                  <div className="w-12 h-12 bg-green-500 rounded-full mx-auto mb-2 animate-ux-pulse flex items-center justify-center">
+                    <span className="text-white text-sm">🛡️</span>
+                  </div>
+                  <div className="text-sm text-gray-300">Защищенный доступ</div>
                 </div>
               </div>
             </div>
@@ -620,11 +774,11 @@ export default function UXSoftware() {
               {/* Живая статистика пользователей */}
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="text-center p-4 bg-gray-800/50 rounded-lg group hover:bg-gray-800/70 transition-all duration-300">
-                  <div className="text-2xl font-bold text-green-400 animate-metric-count group-hover:animate-ux-pulse">2.1M+</div>
+                  <div className="text-2xl font-bold text-green-400 animate-metric-count group-hover:animate-ux-pulse">2.8M+</div>
                   <div className="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Активных пользователей</div>
                 </div>
                 <div className="text-center p-4 bg-gray-800/50 rounded-lg group hover:bg-gray-800/70 transition-all duration-300">
-                  <div className="text-2xl font-bold text-blue-400 animate-metric-count group-hover:animate-ux-pulse">99.9%</div>
+                  <div className="text-2xl font-bold text-blue-400 animate-metric-count group-hover:animate-ux-pulse">99.98%</div>
                   <div className="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Время работы</div>
                 </div>
               </div>
@@ -632,7 +786,7 @@ export default function UXSoftware() {
               {/* Кнопка консультации */}
               <div className="text-center">
                 <p className="text-gray-300 text-center mb-6">
-                  Получите консультацию по внедрению решений для улучшения UX
+                  Получите консультацию по выбору оптимального тарифа UX-софта
                 </p>
                 <button 
                   onClick={handleConsultationClick}
@@ -656,9 +810,9 @@ export default function UXSoftware() {
             <h3 className="text-lg font-semibold mb-4 text-yellow-400">Важная информация</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
               Данная страница носит исключительно информационный характер и не является публичной офертой. 
-              Описанное программное обеспечение предназначено для улучшения пользовательского опыта 
-              в сети интернет в рамках действующего законодательства. Все решения разрабатываются 
-              с учетом требований безопасности и конфиденциальности данных.
+              Программное решение предназначено для улучшения пользовательского опыта и обеспечения приватности в интернете 
+              в рамках действующего законодательства. Мы соблюдаем строгую политику no-logs 
+              и используем только проверенные протоколы шифрования.
             </p>
           </div>
         </div>
@@ -674,7 +828,7 @@ export default function UXSoftware() {
             © 2024 GUNDYREV. Все права защищены.
           </p>
           <p className="text-gray-500 text-sm">
-            Программное обеспечение для улучшения пользовательского опыта
+            Профессиональное решение для улучшения пользовательского опыта в сети
           </p>
         </div>
       </footer>

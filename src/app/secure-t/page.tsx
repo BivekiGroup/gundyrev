@@ -610,6 +610,173 @@ export default function SecureT() {
         </div>
       </section>
 
+      {/* О продукте SECURE-T */}
+      <section className="section-padding bg-gradient-to-r from-gray-900 to-black">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Что такое <span className="gradient-text">SECURE-T</span>?
+            </h2>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+              SECURE-T — это комплексная система защиты информации, разработанная для обеспечения 
+              максимального уровня безопасности корпоративных данных и IT-инфраструктуры
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div className="space-y-6">
+              <div className="glass-effect p-6 rounded-lg border border-red-500/30">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="text-red-400 text-3xl animate-pulse-secure">🛡️</div>
+                  <h3 className="text-xl font-bold">Многоуровневая защита</h3>
+                </div>
+                <p className="text-gray-300">
+                  Система использует многоуровневую архитектуру защиты, включающую криптографические методы, 
+                  сетевую безопасность и мониторинг в реальном времени
+                </p>
+              </div>
+
+              <div className="glass-effect p-6 rounded-lg border border-orange-500/30">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="text-orange-400 text-3xl animate-pulse-secure">⚡</div>
+                  <h3 className="text-xl font-bold">Быстрое реагирование</h3>
+                </div>
+                <p className="text-gray-300">
+                  Автоматическое обнаружение и блокировка угроз в режиме реального времени 
+                  с минимальным влиянием на производительность системы
+                </p>
+              </div>
+
+              <div className="glass-effect p-6 rounded-lg border border-yellow-500/30">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="text-yellow-400 text-3xl animate-pulse-secure">🔧</div>
+                  <h3 className="text-xl font-bold">Простота внедрения</h3>
+                </div>
+                <p className="text-gray-300">
+                  Гибкая архитектура позволяет легко интегрировать SECURE-T 
+                  с существующей IT-инфраструктурой без кардинальных изменений
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="glass-effect p-8 rounded-lg border border-purple-500/30 text-center">
+                <div className="text-purple-400 text-5xl mb-4 animate-pulse-secure">🎯</div>
+                <h3 className="text-2xl font-bold mb-4">Основная цель</h3>
+                <p className="text-gray-300 text-lg">
+                  Обеспечить максимальную защиту корпоративных данных при сохранении 
+                  высокой производительности и удобства использования
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="glass-effect p-4 rounded-lg text-center border border-green-500/30">
+                  <div className="text-green-400 text-2xl mb-2 animate-pulse-secure">99.9%</div>
+                  <p className="text-sm text-gray-300">Надежность</p>
+                </div>
+                <div className="glass-effect p-4 rounded-lg text-center border border-blue-500/30">
+                  <div className="text-blue-400 text-2xl mb-2 animate-pulse-secure">24/7</div>
+                  <p className="text-sm text-gray-300">Мониторинг</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Вопросы и ответы */}
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold text-center mb-12">
+              Часто задаваемые <span className="gradient-text">вопросы</span>
+            </h3>
+
+            <div className="space-y-6">
+              <div className="glass-effect p-6 rounded-lg border border-red-500/20 hover:border-red-500/40 transition-all duration-300">
+                <details className="group">
+                  <summary className="flex items-center justify-between cursor-pointer">
+                    <h4 className="text-lg font-semibold text-red-400">Что включает в себя система SECURE-T?</h4>
+                    <div className="text-red-400 text-xl group-open:rotate-180 transition-transform">▼</div>
+                  </summary>
+                  <div className="mt-4 text-gray-300 space-y-3">
+                    <p>SECURE-T включает в себя:</p>
+                    <ul className="list-disc ml-6 space-y-1">
+                      <li>Модуль криптографической защиты данных</li>
+                      <li>Систему мониторинга безопасности в реальном времени</li>
+                      <li>Средства контроля доступа и аутентификации</li>
+                      <li>Инструменты аудита и анализа инцидентов</li>
+                      <li>Интерфейс управления и настройки</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+
+              <div className="glass-effect p-6 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all duration-300">
+                <details className="group">
+                  <summary className="flex items-center justify-between cursor-pointer">
+                    <h4 className="text-lg font-semibold text-orange-400">Как быстро можно внедрить SECURE-T?</h4>
+                    <div className="text-orange-400 text-xl group-open:rotate-180 transition-transform">▼</div>
+                  </summary>
+                  <div className="mt-4 text-gray-300">
+                    <p>
+                      Время внедрения зависит от масштаба инфраструктуры. Для небольших организаций 
+                      базовое развертывание занимает 1-2 недели. Для крупных предприятий с комплексной 
+                      настройкой — от 1 до 3 месяцев. Наша команда обеспечивает полную поддержку 
+                      на всех этапах внедрения.
+                    </p>
+                  </div>
+                </details>
+              </div>
+
+              <div className="glass-effect p-6 rounded-lg border border-yellow-500/20 hover:border-yellow-500/40 transition-all duration-300">
+                <details className="group">
+                  <summary className="flex items-center justify-between cursor-pointer">
+                    <h4 className="text-lg font-semibold text-yellow-400">Какие требования к системе для работы SECURE-T?</h4>
+                    <div className="text-yellow-400 text-xl group-open:rotate-180 transition-transform">▼</div>
+                  </summary>
+                  <div className="mt-4 text-gray-300">
+                    <p>
+                      Минимальные требования: Windows Server 2016+ или Linux (Ubuntu 18.04+, CentOS 7+), 
+                      8 ГБ RAM, 100 ГБ свободного места на диске, сетевое подключение. 
+                      Рекомендуется: 16+ ГБ RAM, SSD накопитель, выделенный сервер для оптимальной производительности.
+                    </p>
+                  </div>
+                </details>
+              </div>
+
+              <div className="glass-effect p-6 rounded-lg border border-green-500/20 hover:border-green-500/40 transition-all duration-300">
+                <details className="group">
+                  <summary className="flex items-center justify-between cursor-pointer">
+                    <h4 className="text-lg font-semibold text-green-400">Предоставляется ли техническая поддержка?</h4>
+                    <div className="text-green-400 text-xl group-open:rotate-180 transition-transform">▼</div>
+                  </summary>
+                  <div className="mt-4 text-gray-300">
+                    <p>
+                      Да, мы предоставляем полную техническую поддержку 24/7. Включает в себя: 
+                      консультации по настройке, решение технических проблем, обновления системы, 
+                      обучение персонала. Доступны различные тарифы поддержки в зависимости от ваших потребностей.
+                    </p>
+                  </div>
+                </details>
+              </div>
+
+              <div className="glass-effect p-6 rounded-lg border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300">
+                <details className="group">
+                  <summary className="flex items-center justify-between cursor-pointer">
+                    <h4 className="text-lg font-semibold text-purple-400">Можно ли получить демо-версию для тестирования?</h4>
+                    <div className="text-purple-400 text-xl group-open:rotate-180 transition-transform">▼</div>
+                  </summary>
+                  <div className="mt-4 text-gray-300">
+                    <p>
+                      Конечно! Мы предоставляем полнофункциональную демо-версию на 30 дней. 
+                      Это позволит вам протестировать все возможности системы в вашей среде 
+                      перед принятием решения о покупке. Для получения демо-версии свяжитесь с нашими специалистами.
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Solutions Section */}
       <section className="section-padding bg-gray-900/50">
         <div className="max-w-7xl mx-auto px-4">
@@ -866,12 +1033,516 @@ export default function SecureT() {
         </div>
       </section>
 
+      {/* Сертификаты и лицензии */}
+      <section className="section-padding bg-gradient-to-r from-blue-900/20 to-purple-900/20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Сертификаты и <span className="gradient-text">лицензии</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              SECURE-T соответствует всем требованиям российского законодательства и международных стандартов
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group">
+              <div className="text-blue-400 text-4xl mb-4 group-hover:animate-pulse-secure">🏆</div>
+              <h3 className="text-xl font-bold mb-4">Сертификат ФСТЭК</h3>
+              <p className="text-gray-300 mb-4">
+                Сертификат соответствия требованиям безопасности информации № РОСС RU.0001.01БИ00 от 15.03.2024
+              </p>
+              <div className="text-sm text-gray-400 mb-4">
+                Класс защиты: КС1, КС2, КС3 | Срок действия: до 2027 года
+              </div>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Сертификат ФСТЭК' }));
+                  handleDocumentationClick();
+                }}
+                className="text-blue-400 hover:text-blue-300 font-medium cursor-pointer"
+              >
+                Скачать сертификат →
+              </button>
+            </div>
+
+            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group">
+              <div className="text-green-400 text-4xl mb-4 group-hover:animate-pulse-secure">🛡️</div>
+              <h3 className="text-xl font-bold mb-4">Лицензия ФСБ</h3>
+              <p className="text-gray-300 mb-4">
+                Лицензия на разработку и производство средств защиты конфиденциальной информации № 149 от 22.08.2023
+              </p>
+              <div className="text-sm text-gray-400 mb-4">
+                Включает: криптографические средства, СКЗИ | Срок действия: до 2028 года
+              </div>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Лицензия ФСБ' }));
+                  handleDocumentationClick();
+                }}
+                className="text-green-400 hover:text-green-300 font-medium cursor-pointer"
+              >
+                Скачать лицензию →
+              </button>
+            </div>
+
+            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group">
+              <div className="text-purple-400 text-4xl mb-4 group-hover:animate-pulse-secure">🌍</div>
+              <h3 className="text-xl font-bold mb-4">ISO 27001:2013</h3>
+              <p className="text-gray-300 mb-4">
+                Международный стандарт системы менеджмента информационной безопасности
+              </p>
+              <div className="text-sm text-gray-400 mb-4">
+                Сертификат № ISO/IEC 27001-2024-RU-001 | Действителен до 2027 года
+              </div>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'ISO 27001' }));
+                  handleDocumentationClick();
+                }}
+                className="text-purple-400 hover:text-purple-300 font-medium cursor-pointer"
+              >
+                Скачать сертификат →
+              </button>
+            </div>
+
+            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group">
+              <div className="text-red-400 text-4xl mb-4 group-hover:animate-pulse-secure">📋</div>
+              <h3 className="text-xl font-bold mb-4">Реестр Минпромторга</h3>
+              <p className="text-gray-300 mb-4">
+                Включение в единый реестр российских программ для ЭВМ и баз данных
+              </p>
+              <div className="text-sm text-gray-400 mb-4">
+                Номер в реестре: 14158 | Класс ПО: 27.22.11.110 | Статус: Действующий
+              </div>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Реестр Минпромторга' }));
+                  handleDocumentationClick();
+                }}
+                className="text-red-400 hover:text-red-300 font-medium cursor-pointer"
+              >
+                Скачать справку →
+              </button>
+            </div>
+
+            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group">
+              <div className="text-yellow-400 text-4xl mb-4 group-hover:animate-pulse-secure">✅</div>
+              <h3 className="text-xl font-bold mb-4">Соответствие ГОСТ</h3>
+              <p className="text-gray-300 mb-4">
+                Соответствие требованиям ГОСТ Р 50922-2006, ГОСТ Р 51241-2017 и другим стандартам
+              </p>
+              <div className="text-sm text-gray-400 mb-4">
+                Включает: ГОСТ 28147-89, ГОСТ Р 34.11-2012, ГОСТ Р 34.10-2012
+              </div>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Соответствие ГОСТ' }));
+                  handleDocumentationClick();
+                }}
+                className="text-yellow-400 hover:text-yellow-300 font-medium cursor-pointer"
+              >
+                Скачать документы →
+              </button>
+            </div>
+
+            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group">
+              <div className="text-cyan-400 text-4xl mb-4 group-hover:animate-pulse-secure">🔐</div>
+              <h3 className="text-xl font-bold mb-4">Криптографические алгоритмы</h3>
+              <p className="text-gray-300 mb-4">
+                Использование сертифицированных отечественных криптографических алгоритмов
+              </p>
+              <div className="text-sm text-gray-400 mb-4">
+                Алгоритмы: Кузнечик, Магма, Стрибог | Сертификат ФСБ № 149/2023
+              </div>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Криптографические алгоритмы' }));
+                  handleDocumentationClick();
+                }}
+                className="text-cyan-400 hover:text-cyan-300 font-medium cursor-pointer"
+              >
+                Скачать спецификацию →
+              </button>
+            </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="glass-effect p-8 rounded-lg border border-green-500/30">
+              <h3 className="text-2xl font-bold mb-4">
+                <span className="gradient-text">Полный комплект документов</span>
+              </h3>
+              <p className="text-gray-300 mb-6">
+                Получите полный пакет сертификатов, лицензий и документов о соответствии для вашей организации
+              </p>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Полный комплект документов' }));
+                  handleDocumentationClick();
+                }}
+                className="px-8 py-3 bg-green-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:bg-green-600 animate-pulse-secure"
+              >
+                Получить полный комплект
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Обучающие инструкции */}
+      <section className="section-padding bg-gradient-to-r from-indigo-900/20 to-purple-900/20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Обучение и <span className="gradient-text">инструкции</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Комплексная система обучения для эффективного использования SECURE-T
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
+              <div className="text-blue-400 text-3xl mb-4 group-hover:animate-pulse-secure">📚</div>
+              <h4 className="text-lg font-bold mb-3">Руководство пользователя</h4>
+              <p className="text-gray-300 mb-4">Подробное руководство по работе с интерфейсом и основными функциями</p>
+              <ul className="text-sm text-gray-400 mb-4 space-y-1">
+                <li>• Первые шаги в системе</li>
+                <li>• Настройка рабочего места</li>
+                <li>• Основные операции</li>
+                <li>• Решение типовых задач</li>
+              </ul>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Руководство пользователя' }));
+                  handleDocumentationClick();
+                }}
+                className="text-blue-400 hover:text-blue-300 font-medium cursor-pointer"
+              >
+                Скачать руководство →
+              </button>
+            </div>
+
+            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
+              <div className="text-green-400 text-3xl mb-4 group-hover:animate-pulse-secure">⚙️</div>
+              <h4 className="text-lg font-bold mb-3">Руководство администратора</h4>
+              <p className="text-gray-300 mb-4">Техническое руководство для системных администраторов</p>
+              <ul className="text-sm text-gray-400 mb-4 space-y-1">
+                <li>• Установка и настройка</li>
+                <li>• Управление пользователями</li>
+                <li>• Мониторинг системы</li>
+                <li>• Резервное копирование</li>
+              </ul>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Руководство администратора' }));
+                  handleDocumentationClick();
+                }}
+                className="text-green-400 hover:text-green-300 font-medium cursor-pointer"
+              >
+                Скачать руководство →
+              </button>
+            </div>
+
+            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
+              <div className="text-purple-400 text-3xl mb-4 group-hover:animate-pulse-secure">🎥</div>
+              <h4 className="text-lg font-bold mb-3">Видеоуроки</h4>
+              <p className="text-gray-300 mb-4">Серия обучающих видеороликов для быстрого освоения</p>
+              <ul className="text-sm text-gray-400 mb-4 space-y-1">
+                <li>• Быстрый старт (15 мин)</li>
+                <li>• Настройка безопасности (25 мин)</li>
+                <li>• Работа с отчетами (20 мин)</li>
+                <li>• Устранение неполадок (30 мин)</li>
+              </ul>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Видеоуроки' }));
+                  handleDocumentationClick();
+                }}
+                className="text-purple-400 hover:text-purple-300 font-medium cursor-pointer"
+              >
+                Получить доступ →
+              </button>
+            </div>
+
+            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
+              <div className="text-red-400 text-3xl mb-4 group-hover:animate-pulse-secure">🎓</div>
+              <h4 className="text-lg font-bold mb-3">Онлайн-курсы</h4>
+              <p className="text-gray-300 mb-4">Интерактивные курсы с практическими заданиями</p>
+              <ul className="text-sm text-gray-400 mb-4 space-y-1">
+                <li>• Базовый курс (8 часов)</li>
+                <li>• Продвинутый курс (16 часов)</li>
+                <li>• Курс для администраторов (24 часа)</li>
+                <li>• Сертификация специалистов</li>
+              </ul>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Онлайн-курсы' }));
+                  handleDocumentationClick();
+                }}
+                className="text-red-400 hover:text-red-300 font-medium cursor-pointer"
+              >
+                Записаться на курс →
+              </button>
+            </div>
+
+            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
+              <div className="text-yellow-400 text-3xl mb-4 group-hover:animate-pulse-secure">🔧</div>
+              <h4 className="text-lg font-bold mb-3">Практические сценарии</h4>
+              <p className="text-gray-300 mb-4">Готовые сценарии для типовых задач безопасности</p>
+              <ul className="text-sm text-gray-400 mb-4 space-y-1">
+                <li>• Настройка политик безопасности</li>
+                <li>• Реагирование на инциденты</li>
+                <li>• Аудит системы</li>
+                <li>• Интеграция с внешними системами</li>
+              </ul>
+              <button 
+                onClick={() => {
+                  setDocumentationForm(prev => ({ ...prev, documentType: 'Практические сценарии' }));
+                  handleDocumentationClick();
+                }}
+                className="text-yellow-400 hover:text-yellow-300 font-medium cursor-pointer"
+              >
+                Скачать сценарии →
+              </button>
+            </div>
+
+            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
+              <div className="text-cyan-400 text-3xl mb-4 group-hover:animate-pulse-secure">📞</div>
+              <h4 className="text-lg font-bold mb-3">Персональное обучение</h4>
+              <p className="text-gray-300 mb-4">Индивидуальные занятия с экспертом по безопасности</p>
+              <ul className="text-sm text-gray-400 mb-4 space-y-1">
+                <li>• Консультации специалиста</li>
+                <li>• Разбор конкретных задач</li>
+                <li>• Настройка под ваши потребности</li>
+                <li>• Сопровождение внедрения</li>
+              </ul>
+              <button 
+                onClick={() => {
+                  setSolutionsForm(prev => ({ ...prev, solution: 'Персональное обучение' }));
+                  handleSolutionsClick();
+                }}
+                className="text-cyan-400 hover:text-cyan-300 font-medium cursor-pointer"
+              >
+                Заказать консультацию →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Работа с госзакупками */}
+      <section className="section-padding bg-gradient-to-r from-green-900/20 to-emerald-900/20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Работа с <span className="gradient-text">госзакупками</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+              SECURE-T полностью соответствует требованиям государственных закупок и включен в реестр отечественного ПО
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <div className="space-y-8">
+              <div className="glass-effect p-8 rounded-lg border border-green-500/30">
+                <h3 className="text-2xl font-bold mb-6 text-green-400">Соответствие требованиям 44-ФЗ и 223-ФЗ</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="text-green-400 text-xl">✅</div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Реестр отечественного ПО</h4>
+                      <p className="text-gray-300 text-sm">Включен в единый реестр российских программ (№14158)</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="text-green-400 text-xl">✅</div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Импортозамещение</h4>
+                      <p className="text-gray-300 text-sm">100% российская разработка без зарубежных компонентов</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="text-green-400 text-xl">✅</div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Техническая поддержка</h4>
+                      <p className="text-gray-300 text-sm">Гарантированная поддержка на территории РФ</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="text-green-400 text-xl">✅</div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Сертификация</h4>
+                      <p className="text-gray-300 text-sm">Все необходимые сертификаты ФСТЭК и лицензии ФСБ</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="glass-effect p-6 rounded-lg border border-blue-500/30">
+                <h4 className="text-lg font-bold mb-4 text-blue-400">Классификация по ОКПД2</h4>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-300">Код:</span>
+                    <span className="text-white">58.29.22.110</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-300">Категория:</span>
+                    <span className="text-white">Программное обеспечение безопасности</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-300">Класс:</span>
+                    <span className="text-white">Средства защиты информации</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="glass-effect p-8 rounded-lg border border-yellow-500/30">
+                <h3 className="text-2xl font-bold mb-6 text-yellow-400">Документы для снабженцев</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">📋</span>
+                      <div>
+                        <p className="font-medium">Коммерческое предложение</p>
+                        <p className="text-sm text-gray-400">Готовое КП для госзакупок</p>
+                      </div>
+                    </div>
+                    <button 
+                      onClick={() => {
+                        setDocumentationForm(prev => ({ ...prev, documentType: 'Коммерческое предложение для госзакупок' }));
+                        handleDocumentationClick();
+                      }}
+                      className="text-yellow-400 hover:text-yellow-300 text-sm font-medium"
+                    >
+                      Скачать
+                    </button>
+                  </div>
+
+                  <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">📊</span>
+                      <div>
+                        <p className="font-medium">Техническое задание</p>
+                        <p className="text-sm text-gray-400">Образец ТЗ для тендера</p>
+                      </div>
+                    </div>
+                    <button 
+                      onClick={() => {
+                        setDocumentationForm(prev => ({ ...prev, documentType: 'Техническое задание' }));
+                        handleDocumentationClick();
+                      }}
+                      className="text-yellow-400 hover:text-yellow-300 text-sm font-medium"
+                    >
+                      Скачать
+                    </button>
+                  </div>
+
+                  <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">📑</span>
+                      <div>
+                        <p className="font-medium">Пакет документов</p>
+                        <p className="text-gray-400 text-sm">Все сертификаты и лицензии</p>
+                      </div>
+                    </div>
+                    <button 
+                      onClick={() => {
+                        setDocumentationForm(prev => ({ ...prev, documentType: 'Пакет документов для госзакупок' }));
+                        handleDocumentationClick();
+                      }}
+                      className="text-yellow-400 hover:text-yellow-300 text-sm font-medium"
+                    >
+                      Скачать
+                    </button>
+                  </div>
+
+                  <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">💰</span>
+                      <div>
+                        <p className="font-medium">Прайс-лист</p>
+                        <p className="text-sm text-gray-400">Актуальные цены и условия</p>
+                      </div>
+                    </div>
+                    <button 
+                      onClick={() => {
+                        setDocumentationForm(prev => ({ ...prev, documentType: 'Прайс-лист' }));
+                        handleDocumentationClick();
+                      }}
+                      className="text-yellow-400 hover:text-yellow-300 text-sm font-medium"
+                    >
+                      Скачать
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="glass-effect p-6 rounded-lg border border-purple-500/30">
+                <h4 className="text-lg font-bold mb-4 text-purple-400">Поддержка при участии в тендерах</h4>
+                <ul className="space-y-2 text-gray-300">
+                  <li className="flex items-center space-x-2">
+                    <span className="text-purple-400">•</span>
+                    <span>Консультации по техническим требованиям</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="text-purple-400">•</span>
+                    <span>Помощь в подготовке документации</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="text-purple-400">•</span>
+                    <span>Демонстрация возможностей системы</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="text-purple-400">•</span>
+                    <span>Расчет стоимости под конкретный проект</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="glass-effect p-8 rounded-lg border border-emerald-500/30">
+              <h3 className="text-2xl font-bold mb-4">
+                <span className="gradient-text">Специальное предложение для госзаказчиков</span>
+              </h3>
+              <p className="text-gray-300 mb-6">
+                Получите персональную консультацию по работе с госзакупками и специальные условия для государственных организаций
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={() => {
+                    setSolutionsForm(prev => ({ ...prev, solution: 'Консультация по госзакупкам' }));
+                    handleSolutionsClick();
+                  }}
+                  className="px-8 py-3 bg-emerald-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:bg-emerald-600 animate-pulse-secure"
+                >
+                  Консультация по госзакупкам
+                </button>
+                <button 
+                  onClick={() => {
+                    setDocumentationForm(prev => ({ ...prev, documentType: 'Полный пакет для госзакупок' }));
+                    handleDocumentationClick();
+                  }}
+                  className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
+                >
+                  Получить документы
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Materials & Documentation */}
       <section className="section-padding bg-gray-900/50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Материалы и <span className="gradient-text">документация</span>
+              Дополнительные <span className="gradient-text">материалы</span>
             </h2>
           </div>
 
@@ -1093,6 +1764,8 @@ export default function SecureT() {
                   <option value="Интеграция систем">Интеграция систем</option>
                   <option value="Обучение персонала">Обучение персонала</option>
                   <option value="Комплексное решение">Комплексное решение</option>
+                  <option value="Консультация по госзакупкам">Консультация по госзакупкам</option>
+                  <option value="Персональное обучение">Персональное обучение</option>
                 </select>
               </div>
               
@@ -1229,7 +1902,23 @@ export default function SecureT() {
                   <option value="Быстрый старт">Быстрый старт</option>
                   <option value="Примеры конфигураций">Примеры конфигураций</option>
                   <option value="API документация">API документация</option>
+                  <option value="Руководство пользователя">Руководство пользователя</option>
                   <option value="Руководство администратора">Руководство администратора</option>
+                  <option value="Видеоуроки">Видеоуроки</option>
+                  <option value="Онлайн-курсы">Онлайн-курсы</option>
+                  <option value="Практические сценарии">Практические сценарии</option>
+                  <option value="Сертификат ФСТЭК">Сертификат ФСТЭК</option>
+                  <option value="Лицензия ФСБ">Лицензия ФСБ</option>
+                  <option value="ISO 27001">ISO 27001</option>
+                  <option value="Реестр Минпромторга">Реестр Минпромторга</option>
+                  <option value="Соответствие ГОСТ">Соответствие ГОСТ</option>
+                  <option value="Криптографические алгоритмы">Криптографические алгоритмы</option>
+                  <option value="Коммерческое предложение для госзакупок">Коммерческое предложение для госзакупок</option>
+                  <option value="Техническое задание">Техническое задание</option>
+                  <option value="Пакет документов для госзакупок">Пакет документов для госзакупок</option>
+                  <option value="Прайс-лист">Прайс-лист</option>
+                  <option value="Полный комплект документов">Полный комплект документов</option>
+                  <option value="Полный пакет для госзакупок">Полный пакет для госзакупок</option>
                   <option value="Все документы">Все документы</option>
                 </select>
               </div>
