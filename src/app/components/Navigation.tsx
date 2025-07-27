@@ -2,6 +2,16 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { 
+  Shield, 
+  Settings, 
+  Zap, 
+  Monitor, 
+  Bird, 
+  Phone, 
+  Moon, 
+  Sun 
+} from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import ContactModal from './ContactModal';
 
@@ -15,22 +25,22 @@ export default function Navigation() {
     { 
       category: 'Безопасность',
       items: [
-        { href: '/ux-software', label: 'UX-софт', description: 'Улучшение пользовательского опыта', icon: '🔒' },
-        { href: '/secure-t', label: 'Secure-T', description: 'Комплексная защита', icon: '🛡️' },
-        { href: '/drweb', label: 'Dr.Web', description: 'Антивирусная защита', icon: '🔧' },
+        { href: '/ux-software', label: 'UX-софт', description: 'Улучшение пользовательского опыта', icon: <Shield className="w-5 h-5" /> },
+        { href: '/secure-t', label: 'Secure-T', description: 'Комплексная защита', icon: <Shield className="w-5 h-5" /> },
+        { href: '/drweb', label: 'Dr.Web', description: 'Антивирусная защита', icon: <Settings className="w-5 h-5" /> },
       ]
     },
     {
       category: 'Разработка',
       items: [
-        { href: '/development', label: 'Веб-разработка', description: 'Сайты и приложения', icon: '💻' },
-        { href: '/solovey', label: 'Соловей', description: 'Платформа видеосвязи', icon: '🐦' },
+        { href: '/development', label: 'Веб-разработка', description: 'Сайты и приложения', icon: <Monitor className="w-5 h-5" /> },
+        { href: '/solovey', label: 'Соловей', description: 'Платформа видеосвязи', icon: <Bird className="w-5 h-5" /> },
       ]
     },
     {
       category: 'Поставки',
       items: [
-        { href: '/electronics', label: 'Электроника', description: 'B2B/B2G поставки', icon: '⚡' },
+        { href: '/electronics', label: 'Электроника', description: 'B2B/B2G поставки', icon: <Zap className="w-5 h-5" /> },
       ]
     }
   ];
@@ -81,9 +91,9 @@ export default function Navigation() {
                                 href={item.href}
                                 className="flex items-center px-2 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700/30 rounded-md transition-all duration-200 group"
                               >
-                                <span className="text-lg mr-3 group-hover:scale-110 transition-transform duration-200">
+                                <div className="text-green-400 mr-3 group-hover:scale-110 transition-transform duration-200">
                                   {item.icon}
-                                </span>
+                                </div>
                                 <div className="flex-1">
                                   <div className="font-medium">{item.label}</div>
                                   <div className="text-xs text-gray-400 mt-1">{item.description}</div>
@@ -113,9 +123,10 @@ export default function Navigation() {
             {/* Кнопка "Оставить заявку" */}
             <button
               onClick={() => setIsContactModalOpen(true)}
-              className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-lg font-medium text-sm hover:from-green-600 hover:to-emerald-600 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-lg font-medium text-sm hover:from-green-600 hover:to-emerald-600 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2"
             >
-              📞 Оставить заявку
+              <Phone className="w-4 h-4" />
+              Оставить заявку
             </button>
 
             {/* Улучшенный переключатель темы */}
@@ -126,20 +137,16 @@ export default function Navigation() {
                 aria-label="Переключить тему"
                 title={theme === 'dark' ? 'Переключить на светлую тему' : 'Переключить на тёмную тему'}
               >
-                <span 
-                  className={`theme-toggle-icon transition-all duration-300 ${
+                <Moon 
+                  className={`w-4 h-4 transition-all duration-300 ${
                     theme === 'dark' ? 'scale-110 opacity-100' : 'scale-75 opacity-50'
                   }`}
-                >
-                  🌙
-                </span>
-                <span 
-                  className={`theme-toggle-icon transition-all duration-300 ${
+                />
+                <Sun 
+                  className={`w-4 h-4 transition-all duration-300 ${
                     theme === 'light' ? 'scale-110 opacity-100' : 'scale-75 opacity-50'
                   }`}
-                >
-                  ☀️
-                </span>
+                />
               </button>
             </div>
           </div>
@@ -151,7 +158,7 @@ export default function Navigation() {
               onClick={() => setIsContactModalOpen(true)}
               className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1.5 rounded-md font-medium text-xs hover:from-green-600 hover:to-emerald-600 transition-all duration-200"
             >
-              📞
+              <Phone className="w-4 h-4" />
             </button>
 
             {/* Мобильный переключатель темы */}
@@ -161,20 +168,16 @@ export default function Navigation() {
               aria-label="Переключить тему"
               title={theme === 'dark' ? 'Переключить на светлую тему' : 'Переключить на тёмную тему'}
             >
-              <span 
-                className={`theme-toggle-icon transition-all duration-300 ${
+              <Moon 
+                className={`w-4 h-4 transition-all duration-300 ${
                   theme === 'dark' ? 'scale-110 opacity-100' : 'scale-75 opacity-50'
                 }`}
-              >
-                🌙
-              </span>
-              <span 
-                className={`theme-toggle-icon transition-all duration-300 ${
+              />
+              <Sun 
+                className={`w-4 h-4 transition-all duration-300 ${
                   theme === 'light' ? 'scale-110 opacity-100' : 'scale-75 opacity-50'
                 }`}
-              >
-                ☀️
-              </span>
+              />
             </button>
 
             <button
@@ -209,7 +212,7 @@ export default function Navigation() {
                       className="flex items-center px-3 py-2 text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium rounded-md hover:bg-gray-700/30"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <span className="text-lg mr-3">{item.icon}</span>
+                      <div className="text-green-400 mr-3">{item.icon}</div>
                       <div className="flex-1">
                         <div>{item.label}</div>
                         <div className="text-xs text-gray-400 mt-1">{item.description}</div>
@@ -238,9 +241,10 @@ export default function Navigation() {
                     setIsContactModalOpen(true);
                     setIsMenuOpen(false);
                   }}
-                  className="w-full text-left px-3 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-medium rounded-md hover:from-green-600 hover:to-emerald-600 transition-all duration-200 mt-2"
+                  className="w-full text-left px-3 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-medium rounded-md hover:from-green-600 hover:to-emerald-600 transition-all duration-200 mt-2 flex items-center gap-2"
                 >
-                  📞 Оставить заявку
+                  <Phone className="w-4 h-4" />
+                  Оставить заявку
                 </button>
               </div>
             </div>

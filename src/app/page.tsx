@@ -1,10 +1,33 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { 
+  Rocket, 
+  Lightbulb, 
+  BarChart3, 
+  Palette, 
+  Settings, 
+  Database, 
+  Zap,
+  Building,
+  GraduationCap,
+  Hospital,
+  Landmark,
+  DollarSign,
+  Factory,
+  Cpu,
+  Star,
+  ClipboardList,
+  Trophy,
+  Shield,
+  Briefcase,
+  Mail,
+  Phone,
+  MessageCircle
+} from 'lucide-react';
 import Navigation from './components/Navigation';
 import InteractiveBlocks from './components/InteractiveBlocks';
 import ContactModal from './components/ContactModal';
-import Footer from './components/Footer';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -228,21 +251,24 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <button 
               onClick={() => setIsContactModalOpen(true)}
-              className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105"
+              className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center"
             >
-              🚀 Обсудить проект
+              <Rocket className="w-5 h-5" />
+              Обсудить проект
             </button>
             <button 
               onClick={() => setIsContactModalOpen(true)}
-              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105"
+              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center"
             >
-              💡 Получить консультацию
+              <Lightbulb className="w-5 h-5" />
+              Получить консультацию
             </button>
             <button 
               onClick={() => setIsContactModalOpen(true)}
-              className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
+              className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 flex items-center gap-2 justify-center"
             >
-              📊 Заказать презентацию
+              <BarChart3 className="w-5 h-5" />
+              Заказать презентацию
             </button>
           </div>
 
@@ -292,28 +318,28 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
             {[
               {
                 category: 'Frontend',
-                icon: '🎨',
+                icon: <Palette className="w-8 h-8" />,
                 color: 'from-purple-500 to-pink-500',
                 techs: ['React', 'Next.js', 'Vue.js', 'TypeScript', 'Tailwind CSS'],
                 description: 'Современные пользовательские интерфейсы'
               },
               {
                 category: 'Backend',
-                icon: '⚙️',
+                icon: <Settings className="w-8 h-8" />,
                 color: 'from-blue-500 to-cyan-500',
                 techs: ['Node.js', 'Python', 'Express', 'FastAPI', 'GraphQL'],
                 description: 'Мощные серверные решения'
               },
               {
                 category: 'Database',
-                icon: '🗄️',
+                icon: <Database className="w-8 h-8" />,
                 color: 'from-green-500 to-emerald-500',
                 techs: ['PostgreSQL', 'MongoDB', 'Redis', 'MySQL', 'Elasticsearch'],
                 description: 'Надежное хранение данных'
               },
               {
                 category: 'DevOps',
-                icon: '🚀',
+                icon: <Zap className="w-8 h-8" />,
                 color: 'from-orange-500 to-red-500',
                 techs: ['Docker', 'Kubernetes', 'AWS', 'Jenkins', 'Terraform'],
                 description: 'Автоматизация и развертывание'
@@ -326,7 +352,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
                   animationDelay: `${categoryIndex * 0.2}s`
                 }}
               >
-                <div className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-full flex items-center justify-center text-2xl mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300 text-white`}>
                   {category.icon}
                 </div>
                 
@@ -522,21 +548,30 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
 
             <div className="space-y-6">
               <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-                <h4 className="text-lg font-bold mb-3 text-green-400">🚀 Современные технологии</h4>
+                <h4 className="text-lg font-bold mb-3 text-green-400 flex items-center gap-2">
+                  <Rocket className="w-5 h-5" />
+                  Современные технологии
+                </h4>
                 <p className="text-gray-300">
                   Используем последние версии фреймворков и библиотек для создания производительных приложений
                 </p>
               </div>
               
               <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-                <h4 className="text-lg font-bold mb-3 text-blue-400">🔧 Чистый код</h4>
+                <h4 className="text-lg font-bold mb-3 text-blue-400 flex items-center gap-2">
+                  <Settings className="w-5 h-5" />
+                  Чистый код
+                </h4>
                 <p className="text-gray-300">
                   Следуем принципам SOLID, используем TypeScript и покрываем код тестами
                 </p>
               </div>
               
               <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-                <h4 className="text-lg font-bold mb-3 text-purple-400">⚡ Высокая производительность</h4>
+                <h4 className="text-lg font-bold mb-3 text-purple-400 flex items-center gap-2">
+                  <Zap className="w-5 h-5" />
+                  Высокая производительность
+                </h4>
                 <p className="text-gray-300">
                   Оптимизируем каждую строчку кода для максимальной скорости работы
                 </p>
@@ -600,6 +635,396 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
         </div>
       </section>
 
+      {/* Our Clients Section */}
+      <section className="section-padding bg-gradient-to-b from-transparent to-gray-900/30">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">Наши клиенты</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Нам доверяют ведущие организации и компании России
+            </p>
+          </div>
+
+          {/* Client Statistics */}
+          <div className="grid md:grid-cols-4 gap-6 mb-16">
+            <div className="glass-effect p-6 rounded-xl text-center hover-glow transition-all duration-300 hover:scale-105">
+              <div className="text-green-400 mb-3 flex justify-center">
+                <Landmark className="w-10 h-10" />
+              </div>
+              <div className="text-3xl font-bold gradient-text mb-2">15+</div>
+              <div className="text-gray-400">Госорганы</div>
+            </div>
+            
+            <div className="glass-effect p-6 rounded-xl text-center hover-glow transition-all duration-300 hover:scale-105">
+              <div className="text-blue-400 mb-3 flex justify-center">
+                <Building className="w-10 h-10" />
+              </div>
+              <div className="text-3xl font-bold gradient-text mb-2">30+</div>
+              <div className="text-gray-400">Коммерческие организации</div>
+            </div>
+            
+            <div className="glass-effect p-6 rounded-xl text-center hover-glow transition-all duration-300 hover:scale-105">
+              <div className="text-purple-400 mb-3 flex justify-center">
+                <GraduationCap className="w-10 h-10" />
+              </div>
+              <div className="text-3xl font-bold gradient-text mb-2">8+</div>
+              <div className="text-gray-400">Образовательные учреждения</div>
+            </div>
+            
+            <div className="glass-effect p-6 rounded-xl text-center hover-glow transition-all duration-300 hover:scale-105">
+              <div className="text-red-400 mb-3 flex justify-center">
+                <Hospital className="w-10 h-10" />
+              </div>
+              <div className="text-3xl font-bold gradient-text mb-2">12+</div>
+              <div className="text-gray-400">Медицинские организации</div>
+            </div>
+          </div>
+
+          {/* Client Types Showcase */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                category: 'Государственные структуры',
+                icon: <Landmark className="w-8 h-8" />,
+                description: 'Министерства, ведомства, муниципальные образования',
+                examples: ['Администрации регионов', 'Министерства', 'Муниципальные учреждения'],
+                color: 'from-blue-500 to-indigo-600',
+                projects: '25+ проектов'
+              },
+              {
+                category: 'Финансовые организации',
+                icon: <DollarSign className="w-8 h-8" />,
+                description: 'Банки, страховые компании, инвестиционные фонды',
+                examples: ['Региональные банки', 'Страховые компании', 'Микрофинансовые организации'],
+                color: 'from-green-500 to-emerald-600',
+                projects: '18+ проектов'
+              },
+              {
+                category: 'Производственные предприятия',
+                icon: <Factory className="w-8 h-8" />,
+                description: 'Промышленные компании и производители',
+                examples: ['Машиностроительные заводы', 'Пищевые производства', 'Текстильные фабрики'],
+                color: 'from-orange-500 to-red-600',
+                projects: '22+ проектов'
+              },
+              {
+                category: 'IT и Телеком',
+                icon: <Cpu className="w-8 h-8" />,
+                description: 'Технологические компании и операторы связи',
+                examples: ['IT-интеграторы', 'Провайдеры связи', 'Разработчики ПО'],
+                color: 'from-purple-500 to-pink-600',
+                projects: '15+ проектов'
+              },
+              {
+                category: 'Образование и наука',
+                icon: <GraduationCap className="w-8 h-8" />,
+                description: 'Университеты, школы, научные институты',
+                examples: ['Высшие учебные заведения', 'Школы и лицеи', 'НИИ и лаборатории'],
+                color: 'from-cyan-500 to-blue-600',
+                projects: '12+ проектов'
+              },
+              {
+                category: 'Медицина и здравоохранение',
+                icon: <Hospital className="w-8 h-8" />,
+                description: 'Больницы, клиники, медицинские центры',
+                examples: ['Региональные больницы', 'Частные клиники', 'Диагностические центры'],
+                color: 'from-teal-500 to-green-600',
+                projects: '14+ проектов'
+              }
+            ].map((clientType, index) => (
+              <div
+                key={clientType.category}
+                className="glass-effect p-6 rounded-xl hover-glow transition-all duration-500 group hover:scale-105"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className={`w-16 h-16 bg-gradient-to-br ${clientType.color} rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  {clientType.icon}
+                </div>
+                
+                <h3 className="text-xl font-bold text-white mb-3">{clientType.category}</h3>
+                <p className="text-gray-400 text-sm mb-4">{clientType.description}</p>
+                
+                <div className="space-y-2 mb-4">
+                  {clientType.examples.map((example, exampleIndex) => (
+                    <div
+                      key={example}
+                      className="text-sm text-gray-300 flex items-center"
+                    >
+                      <span className="text-green-400 mr-2">•</span>
+                      {example}
+                    </div>
+                  ))}
+                </div>
+                
+                <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${clientType.color} text-white`}>
+                  {clientType.projects}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Client Testimonials */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold text-center mb-12 gradient-text">Отзывы клиентов</h3>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  text: "Команда GUNDYREV профессионально подошла к решению наших задач по автоматизации документооборота. Проект выполнен качественно и в срок.",
+                  author: "Александр Петров",
+                  position: "Начальник IT-отдела",
+                  company: "Администрация г. Вологда",
+                  rating: 5
+                },
+                {
+                  text: "Отличная работа по поставке серверного оборудования. Все требования 44-ФЗ соблюдены, документооборот организован четко.",
+                  author: "Мария Сидорова",
+                  position: "Заместитель директора",
+                  company: "ГБУЗ ВО \"Областная больница\"",
+                  rating: 5
+                },
+                {
+                  text: "Разработали для нас комплексную систему управления производством. Результат превзошел ожидания, ROI достигнут за 8 месяцев.",
+                  author: "Дмитрий Козлов",
+                  position: "Технический директор",
+                  company: "ООО \"ВологдаМаш\"",
+                  rating: 5
+                }
+              ].map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="glass-effect p-6 rounded-xl hover-glow transition-all duration-300 group"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  
+                  <p className="text-gray-300 mb-6 italic">&ldquo;{testimonial.text}&rdquo;</p>
+                  
+                  <div className="border-t border-gray-700 pt-4">
+                    <div className="font-semibold text-white">{testimonial.author}</div>
+                    <div className="text-sm text-gray-400">{testimonial.position}</div>
+                    <div className="text-sm text-green-400">{testimonial.company}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Why Choose Us for Clients */}
+          <div className="glass-effect p-8 rounded-xl">
+            <h3 className="text-3xl font-bold text-center mb-8 gradient-text">Почему нас выбирают</h3>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  icon: <ClipboardList className="w-8 h-8" />,
+                  title: 'Работа по 44-ФЗ и 223-ФЗ',
+                  description: 'Полное соблюдение требований государственных закупок'
+                },
+                {
+                  icon: <Trophy className="w-8 h-8" />,
+                  title: 'Высокое качество',
+                  description: '98% проектов сдаются с первого раза без доработок'
+                },
+                {
+                  icon: <Zap className="w-8 h-8" />,
+                  title: 'Быстрая реализация',
+                  description: 'Средний срок проекта на 30% меньше рыночного'
+                },
+                {
+                  icon: <Shield className="w-8 h-8" />,
+                  title: 'Гарантии и поддержка',
+                  description: 'Расширенная гарантия и техподдержка 24/7'
+                }
+              ].map((advantage, index) => (
+                <div
+                  key={index}
+                  className="text-center p-4 hover:bg-white/5 rounded-lg transition-all duration-300"
+                >
+                  <div className="text-green-400 mb-3 flex justify-center">{advantage.icon}</div>
+                  <h4 className="font-semibold text-white mb-2">{advantage.title}</h4>
+                  <p className="text-gray-400 text-sm">{advantage.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA for Potential Clients */}
+          <div className="text-center mt-16">
+            <h3 className="text-2xl font-bold mb-6 text-white">Хотите стать нашим клиентом?</h3>
+            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+              Присоединяйтесь к числу довольных клиентов GUNDYREV. Мы готовы обсудить ваш проект и предложить оптимальное решение.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => setIsContactModalOpen(true)}
+                className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center"
+              >
+                <Briefcase className="w-5 h-5" />
+                Стать клиентом
+              </button>
+              <button 
+                onClick={() => setIsContactModalOpen(true)}
+                className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center"
+              >
+                <BarChart3 className="w-5 h-5" />
+                Посмотреть портфолио
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Government Procurement Section */}
+      <section className="section-padding bg-gradient-to-b from-green-900/20 to-emerald-900/20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+              <span className="gradient-text">Работаем с госзакупками</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-8">
+              Профессиональное участие в государственных и корпоративных закупках. 
+              Соответствуем всем требованиям 44-ФЗ и 223-ФЗ.
+            </p>
+            
+            {/* Яркие бейджи для снабженцев */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              <div className="glass-effect px-6 py-3 rounded-full border-2 border-green-500 bg-green-500/20 hover-glow transition-all duration-300">
+                <span className="text-green-400 font-bold text-lg">44-ФЗ</span>
+                <span className="text-white ml-2">Госзакупки</span>
+              </div>
+              <div className="glass-effect px-6 py-3 rounded-full border-2 border-blue-500 bg-blue-500/20 hover-glow transition-all duration-300">
+                <span className="text-blue-400 font-bold text-lg">223-ФЗ</span>
+                <span className="text-white ml-2">Корпоративные закупки</span>
+              </div>
+              <div className="glass-effect px-6 py-3 rounded-full border-2 border-purple-500 bg-purple-500/20 hover-glow transition-all duration-300">
+                <span className="text-purple-400 font-bold text-lg">Реестр ОПО</span>
+                <span className="text-white ml-2">Отечественное ПО</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {[
+              {
+                title: 'IT-решения',
+                description: 'Разработка и поставка программного обеспечения',
+                features: ['SECURE-T', 'Соловей', 'Веб-приложения'],
+                icon: <Cpu className="w-8 h-8" />,
+                color: 'from-blue-500 to-indigo-600'
+              },
+              {
+                title: 'Оборудование',
+                description: 'Поставка компьютерной техники и электроники',
+                features: ['Серверы', 'Компьютеры', 'Сетевое оборудование'],
+                icon: <Zap className="w-8 h-8" />,
+                color: 'from-cyan-500 to-teal-600'
+              },
+              {
+                title: 'Антивирусы',
+                description: 'Лицензии Dr.Web для организаций',
+                features: ['Enterprise Suite', 'Security Space', 'Mobile Security'],
+                icon: <Shield className="w-8 h-8" />,
+                color: 'from-green-500 to-emerald-600'
+              },
+              {
+                title: 'Консультации',
+                description: 'Техническая поддержка и сопровождение',
+                features: ['Внедрение', 'Обучение', 'Поддержка 24/7'],
+                icon: <Settings className="w-8 h-8" />,
+                color: 'from-purple-500 to-pink-600'
+              }
+            ].map((service, index) => (
+              <div
+                key={service.title}
+                className="glass-effect p-6 rounded-xl hover-glow transition-all duration-300 group hover:scale-105"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 text-white`}>
+                  {service.icon}
+                </div>
+                
+                <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
+                <p className="text-gray-400 text-sm mb-4">{service.description}</p>
+                
+                <div className="space-y-2">
+                  {service.features.map((feature, featureIndex) => (
+                    <div
+                      key={feature}
+                      className="text-sm text-gray-300 flex items-center"
+                    >
+                      <span className="text-green-400 mr-2">•</span>
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA для снабженцев */}
+          <div className="glass-effect p-8 rounded-xl border-2 border-green-500/50">
+            <div className="text-center">
+              <h3 className="text-3xl font-bold mb-4">
+                <span className="gradient-text">Для снабженцев и закупщиков</span>
+              </h3>
+              <p className="text-gray-300 mb-8 max-w-3xl mx-auto text-lg">
+                Получите полный пакет документов для участия в тендере, включая сертификаты, 
+                лицензии и техническую документацию. Поможем с подготовкой заявки.
+              </p>
+              
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
+                <div className="text-center">
+                  <div className="text-green-400 mb-3 flex justify-center">
+                    <ClipboardList className="w-8 h-8" />
+                  </div>
+                  <h4 className="font-bold mb-2">Полный пакет документов</h4>
+                  <p className="text-gray-400 text-sm">Сертификаты, лицензии, ТТХ</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-blue-400 mb-3 flex justify-center">
+                    <Phone className="w-8 h-8" />
+                  </div>
+                  <h4 className="font-bold mb-2">Консультации</h4>
+                  <p className="text-gray-400 text-sm">Помощь в подготовке заявки</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-purple-400 mb-3 flex justify-center">
+                    <Zap className="w-8 h-8" />
+                  </div>
+                  <h4 className="font-bold mb-2">Быстрая реакция</h4>
+                  <p className="text-gray-400 text-sm">Ответ в течение 2 часов</p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={() => setIsContactModalOpen(true)}
+                  className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center"
+                >
+                  <ClipboardList className="w-5 h-5" />
+                  Получить документы
+                </button>
+                <button 
+                  onClick={() => setIsContactModalOpen(true)}
+                  className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center"
+                >
+                  <Phone className="w-5 h-5" />
+                  Консультация по тендеру
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Interactive Services Section */}
       <section className="section-padding bg-gradient-to-b from-transparent to-gray-900/50">
         <div className="max-w-6xl mx-auto px-6 text-center mb-12">
@@ -623,19 +1048,25 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-3xl mb-4">📧</div>
+              <div className="text-green-400 mb-4 flex justify-center">
+                <Mail className="w-8 h-8" />
+              </div>
               <h3 className="text-xl font-bold mb-2 text-white">Email</h3>
               <p className="text-gray-300">info@gundyrev.ru</p>
             </div>
             
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-3xl mb-4">📱</div>
+              <div className="text-blue-400 mb-4 flex justify-center">
+                <Phone className="w-8 h-8" />
+              </div>
               <h3 className="text-xl font-bold mb-2 text-white">Телефон</h3>
               <p className="text-gray-300">+7 (XXX) XXX-XX-XX</p>
             </div>
             
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-3xl mb-4">💬</div>
+              <div className="text-purple-400 mb-4 flex justify-center">
+                <MessageCircle className="w-8 h-8" />
+              </div>
               <h3 className="text-xl font-bold mb-2 text-white">Telegram</h3>
               <p className="text-gray-300">@gundyrev</p>
             </div>

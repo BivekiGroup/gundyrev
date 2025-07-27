@@ -1,28 +1,42 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { 
+  MessageCircle, 
+  Briefcase, 
+  Settings, 
+  Lightbulb, 
+  Phone, 
+  Mail, 
+  X 
+} from 'lucide-react';
 
-interface ContactModalProps {
+export interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
   defaultType?: string;
   title?: string;
 }
 
-export default function ContactModal({ 
-  isOpen, 
-  onClose, 
-  defaultType = 'general',
-  title = 'Связаться с нами'
-}: ContactModalProps) {
+export default function ContactModal({ isOpen, onClose, defaultType = 'general', title = 'Связаться с нами' }: ContactModalProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     company: '',
-    message: '',
-    type: defaultType
+    type: defaultType,
+    message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const contactTypes = [
+    { id: 'general', label: 'Общие вопросы', icon: <MessageCircle className="w-5 h-5" /> },
+    { id: 'sales', label: 'Отдел продаж', icon: <Briefcase className="w-5 h-5" /> },
+    { id: 'support', label: 'Техподдержка', icon: <Settings className="w-5 h-5" /> },
+    { id: 'development', label: 'Разработка', icon: <Settings className="w-5 h-5" /> },
+    { id: 'consultation', label: 'Консультация', icon: <Lightbulb className="w-5 h-5" /> },
+  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -38,15 +52,6 @@ export default function ContactModal({
     setFormData({ name: '', email: '', phone: '', company: '', message: '', type: defaultType });
     onClose();
   };
-
-  const contactTypes = [
-    { id: 'general', label: 'Общие вопросы', icon: '💬' },
-    { id: 'sales', label: 'Отдел продаж', icon: '💼' },
-    { id: 'support', label: 'Техподдержка', icon: '🔧' },
-    { id: 'partnership', label: 'Партнёрство', icon: '🤝' },
-    { id: 'consultation', label: 'Консультация', icon: '💡' },
-    { id: 'demo', label: 'Демонстрация', icon: '🖥️' }
-  ];
 
   if (!isOpen) return null;
 
@@ -173,9 +178,9 @@ export default function ContactModal({
           <p className="text-sm text-gray-400 text-center">
             Или свяжитесь с нами напрямую: 
             <br />
-            📞 <a href="tel:+74951234567" className="text-green-400 hover:text-green-300">+7 (495) 123-45-67</a>
+            <Phone className="w-4 h-4 inline mr-1" /> <a href="tel:+74951234567" className="text-green-400 hover:text-green-300">+7 (495) 123-45-67</a>
             <br />
-            📧 <a href="mailto:info@gundyrev.ru" className="text-green-400 hover:text-green-300">info@gundyrev.ru</a>
+            <Mail className="w-4 h-4 inline mr-1" /> <a href="mailto:info@gundyrev.ru" className="text-green-400 hover:text-green-300">info@gundyrev.ru</a>
           </p>
         </div>
       </div>

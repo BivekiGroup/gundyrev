@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import ContactModal from './ContactModal';
+import { Phone, Mail, Landmark, Shield } from 'lucide-react';
 
 export default function Footer() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -83,7 +84,7 @@ export default function Footer() {
               <h4 className="text-lg font-semibold text-white mb-4">Контакты</h4>
               <ul className="space-y-3 text-sm">
                 <li className="flex items-center space-x-2">
-                  <span>📞</span>
+                  <Phone className="w-4 h-4 text-green-400" />
                   <a 
                     href="tel:+74951234567" 
                     className="text-gray-300 hover:text-white transition-colors"
@@ -92,7 +93,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <span>📧</span>
+                  <Mail className="w-4 h-4 text-green-400" />
                   <a 
                     href="mailto:info@gundyrev.ru" 
                     className="text-gray-300 hover:text-white transition-colors"
@@ -260,11 +261,13 @@ export default function Footer() {
             <div className="mt-4 pt-4 border-t border-gray-800">
               <div className="grid md:grid-cols-2 gap-4 text-xs text-gray-500">
                 <div>
-                  <p>
-                    🏛️ Работаем с государственными закупками по 44-ФЗ и 223-ФЗ
+                  <p className="flex items-center gap-2">
+                    <Landmark className="w-4 h-4" />
+                    Работаем с государственными закупками по 44-ФЗ и 223-ФЗ
                   </p>
-                  <p className="mt-1">
-                    🛡️ Соответствуем требованиям информационной безопасности
+                  <p className="mt-1 flex items-center gap-2">
+                    <Shield className="w-4 h-4" />
+                    Соответствуем требованиям информационной безопасности
                   </p>
                 </div>
                 <div>

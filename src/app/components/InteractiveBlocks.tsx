@@ -2,6 +2,13 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import { 
+  Monitor, 
+  Zap, 
+  Shield, 
+  Bird, 
+  Settings 
+} from 'lucide-react';
 import DraggableCard from './DraggableCard';
 
 export default function InteractiveBlocks() {
@@ -62,7 +69,7 @@ export default function InteractiveBlocks() {
       id: 1,
       title: "Разработка ПО",
       description: "Веб, мобильные и десктопные приложения",
-      icon: "💻",
+      icon: <Monitor className="w-10 h-10" />,
       color: "from-purple-500 to-indigo-500",
       link: "/development",
     },
@@ -70,7 +77,7 @@ export default function InteractiveBlocks() {
       id: 2,
       title: "Поставка электроники",
       description: "B2B/B2G поставки по 44-ФЗ и 223-ФЗ",
-      icon: "⚡",
+      icon: <Zap className="w-10 h-10" />,
       color: "from-cyan-500 to-teal-500",
       link: "/electronics",
     },
@@ -78,7 +85,7 @@ export default function InteractiveBlocks() {
       id: 3,
       title: "UX Софт",
       description: "Улучшение пользовательского опыта",
-      icon: "🔒",
+      icon: <Shield className="w-10 h-10" />,
       color: "from-blue-500 to-purple-500",
       link: "/ux-software",
     },
@@ -86,7 +93,7 @@ export default function InteractiveBlocks() {
       id: 4,
       title: "Соловей",
       description: "Платформа видеосвязи",
-      icon: "🐦",
+      icon: <Bird className="w-10 h-10" />,
       color: "from-amber-500 to-yellow-500",
       link: "/solovey",
     },
@@ -94,7 +101,7 @@ export default function InteractiveBlocks() {
       id: 5,
       title: "Secure-T",
       description: "Информационная безопасность",
-      icon: "🛡️",
+      icon: <Shield className="w-10 h-10" />,
       color: "from-red-500 to-orange-500",
       link: "/secure-t",
     },
@@ -102,7 +109,7 @@ export default function InteractiveBlocks() {
       id: 6,
       title: "Dr.Web",
       description: "Антивирусные решения",
-      icon: "🔧",
+      icon: <Settings className="w-10 h-10" />,
       color: "from-green-500 to-emerald-500",
       link: "/drweb",
     },
@@ -164,7 +171,7 @@ export default function InteractiveBlocks() {
             onDragEnd={handleDragEnd}
           >
             <div 
-              className={`glass-effect p-6 rounded-lg bg-gradient-to-br ${block.color} bg-opacity-20 hover-glow transition-all duration-300 border border-white/10 cursor-pointer`}
+              className={`glass-effect p-6 rounded-lg bg-gradient-to-br ${block.color} bg-opacity-10 hover:bg-opacity-20 hover-glow transition-all duration-300 border border-white/10 cursor-pointer hover:scale-105`}
               onClick={(e) => {
                 // Предотвращаем переход если сейчас идет перетаскивание или недавно было перетаскивание
                 if (isDragging || wasRecentlyDragged) {
@@ -179,62 +186,20 @@ export default function InteractiveBlocks() {
               }}
             >
               <div className="flex items-center space-x-4 mb-4">
-                <div className="text-4xl">{block.icon}</div>
+                <div className="text-white">{block.icon}</div>
                 <div>
                   <h3 className="text-xl font-bold text-white">{block.title}</h3>
                   <p className="text-gray-300 text-sm">{block.description}</p>
                 </div>
               </div>
               
-              <div className="flex items-center justify-between mt-4">
+              <div className="text-center mt-4">
                 <span className="text-xs text-gray-400">Кликните для перехода →</span>
-                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
-                  <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                </div>
               </div>
             </div>
           </DraggableCard>
         );
       })}
-
-      {/* Декоративные элементы */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500 rounded-full blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-500 rounded-full blur-3xl opacity-10 animate-pulse"></div>
-      </div>
-
-
-
-      {/* Сетка для визуального ориентира */}
-      <div className="absolute inset-0 pointer-events-none opacity-5">
-        <div 
-          className="w-full h-full" 
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(0,255,136,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0,255,136,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px'
-          }}
-        />
-      </div>
-
-      {/* Floating particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-green-400 rounded-full floating-particle"
-            style={{
-              left: `${(i * 7 + 13) % 100}%`,
-              top: `${(i * 11 + 23) % 100}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${3 + (i % 4)}s`,
-            }}
-          />
-        ))}
-      </div>
 
     </div>
   );

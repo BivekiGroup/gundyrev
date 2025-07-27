@@ -397,9 +397,36 @@ export default function SecureT() {
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="gradient-text animate-pulse-secure">SECURE-T</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-300 mb-6 max-w-4xl mx-auto">
             Комплексные решения для информационной безопасности и защиты данных
           </p>
+          
+          {/* Краткое описание продукта */}
+          <div className="glass-effect p-6 rounded-lg max-w-3xl mx-auto mb-8 border border-red-500/30">
+            <h2 className="text-2xl font-bold mb-4 text-red-400">Что такое SECURE-T?</h2>
+            <p className="text-gray-300 text-lg mb-4">
+              SECURE-T — это российская система защиты информации, сертифицированная ФСТЭК России. 
+              Обеспечивает комплексную защиту корпоративных данных от внешних и внутренних угроз.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div className="flex items-center space-x-2">
+                <span className="text-green-400">✓</span>
+                <span>Сертификат ФСТЭК РФ</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="text-green-400">✓</span>
+                <span>Соответствие 44-ФЗ и 223-ФЗ</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="text-green-400">✓</span>
+                <span>Реестр отечественного ПО</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="text-green-400">✓</span>
+                <span>Техподдержка 24/7</span>
+              </div>
+            </div>
+          </div>
           
           {/* Живая статистика */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 max-w-4xl mx-auto">

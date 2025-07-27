@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Phone, Lightbulb } from 'lucide-react';
 import ContactModal from './ContactModal';
 
 export default function FloatingCTA() {
@@ -44,9 +45,7 @@ export default function FloatingCTA() {
           }}
         >
           <div className="flex items-center space-x-2">
-            <span className="transition-all duration-300 group-hover:scale-110">
-              📞
-            </span>
+            <Phone className="w-5 h-5 transition-all duration-300 group-hover:scale-110" />
             <span className="transition-all duration-300">
               {ctaTexts[currentText]}
             </span>
@@ -66,7 +65,8 @@ export default function FloatingCTA() {
             className="block w-full px-4 py-2 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 transition-colors duration-200"
             title="Заказать консультацию"
           >
-            💡 Консультация
+            <Lightbulb className="w-4 h-4 inline mr-1" />
+            Консультация
           </button>
           <button
             onClick={() => setIsModalOpen(true)}
