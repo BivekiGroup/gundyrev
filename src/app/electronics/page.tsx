@@ -253,13 +253,13 @@ export default function Electronics() {
                 onMouseLeave={() => setHoveredProduct(null)}
               >
                 <div className="relative">
-                                     <div className="text-4xl mb-4 text-center">
+                  <div className="text-4xl mb-4 text-center">
                      {product.category === 'computers' && <Monitor className="w-8 h-8 mx-auto" />}
                      {product.category === 'phones' && <Smartphone className="w-8 h-8 mx-auto" />}
                      {product.category === 'accessories' && <Plug className="w-8 h-8 mx-auto" />}
                      {product.category === 'servers' && <Server className="w-8 h-8 mx-auto" />}
                      {product.category === 'network' && <Globe className="w-8 h-8 mx-auto" />}
-                   </div>
+                  </div>
                   
                   {hoveredProduct === product.id && (
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-teal-500/10 rounded-lg"></div>
