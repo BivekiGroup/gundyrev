@@ -56,11 +56,7 @@ export default function Footer() {
                     Поставка электроники
                   </a>
                 </li>
-                <li>
-                  <a href="/ux-software" className="text-gray-300 hover:text-white transition-colors">
-                    UX-софт
-                  </a>
-                </li>
+
                 <li>
                   <a href="/secure-t" className="text-gray-300 hover:text-white transition-colors">
                     Информационная безопасность

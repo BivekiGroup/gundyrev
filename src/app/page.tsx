@@ -38,7 +38,7 @@ export default function Home() {
     uptime: 0
   });
   const [currentCodeExample, setCurrentCodeExample] = useState(0);
-  const [techSphereRotation, setTechSphereRotation] = useState(0);
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
@@ -74,40 +74,6 @@ export default function Home() {
     }, stepDuration);
 
     return () => clearInterval(interval);
-  }, [mounted]);
-
-  // Переключение примеров кода
-  useEffect(() => {
-    if (!mounted) return;
-
-    const interval = setInterval(() => {
-      setCurrentCodeExample(prev => (prev + 1) % codeExamples.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [mounted]);
-
-  // Вращение 3D-сферы
-  useEffect(() => {
-    if (!mounted) return;
-
-    const interval = setInterval(() => {
-      setTechSphereRotation(prev => (prev + 1) % 360);
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, [mounted]);
-
-  // Отслеживание мыши
-  useEffect(() => {
-    if (!mounted) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mounted]);
 
   const codeExamples = [
@@ -148,6 +114,31 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
     }
   ];
 
+  // Переключение примеров кода
+  useEffect(() => {
+    if (!mounted) return;
+
+    const interval = setInterval(() => {
+      setCurrentCodeExample(prev => (prev + 1) % codeExamples.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [mounted, codeExamples.length]);
+
+
+
+  // Отслеживание мыши
+  useEffect(() => {
+    if (!mounted) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [mounted]);
+
   const technologies = [
     'React', 'Node.js', 'Python', 'TypeScript', 'Docker', 'AWS', 'PostgreSQL', 
     'MongoDB', 'Redis', 'Kubernetes', 'GraphQL', 'Next.js', 'Vue.js', 'Django',
@@ -170,7 +161,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
-      <Navigation />
+      <Navigation onContactClick={() => setIsContactModalOpen(true)} />
       
       {/* Hero Section с заголовком и интерактивными элементами */}
       <section className="relative section-padding pt-32 overflow-hidden">
@@ -178,8 +169,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
           {/* Заголовок и описание */}
           <div className="relative inline-block mb-8">
             <h1 className="text-5xl md:text-7xl font-bold mb-8 relative">
-              <span className="gradient-text holographic-text">GUNDYREV</span>
-              <div className="absolute inset-0 gradient-text holographic-text animate-pulse opacity-30"></div>
+              <span className="gradient-text">GUNDYREV</span>
             </h1>
             {/* Голографические линии */}
             <div className="absolute -inset-4 opacity-20">
@@ -745,7 +735,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
                 <p className="text-gray-400 text-sm mb-4">{clientType.description}</p>
                 
                 <div className="space-y-2 mb-4">
-                  {clientType.examples.map((example, exampleIndex) => (
+                  {clientType.examples.map((example) => (
                     <div
                       key={example}
                       className="text-sm text-gray-300 flex items-center"
@@ -953,7 +943,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
                 <p className="text-gray-400 text-sm mb-4">{service.description}</p>
                 
                 <div className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
+                  {service.features.map((feature) => (
                     <div
                       key={feature}
                       className="text-sm text-gray-300 flex items-center"

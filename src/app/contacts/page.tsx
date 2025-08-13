@@ -2,6 +2,44 @@
 
 import { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
+import { 
+  MessageSquare, 
+  Briefcase, 
+  Wrench, 
+  Handshake, 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Globe, 
+  Smartphone, 
+  Monitor, 
+  ClipboardList, 
+  CheckCircle, 
+  XCircle, 
+  AlertTriangle, 
+  Info, 
+  Search, 
+  Send, 
+  Download, 
+  RefreshCw, 
+  Clock, 
+  Calendar, 
+  Target, 
+  Lightbulb, 
+  Rocket, 
+  Star, 
+  Gem, 
+  Palette, 
+  Sparkles, 
+  Zap, 
+  Droplets, 
+  Waves, 
+  Rainbow, 
+  Sun, 
+  Moon, 
+  User,
+  BarChart3
+} from 'lucide-react';
 
 export default function Contacts() {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -69,10 +107,10 @@ export default function Contacts() {
   };
 
   const contactTypes = [
-    { id: 'general', label: 'Общие вопросы', icon: '💬' },
-    { id: 'sales', label: 'Отдел продаж', icon: '💼' },
-    { id: 'support', label: 'Техподдержка', icon: '🔧' },
-    { id: 'partnership', label: 'Партнёрство', icon: '🤝' }
+    { id: 'general', label: 'Общие вопросы', icon: <MessageSquare className="w-5 h-5" /> },
+    { id: 'sales', label: 'Отдел продаж', icon: <Briefcase className="w-5 h-5" /> },
+    { id: 'support', label: 'Техподдержка', icon: <Wrench className="w-5 h-5" /> },
+    { id: 'partnership', label: 'Партнёрство', icon: <Handshake className="w-5 h-5" /> }
   ];
 
   return (
@@ -105,7 +143,7 @@ export default function Contacts() {
               onMouseEnter={() => setHoveredCard('phone')}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <div className="text-4xl mb-4">📞</div>
+              <div className="text-4xl mb-4 flex justify-center"><Phone className="w-12 h-12" /></div>
               <h3 className="text-xl font-bold mb-2">Телефон</h3>
               <p className="text-gray-300">+7 (495) 123-45-67</p>
               {copySuccess === 'phone' && (
@@ -122,7 +160,7 @@ export default function Contacts() {
               onMouseEnter={() => setHoveredCard('email')}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <div className="text-4xl mb-4">📧</div>
+              <div className="text-4xl mb-4 flex justify-center"><Mail className="w-12 h-12" /></div>
               <h3 className="text-xl font-bold mb-2">Email</h3>
               <p className="text-gray-300">info@gundyrev.ru</p>
               {copySuccess === 'email' && (
@@ -134,7 +172,7 @@ export default function Contacts() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 animate-slide-in-up">
-              <div className="text-4xl mb-4">🕒</div>
+              <div className="text-4xl mb-4 flex justify-center"><Clock className="w-12 h-12" /></div>
               <h3 className="text-xl font-bold mb-2">Режим работы</h3>
               <p className="text-gray-300">Пн-Пт: 9:00-18:00</p>
               <p className="text-gray-400 text-sm mt-1">МСК</p>
@@ -169,74 +207,74 @@ export default function Contacts() {
               
               <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">💼</span>
+                  <Briefcase className="w-6 h-6 mr-3" />
                   <h4 className="text-xl font-bold">Отдел продаж</h4>
                 </div>
                 <div className="space-y-2 text-gray-300">
-                  <p>📞 +7 (495) 123-45-67 доб. 101</p>
+                  <p className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +7 (495) 123-45-67 доб. 101</p>
                   <p 
-                    className="cursor-pointer hover:text-white transition-colors"
+                    className="cursor-pointer hover:text-white transition-colors flex items-center"
                     onClick={() => copyToClipboard('sales@gundyrev.ru', 'sales-email')}
                   >
-                    📧 sales@gundyrev.ru
-                    {copySuccess === 'sales-email' && <span className="text-green-400 ml-2">✓</span>}
+                    <Mail className="w-4 h-4 mr-2" /> sales@gundyrev.ru
+                    {copySuccess === 'sales-email' && <CheckCircle className="w-4 h-4 ml-2 text-green-400" />}
                   </p>
-                  <p>👤 Менеджер: Иван Петров</p>
+                  <p className="flex items-center"><User className="w-4 h-4 mr-2" /> Менеджер: Иван Петров</p>
                 </div>
               </div>
 
               <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">🔧</span>
+                  <Wrench className="w-6 h-6 mr-3" />
                   <h4 className="text-xl font-bold">Техническая поддержка</h4>
                 </div>
                 <div className="space-y-2 text-gray-300">
-                  <p>📞 +7 (495) 123-45-67 доб. 102</p>
+                  <p className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +7 (495) 123-45-67 доб. 102</p>
                   <p 
-                    className="cursor-pointer hover:text-white transition-colors"
+                    className="cursor-pointer hover:text-white transition-colors flex items-center"
                     onClick={() => copyToClipboard('support@gundyrev.ru', 'support-email')}
                   >
-                    📧 support@gundyrev.ru
-                    {copySuccess === 'support-email' && <span className="text-green-400 ml-2">✓</span>}
+                    <Mail className="w-4 h-4 mr-2" /> support@gundyrev.ru
+                    {copySuccess === 'support-email' && <CheckCircle className="w-4 h-4 ml-2 text-green-400" />}
                   </p>
-                  <p>⏰ 24/7 для критических задач</p>
+                  <p className="flex items-center"><Clock className="w-4 h-4 mr-2" /> 24/7 для критических задач</p>
                 </div>
               </div>
 
               <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">📊</span>
+                  <BarChart3 className="w-6 h-6 mr-3" />
                   <h4 className="text-xl font-bold">Бухгалтерия</h4>
                 </div>
                 <div className="space-y-2 text-gray-300">
-                  <p>📞 +7 (495) 123-45-67 доб. 103</p>
+                  <p className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +7 (495) 123-45-67 доб. 103</p>
                   <p 
-                    className="cursor-pointer hover:text-white transition-colors"
+                    className="cursor-pointer hover:text-white transition-colors flex items-center"
                     onClick={() => copyToClipboard('accounting@gundyrev.ru', 'accounting-email')}
                   >
-                    📧 accounting@gundyrev.ru
-                    {copySuccess === 'accounting-email' && <span className="text-green-400 ml-2">✓</span>}
+                    <Mail className="w-4 h-4 mr-2" /> accounting@gundyrev.ru
+                    {copySuccess === 'accounting-email' && <CheckCircle className="w-4 h-4 ml-2 text-green-400" />}
                   </p>
-                  <p>👤 Главный бухгалтер: Елена Сидорова</p>
-                  <p>⏰ Пн-Пт: 9:00-17:00</p>
+                  <p className="flex items-center"><User className="w-4 h-4 mr-2" /> Главный бухгалтер: Елена Сидорова</p>
+                  <p className="flex items-center"><Clock className="w-4 h-4 mr-2" /> Пн-Пт: 9:00-17:00</p>
                 </div>
               </div>
 
               <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">🤝</span>
+                  <Handshake className="w-6 h-6 mr-3" />
                   <h4 className="text-xl font-bold">Партнёрство</h4>
                 </div>
                 <div className="space-y-2 text-gray-300">
-                  <p>📞 +7 (495) 123-45-67 доб. 104</p>
+                  <p className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +7 (495) 123-45-67 доб. 104</p>
                   <p 
-                    className="cursor-pointer hover:text-white transition-colors"
+                    className="cursor-pointer hover:text-white transition-colors flex items-center"
                     onClick={() => copyToClipboard('partners@gundyrev.ru', 'partners-email')}
                   >
-                    📧 partners@gundyrev.ru
-                    {copySuccess === 'partners-email' && <span className="text-green-400 ml-2">✓</span>}
+                    <Mail className="w-4 h-4 mr-2" /> partners@gundyrev.ru
+                    {copySuccess === 'partners-email' && <CheckCircle className="w-4 h-4 ml-2 text-green-400" />}
                   </p>
-                  <p>👤 Директор по развитию: Анна Козлова</p>
+                  <p className="flex items-center"><User className="w-4 h-4 mr-2" /> Директор по развитию: Анна Козлова</p>
                 </div>
               </div>
             </div>
@@ -268,7 +306,7 @@ export default function Contacts() {
                       onClick={() => copyToClipboard('7701234567', 'inn')}
                     >
                       7701234567
-                      {copySuccess === 'inn' && <span className="text-green-400 ml-2">✓</span>}
+                      {copySuccess === 'inn' && <CheckCircle className="w-4 h-4 ml-2 text-green-400" />}
                     </p>
                   </div>
                   <div>
@@ -278,7 +316,7 @@ export default function Contacts() {
                       onClick={() => copyToClipboard('770101001', 'kpp')}
                     >
                       770101001
-                      {copySuccess === 'kpp' && <span className="text-green-400 ml-2">✓</span>}
+                      {copySuccess === 'kpp' && <CheckCircle className="w-4 h-4 ml-2 text-green-400" />}
                     </p>
                   </div>
                 </div>
@@ -290,7 +328,7 @@ export default function Contacts() {
                     onClick={() => copyToClipboard('1234567890123', 'ogrn')}
                   >
                     1234567890123
-                    {copySuccess === 'ogrn' && <span className="text-green-400 ml-2">✓</span>}
+                                          {copySuccess === 'ogrn' && <CheckCircle className="w-4 h-4 ml-2 text-green-400" />}
                   </p>
                 </div>
 
@@ -304,7 +342,7 @@ export default function Contacts() {
                         onClick={() => copyToClipboard('40702810123456789012', 'rs')}
                       >
                         40702810123456789012
-                        {copySuccess === 'rs' && <span className="text-green-400 ml-2">✓</span>}
+                        {copySuccess === 'rs' && <CheckCircle className="w-4 h-4 ml-2 text-green-400" />}
                       </span>
                     </div>
                     <div className="flex justify-between items-center">
@@ -314,7 +352,7 @@ export default function Contacts() {
                         onClick={() => copyToClipboard('30101810123456789012', 'ks')}
                       >
                         30101810123456789012
-                        {copySuccess === 'ks' && <span className="text-green-400 ml-2">✓</span>}
+                        {copySuccess === 'ks' && <CheckCircle className="w-4 h-4 ml-2 text-green-400" />}
                       </span>
                     </div>
                     <div className="flex justify-between items-center">
@@ -324,7 +362,7 @@ export default function Contacts() {
                         onClick={() => copyToClipboard('123456789', 'bik')}
                       >
                         123456789
-                        {copySuccess === 'bik' && <span className="text-green-400 ml-2">✓</span>}
+                        {copySuccess === 'bik' && <CheckCircle className="w-4 h-4 ml-2 text-green-400" />}
                       </span>
                     </div>
                     <p className="text-sm text-gray-400 mt-2">

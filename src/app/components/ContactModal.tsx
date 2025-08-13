@@ -1,14 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { 
   MessageCircle, 
   Briefcase, 
   Settings, 
   Lightbulb, 
   Phone, 
-  Mail, 
-  X 
+  Mail
 } from 'lucide-react';
 
 export interface ContactModalProps {
@@ -27,8 +26,7 @@ export default function ContactModal({ isOpen, onClose, defaultType = 'general',
     type: defaultType,
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
 
   const contactTypes = [
     { id: 'general', label: 'Общие вопросы', icon: <MessageCircle className="w-5 h-5" /> },

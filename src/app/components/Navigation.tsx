@@ -25,7 +25,6 @@ export default function Navigation() {
     { 
       category: 'Безопасность',
       items: [
-        { href: '/ux-software', label: 'UX-софт', description: 'Улучшение пользовательского опыта', icon: <Shield className="w-5 h-5" /> },
         { href: '/secure-t', label: 'Secure-T', description: 'Комплексная защита', icon: <Shield className="w-5 h-5" /> },
         { href: '/drweb', label: 'Dr.Web', description: 'Антивирусная защита', icon: <Settings className="w-5 h-5" /> },
       ]

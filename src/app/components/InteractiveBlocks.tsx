@@ -81,16 +81,9 @@ export default function InteractiveBlocks() {
       color: "from-cyan-500 to-teal-500",
       link: "/electronics",
     },
+
     {
       id: 3,
-      title: "UX Софт",
-      description: "Улучшение пользовательского опыта",
-      icon: <Shield className="w-10 h-10" />,
-      color: "from-blue-500 to-purple-500",
-      link: "/ux-software",
-    },
-    {
-      id: 4,
       title: "Соловей",
       description: "Платформа видеосвязи",
       icon: <Bird className="w-10 h-10" />,
@@ -98,7 +91,7 @@ export default function InteractiveBlocks() {
       link: "/solovey",
     },
     {
-      id: 5,
+      id: 4,
       title: "Secure-T",
       description: "Информационная безопасность",
       icon: <Shield className="w-10 h-10" />,
@@ -106,7 +99,7 @@ export default function InteractiveBlocks() {
       link: "/secure-t",
     },
     {
-      id: 6,
+      id: 5,
       title: "Dr.Web",
       description: "Антивирусные решения",
       icon: <Settings className="w-10 h-10" />,
@@ -127,8 +120,7 @@ export default function InteractiveBlocks() {
       { x: 350, y: -650 },
       { x: 650, y: -450 },
       { x: 150, y: -800 },
-      { x: 450, y: -350 },
-      { x: 250, y: -550 }
+      { x: 450, y: -350 }
     ];
     
     const basePos = positions[index % positions.length];

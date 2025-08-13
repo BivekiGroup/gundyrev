@@ -2,6 +2,31 @@
 
 import { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
+import { 
+  ShoppingCart, 
+  Monitor, 
+  Smartphone, 
+  Plug, 
+  Server, 
+  Globe, 
+  ClipboardList, 
+  CheckCircle, 
+  Package, 
+  Truck, 
+  Home, 
+  Zap, 
+  Battery, 
+  HardDrive, 
+  Wifi, 
+  Building2, 
+  Package2, 
+  Wrench, 
+  MapPin, 
+  FileText, 
+  DollarSign, 
+  Star, 
+  X 
+} from 'lucide-react';
 
 export default function Electronics() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -24,12 +49,12 @@ export default function Electronics() {
   }>>([]);
 
   const categories = [
-    { id: 'all', name: 'Все товары', icon: '🛒', color: 'cyan' },
-    { id: 'computers', name: 'Компьютеры', icon: '💻', color: 'blue' },
-    { id: 'phones', name: 'Телефоны', icon: '📱', color: 'green' },
-    { id: 'accessories', name: 'Аксессуары', icon: '🔌', color: 'purple' },
-    { id: 'servers', name: 'Серверы', icon: '🖲️', color: 'orange' },
-    { id: 'network', name: 'Сеть', icon: '🌐', color: 'teal' }
+    { id: 'all', name: 'Все товары', icon: <ShoppingCart className="w-5 h-5" />, color: 'cyan' },
+    { id: 'computers', name: 'Компьютеры', icon: <Monitor className="w-5 h-5" />, color: 'blue' },
+    { id: 'phones', name: 'Телефоны', icon: <Smartphone className="w-5 h-5" />, color: 'green' },
+    { id: 'accessories', name: 'Аксессуары', icon: <Plug className="w-5 h-5" />, color: 'purple' },
+    { id: 'servers', name: 'Серверы', icon: <Server className="w-5 h-5" />, color: 'orange' },
+    { id: 'network', name: 'Сеть', icon: <Globe className="w-5 h-5" />, color: 'teal' }
   ];
 
   const products = [
@@ -44,11 +69,11 @@ export default function Electronics() {
   ];
 
   const deliverySteps = [
-    { name: 'Заказ получен', icon: '📋', completed: true },
-    { name: 'Подтверждение', icon: '✅', completed: true },
-    { name: 'Сборка', icon: '📦', completed: true },
-    { name: 'Отправка', icon: '🚚', completed: false },
-    { name: 'Доставка', icon: '🏠', completed: false }
+    { name: 'Заказ получен', icon: <ClipboardList className="w-6 h-6" />, completed: true },
+    { name: 'Подтверждение', icon: <CheckCircle className="w-6 h-6" />, completed: true },
+    { name: 'Сборка', icon: <Package className="w-6 h-6" />, completed: true },
+    { name: 'Отправка', icon: <Truck className="w-6 h-6" />, completed: false },
+    { name: 'Доставка', icon: <Home className="w-6 h-6" />, completed: false }
   ];
 
   // Генерация электронных частиц
@@ -212,7 +237,7 @@ export default function Electronics() {
                     : 'glass-effect text-gray-300 hover:bg-white/10'
                 }`}
               >
-                <span className="mr-2">{category.icon}</span>
+                <span className="mr-2 flex items-center">{category.icon}</span>
                 {category.name}
               </button>
             ))}
@@ -223,21 +248,21 @@ export default function Electronics() {
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="glass-effect p-6 rounded-lg hover-glow transition-all duration-500 transform hover:scale-105 hover:rotate-1 cursor-pointer"
+                className="bg-gray-800/50 p-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20 cursor-pointer"
                 onMouseEnter={() => setHoveredProduct(product.id)}
                 onMouseLeave={() => setHoveredProduct(null)}
               >
                 <div className="relative">
-                  <div className="text-4xl mb-4 text-center">
-                    {product.category === 'computers' && '💻'}
-                    {product.category === 'phones' && '📱'}
-                    {product.category === 'accessories' && '🔌'}
-                    {product.category === 'servers' && '🖲️'}
-                    {product.category === 'network' && '🌐'}
-                  </div>
+                                     <div className="text-4xl mb-4 text-center">
+                     {product.category === 'computers' && <Monitor className="w-8 h-8 mx-auto" />}
+                     {product.category === 'phones' && <Smartphone className="w-8 h-8 mx-auto" />}
+                     {product.category === 'accessories' && <Plug className="w-8 h-8 mx-auto" />}
+                     {product.category === 'servers' && <Server className="w-8 h-8 mx-auto" />}
+                     {product.category === 'network' && <Globe className="w-8 h-8 mx-auto" />}
+                   </div>
                   
                   {hoveredProduct === product.id && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-teal-500/20 rounded-lg animate-pulse"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-teal-500/10 rounded-lg"></div>
                   )}
                 </div>
                 
@@ -318,7 +343,7 @@ export default function Electronics() {
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-all duration-300 ${
                       step.completed ? 'bg-green-500 text-white' : 'bg-gray-700 text-gray-400'
                     }`}>
-                      <span className="text-xl">{step.icon}</span>
+                      <div className="text-xl">{step.icon}</div>
                     </div>
                     <span className={`text-sm ${step.completed ? 'text-green-400' : 'text-gray-400'}`}>
                       {step.name}
@@ -407,25 +432,25 @@ export default function Electronics() {
             <h3 className="text-2xl font-bold mb-6 text-center">Наши преимущества в госзакупках</h3>
             <div className="grid md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-cyan-400 text-3xl mb-3">📋</div>
+                <div className="text-cyan-400 text-3xl mb-3 flex justify-center"><ClipboardList className="w-8 h-8" /></div>
                 <h4 className="font-bold mb-2">Опыт участия</h4>
                 <p className="text-gray-300 text-sm">Более 500 выигранных тендеров</p>
               </div>
               
               <div className="text-center">
-                <div className="text-teal-400 text-3xl mb-3">🏆</div>
+                <div className="text-teal-400 text-3xl mb-3 flex justify-center"><Star className="w-8 h-8" /></div>
                 <h4 className="font-bold mb-2">Высокий рейтинг</h4>
                 <p className="text-gray-300 text-sm">Надежный поставщик без нарушений</p>
               </div>
               
               <div className="text-center">
-                <div className="text-green-400 text-3xl mb-3">⚡</div>
+                <div className="text-green-400 text-3xl mb-3 flex justify-center"><Zap className="w-8 h-8" /></div>
                 <h4 className="font-bold mb-2">Быстрая поставка</h4>
                 <p className="text-gray-300 text-sm">Соблюдение всех сроков контракта</p>
               </div>
               
               <div className="text-center">
-                <div className="text-blue-400 text-3xl mb-3">📄</div>
+                <div className="text-blue-400 text-3xl mb-3 flex justify-center"><FileText className="w-8 h-8" /></div>
                 <h4 className="font-bold mb-2">Все документы</h4>
                 <p className="text-gray-300 text-sm">Полный пакет сертификатов и лицензий</p>
               </div>
@@ -445,7 +470,7 @@ export default function Electronics() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-green-400 text-4xl mb-4">🏢</div>
+              <div className="text-green-400 text-4xl mb-4 flex justify-center"><Building2 className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Корпоративные поставки</h3>
               <p className="text-gray-300 mb-4">
                 Комплексное оснащение офисов и производственных помещений
@@ -459,7 +484,7 @@ export default function Electronics() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-blue-400 text-4xl mb-4">📦</div>
+              <div className="text-blue-400 text-4xl mb-4 flex justify-center"><Package2 className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Складская программа</h3>
               <p className="text-gray-300 mb-4">
                 Поддержание складских остатков популярных позиций
@@ -473,7 +498,7 @@ export default function Electronics() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-purple-400 text-4xl mb-4">🔧</div>
+              <div className="text-purple-400 text-4xl mb-4 flex justify-center"><Wrench className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Сервисное обслуживание</h3>
               <p className="text-gray-300 mb-4">
                 Полный цикл технической поддержки оборудования
@@ -523,15 +548,15 @@ export default function Electronics() {
               <h3 className="text-2xl font-bold gradient-text">Калькулятор стоимости</h3>
               <button
                 onClick={() => setIsCalculatorOpen(false)}
-                className="text-gray-400 hover:text-white transition-colors text-2xl"
+                className="text-gray-400 hover:text-white transition-colors"
               >
-                ×
+                <X className="w-6 h-6" />
               </button>
             </div>
 
             {cartItems.length === 0 ? (
               <div className="text-center py-8">
-                <div className="text-4xl mb-4">🛒</div>
+                <div className="text-4xl mb-4 flex justify-center"><ShoppingCart className="w-12 h-12" /></div>
                 <p className="text-gray-400">Корзина пуста. Добавьте товары из каталога.</p>
               </div>
             ) : (
@@ -591,7 +616,7 @@ export default function Electronics() {
             className="glass-effect p-4 rounded-full hover-glow transition-all duration-300 transform hover:scale-110"
           >
             <div className="relative">
-              <span className="text-2xl">🛒</span>
+              <ShoppingCart className="w-8 h-8" />
               <div className="absolute -top-2 -right-2 bg-cyan-500 text-black rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">
                 {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
               </div>
@@ -626,7 +651,7 @@ export default function Electronics() {
                 className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 transform hover:scale-105 cursor-pointer"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="text-2xl">📍</div>
+                  <MapPin className="w-6 h-6 text-cyan-400" />
                   <div>
                     <h3 className="text-xl font-bold">{warehouse.city}</h3>
                     <p className="text-sm text-gray-400">{warehouse.address}</p>
@@ -672,15 +697,15 @@ export default function Electronics() {
           <div className="relative">
             <div className="flex flex-col md:flex-row justify-between items-center gap-8">
               {[
-                { icon: '📋', title: 'Заявка', desc: 'Получаем вашу спецификацию' },
-                { icon: '💰', title: 'Расчет', desc: 'Формируем коммерческое предложение' },
-                { icon: '📦', title: 'Сборка', desc: 'Комплектуем заказ на складе' },
-                { icon: '🚚', title: 'Доставка', desc: 'Доставляем в указанное место' },
-                { icon: '✅', title: 'Приемка', desc: 'Подписываем документы' }
+                { icon: <ClipboardList className="w-8 h-8" />, title: 'Заявка', desc: 'Получаем вашу спецификацию' },
+                { icon: <DollarSign className="w-8 h-8" />, title: 'Расчет', desc: 'Формируем коммерческое предложение' },
+                { icon: <Package className="w-8 h-8" />, title: 'Сборка', desc: 'Комплектуем заказ на складе' },
+                { icon: <Truck className="w-8 h-8" />, title: 'Доставка', desc: 'Доставляем в указанное место' },
+                { icon: <CheckCircle className="w-8 h-8" />, title: 'Приемка', desc: 'Подписываем документы' }
               ].map((step, index) => (
                 <div key={index} className="text-center relative">
                   <div className="glass-effect w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 hover-glow transition-all duration-300 transform hover:scale-110">
-                    <span className="text-3xl">{step.icon}</span>
+                    <div className="text-3xl">{step.icon}</div>
                   </div>
                   <h3 className="text-lg font-bold mb-2">{step.title}</h3>
                   <p className="text-sm text-gray-400 max-w-32">{step.desc}</p>

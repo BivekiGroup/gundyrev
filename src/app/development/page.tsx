@@ -1,4 +1,15 @@
 import Navigation from '../components/Navigation';
+import { 
+  Globe, 
+  Smartphone, 
+  Monitor, 
+  Settings, 
+  Bot, 
+  Wrench,
+  Briefcase,
+  BarChart3,
+  Store
+} from 'lucide-react';
 
 export default function Development() {
   return (
@@ -45,7 +56,7 @@ export default function Development() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-purple-400 text-4xl mb-4">🌐</div>
+              <div className="text-purple-400 text-4xl mb-4 flex justify-center"><Globe className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Веб-разработка</h3>
               <p className="text-gray-300 mb-4">
                 Создание современных веб-приложений и сайтов
@@ -59,7 +70,7 @@ export default function Development() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-indigo-400 text-4xl mb-4">📱</div>
+              <div className="text-indigo-400 text-4xl mb-4 flex justify-center"><Smartphone className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Мобильная разработка</h3>
               <p className="text-gray-300 mb-4">
                 Нативные и кроссплатформенные мобильные приложения
@@ -73,7 +84,7 @@ export default function Development() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-blue-400 text-4xl mb-4">🖥️</div>
+              <div className="text-blue-400 text-4xl mb-4 flex justify-center"><Monitor className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Десктопные приложения</h3>
               <p className="text-gray-300 mb-4">
                 Программы для Windows, macOS и Linux
@@ -87,7 +98,7 @@ export default function Development() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-green-400 text-4xl mb-4">⚙️</div>
+              <div className="text-green-400 text-4xl mb-4 flex justify-center"><Settings className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Backend и API</h3>
               <p className="text-gray-300 mb-4">
                 Серверная логика и интеграционные решения
@@ -101,7 +112,7 @@ export default function Development() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-yellow-400 text-4xl mb-4">🤖</div>
+              <div className="text-yellow-400 text-4xl mb-4 flex justify-center"><Bot className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Автоматизация</h3>
               <p className="text-gray-300 mb-4">
                 Системы автоматизации бизнес-процессов
@@ -115,7 +126,7 @@ export default function Development() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-red-400 text-4xl mb-4">🔧</div>
+              <div className="text-red-400 text-4xl mb-4 flex justify-center"><Wrench className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Техническая поддержка</h3>
               <p className="text-gray-300 mb-4">
                 Сопровождение и развитие готовых решений
@@ -259,7 +270,7 @@ export default function Development() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-purple-400 text-3xl mb-4">💼</div>
+              <div className="text-purple-400 text-3xl mb-4 flex justify-center"><Briefcase className="w-6 h-6" /></div>
               <h4 className="text-lg font-bold mb-3">CRM-система</h4>
               <p className="text-gray-300 mb-4">
                 Система управления клиентами для торговой компании
@@ -272,7 +283,7 @@ export default function Development() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-indigo-400 text-3xl mb-4">📊</div>
+              <div className="text-indigo-400 text-3xl mb-4 flex justify-center"><BarChart3 className="w-6 h-6" /></div>
               <h4 className="text-lg font-bold mb-3">Система аналитики</h4>
               <p className="text-gray-300 mb-4">
                 Платформа для анализа данных и создания отчетов
@@ -285,7 +296,7 @@ export default function Development() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-blue-400 text-3xl mb-4">🏪</div>
+              <div className="text-blue-400 text-3xl mb-4 flex justify-center"><Store className="w-6 h-6" /></div>
               <h4 className="text-lg font-bold mb-3">E-commerce платформа</h4>
               <p className="text-gray-300 mb-4">
                 Интернет-магазин с интеграцией платежных систем

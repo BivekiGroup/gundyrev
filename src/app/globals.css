@@ -2304,3 +2304,17 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Стили для иконок в модальном окне документации */
+.modal-documentation-icon {
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+  will-change: auto !important;
+}
+
+.modal-documentation-icon * {
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}

@@ -2,6 +2,47 @@
 
 import { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
+import { 
+  Shield, 
+  Zap, 
+  Settings, 
+  Target, 
+  Lock, 
+  Search, 
+  Eye, 
+  CheckCircle, 
+  AlertTriangle, 
+  Info, 
+  AlertCircle, 
+  Flame, 
+  HardDrive, 
+  Monitor, 
+  Globe, 
+  Folder, 
+  BookOpen, 
+  Rocket, 
+  Wrench, 
+  GraduationCap, 
+  Phone, 
+  Trophy, 
+  Globe2, 
+  FileText, 
+  CheckSquare, 
+  Key, 
+  Award, 
+  FileCheck, 
+  Download, 
+  Users, 
+  Video, 
+  Book, 
+  Headphones, 
+  Building, 
+  FileSpreadsheet, 
+  ClipboardList, 
+  DollarSign, 
+  FileDown,
+  ChevronDown
+} from 'lucide-react';
 
 export default function SecureT() {
   // Живые уведомления безопасности
@@ -483,9 +524,9 @@ export default function SecureT() {
                   alert.type === 'scan' ? 'text-blue-400' :
                   'text-green-400'
                 }`}>
-                  {alert.type === 'threat' ? '⚠️' : 
-                   alert.type === 'block' ? '🛡️' : 
-                   alert.type === 'scan' ? '🔍' : '✅'}
+                  {alert.type === 'threat' ? <AlertTriangle className="w-6 h-6" /> : 
+                   alert.type === 'block' ? <Shield className="w-6 h-6" /> : 
+                   alert.type === 'scan' ? <Search className="w-6 h-6" /> : <CheckCircle className="w-6 h-6" />}
                 </div>
                 <div className="flex-1">
                   <p className="text-sm text-gray-300 font-medium">{alert.message}</p>
@@ -536,8 +577,8 @@ export default function SecureT() {
                   alert.type === 'warning' ? 'text-yellow-400' :
                   'text-blue-400'
                 }`}>
-                  {alert.type === 'critical' ? '🚨' : 
-                   alert.type === 'warning' ? '⚠️' : 'ℹ️'}
+                  {alert.type === 'critical' ? <AlertCircle className="w-5 h-5" /> : 
+                   alert.type === 'warning' ? <AlertTriangle className="w-5 h-5" /> : <Info className="w-5 h-5" />}
                 </div>
                 <div className="flex-1">
                   <p className="text-sm text-gray-300 font-medium">{alert.message}</p>
@@ -567,8 +608,8 @@ export default function SecureT() {
                   alert.type === 'firewall' ? 'text-orange-400' :
                   'text-green-400'
                 }`}>
-                  {alert.type === 'encryption' ? '🔐' : 
-                   alert.type === 'firewall' ? '🔥' : '💾'}
+                  {alert.type === 'encryption' ? <Lock className="w-5 h-5" /> : 
+                   alert.type === 'firewall' ? <Flame className="w-5 h-5" /> : <HardDrive className="w-5 h-5" />}
                 </div>
                 <div className="flex-1">
                   <p className="text-sm text-gray-300 font-medium">{alert.message}</p>
@@ -598,8 +639,8 @@ export default function SecureT() {
                   alert.type === 'network' ? 'text-cyan-400' :
                   'text-pink-400'
                 }`}>
-                  {alert.type === 'system' ? '🖥️' : 
-                   alert.type === 'network' ? '🌐' : '📁'}
+                  {alert.type === 'system' ? <Monitor className="w-5 h-5" /> : 
+                   alert.type === 'network' ? <Globe className="w-5 h-5" /> : <Folder className="w-5 h-5" />}
                 </div>
                 <div className="flex-1">
                   <p className="text-xs text-gray-300 font-medium">{alert.message}</p>
@@ -625,8 +666,8 @@ export default function SecureT() {
                   alert.type === 'network' ? 'text-cyan-400' :
                   'text-pink-400'
                 }`}>
-                  {alert.type === 'system' ? '🖥️' : 
-                   alert.type === 'network' ? '🌐' : '📁'}
+                  {alert.type === 'system' ? <Monitor className="w-5 h-5" /> : 
+                   alert.type === 'network' ? <Globe className="w-5 h-5" /> : <Folder className="w-5 h-5" />}
                 </div>
                 <div className="flex-1">
                   <p className="text-xs text-gray-300 font-medium">{alert.message}</p>
@@ -654,7 +695,7 @@ export default function SecureT() {
             <div className="space-y-6">
               <div className="glass-effect p-6 rounded-lg border border-red-500/30">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="text-red-400 text-3xl animate-pulse-secure">🛡️</div>
+                  <div className="text-red-400 text-3xl animate-pulse-secure"><Shield className="w-8 h-8" /></div>
                   <h3 className="text-xl font-bold">Многоуровневая защита</h3>
                 </div>
                 <p className="text-gray-300">
@@ -665,7 +706,7 @@ export default function SecureT() {
 
               <div className="glass-effect p-6 rounded-lg border border-orange-500/30">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="text-orange-400 text-3xl animate-pulse-secure">⚡</div>
+                  <div className="text-orange-400 text-3xl animate-pulse-secure"><Zap className="w-8 h-8" /></div>
                   <h3 className="text-xl font-bold">Быстрое реагирование</h3>
                 </div>
                 <p className="text-gray-300">
@@ -676,7 +717,7 @@ export default function SecureT() {
 
               <div className="glass-effect p-6 rounded-lg border border-yellow-500/30">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="text-yellow-400 text-3xl animate-pulse-secure">🔧</div>
+                  <div className="text-yellow-400 text-3xl animate-pulse-secure"><Settings className="w-8 h-8" /></div>
                   <h3 className="text-xl font-bold">Простота внедрения</h3>
                 </div>
                 <p className="text-gray-300">
@@ -688,7 +729,7 @@ export default function SecureT() {
 
             <div className="space-y-6">
               <div className="glass-effect p-8 rounded-lg border border-purple-500/30 text-center">
-                <div className="text-purple-400 text-5xl mb-4 animate-pulse-secure">🎯</div>
+                <div className="text-purple-400 text-5xl mb-4 animate-pulse-secure"><Target className="w-12 h-12" /></div>
                 <h3 className="text-2xl font-bold mb-4">Основная цель</h3>
                 <p className="text-gray-300 text-lg">
                   Обеспечить максимальную защиту корпоративных данных при сохранении 
@@ -720,7 +761,7 @@ export default function SecureT() {
                 <details className="group">
                   <summary className="flex items-center justify-between cursor-pointer">
                     <h4 className="text-lg font-semibold text-red-400">Что включает в себя система SECURE-T?</h4>
-                    <div className="text-red-400 text-xl group-open:rotate-180 transition-transform">▼</div>
+                    <div className="text-red-400 text-xl group-open:rotate-180 transition-transform"><ChevronDown className="w-5 h-5" /></div>
                   </summary>
                   <div className="mt-4 text-gray-300 space-y-3">
                     <p>SECURE-T включает в себя:</p>
@@ -739,7 +780,7 @@ export default function SecureT() {
                 <details className="group">
                   <summary className="flex items-center justify-between cursor-pointer">
                     <h4 className="text-lg font-semibold text-orange-400">Как быстро можно внедрить SECURE-T?</h4>
-                    <div className="text-orange-400 text-xl group-open:rotate-180 transition-transform">▼</div>
+                    <div className="text-orange-400 text-xl group-open:rotate-180 transition-transform"><ChevronDown className="w-5 h-5" /></div>
                   </summary>
                   <div className="mt-4 text-gray-300">
                     <p>
@@ -756,7 +797,7 @@ export default function SecureT() {
                 <details className="group">
                   <summary className="flex items-center justify-between cursor-pointer">
                     <h4 className="text-lg font-semibold text-yellow-400">Какие требования к системе для работы SECURE-T?</h4>
-                    <div className="text-yellow-400 text-xl group-open:rotate-180 transition-transform">▼</div>
+                    <div className="text-yellow-400 text-xl group-open:rotate-180 transition-transform"><ChevronDown className="w-5 h-5" /></div>
                   </summary>
                   <div className="mt-4 text-gray-300">
                     <p>
@@ -772,7 +813,7 @@ export default function SecureT() {
                 <details className="group">
                   <summary className="flex items-center justify-between cursor-pointer">
                     <h4 className="text-lg font-semibold text-green-400">Предоставляется ли техническая поддержка?</h4>
-                    <div className="text-green-400 text-xl group-open:rotate-180 transition-transform">▼</div>
+                    <div className="text-green-400 text-xl group-open:rotate-180 transition-transform"><ChevronDown className="w-5 h-5" /></div>
                   </summary>
                   <div className="mt-4 text-gray-300">
                     <p>
@@ -788,7 +829,7 @@ export default function SecureT() {
                 <details className="group">
                   <summary className="flex items-center justify-between cursor-pointer">
                     <h4 className="text-lg font-semibold text-purple-400">Можно ли получить демо-версию для тестирования?</h4>
-                    <div className="text-purple-400 text-xl group-open:rotate-180 transition-transform">▼</div>
+                    <div className="text-purple-400 text-xl group-open:rotate-180 transition-transform"><ChevronDown className="w-5 h-5" /></div>
                   </summary>
                   <div className="mt-4 text-gray-300">
                     <p>
@@ -823,7 +864,7 @@ export default function SecureT() {
               }}
               className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105 cursor-pointer"
             >
-              <div className="text-red-400 text-4xl mb-4 group-hover:animate-pulse-secure">🔐</div>
+              <div className="text-red-400 text-4xl mb-4 group-hover:animate-pulse-secure"><Lock className="w-10 h-10" /></div>
               <h3 className="text-xl font-bold mb-4">Криптографическая защита</h3>
               <p className="text-gray-300">
                 Современные алгоритмы шифрования для защиты конфиденциальных данных
@@ -847,7 +888,7 @@ export default function SecureT() {
               }}
               className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105 cursor-pointer"
             >
-              <div className="text-orange-400 text-4xl mb-4 group-hover:animate-pulse-secure">🛡️</div>
+              <div className="text-orange-400 text-4xl mb-4 group-hover:animate-pulse-secure"><Shield className="w-10 h-10" /></div>
               <h3 className="text-xl font-bold mb-4">Сетевая безопасность</h3>
               <p className="text-gray-300">
                 Комплексная защита сетевой инфраструктуры от внешних угроз
@@ -871,7 +912,7 @@ export default function SecureT() {
               }}
               className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105 cursor-pointer"
             >
-              <div className="text-yellow-400 text-4xl mb-4 group-hover:animate-pulse-secure">📊</div>
+              <div className="text-yellow-400 text-4xl mb-4 group-hover:animate-pulse-secure"><Eye className="w-10 h-10" /></div>
               <h3 className="text-xl font-bold mb-4">Мониторинг безопасности</h3>
               <p className="text-gray-300">
                 Системы мониторинга и анализа инцидентов информационной безопасности
@@ -895,7 +936,7 @@ export default function SecureT() {
               }}
               className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105 cursor-pointer"
             >
-              <div className="text-purple-400 text-4xl mb-4 group-hover:animate-pulse-secure">🔍</div>
+              <div className="text-purple-400 text-4xl mb-4 group-hover:animate-pulse-secure"><Search className="w-10 h-10" /></div>
               <h3 className="text-xl font-bold mb-4">Аудит безопасности</h3>
               <p className="text-gray-300">
                 Проведение комплексного аудита систем информационной безопасности
@@ -919,7 +960,7 @@ export default function SecureT() {
               }}
               className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105 cursor-pointer"
             >
-              <div className="text-blue-400 text-4xl mb-4 group-hover:animate-pulse-secure">⚙️</div>
+              <div className="text-blue-400 text-4xl mb-4 group-hover:animate-pulse-secure"><Settings className="w-10 h-10" /></div>
               <h3 className="text-xl font-bold mb-4">Интеграция систем</h3>
               <p className="text-gray-300">
                 Интеграция решений безопасности с существующей IT-инфраструктурой
@@ -943,7 +984,7 @@ export default function SecureT() {
               }}
               className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group hover:scale-105 cursor-pointer"
             >
-              <div className="text-green-400 text-4xl mb-4 group-hover:animate-pulse-secure">📚</div>
+              <div className="text-green-400 text-4xl mb-4 group-hover:animate-pulse-secure"><BookOpen className="w-10 h-10" /></div>
               <h3 className="text-xl font-bold mb-4">Обучение персонала</h3>
               <p className="text-gray-300">
                 Программы обучения сотрудников основам информационной безопасности
@@ -1001,7 +1042,7 @@ export default function SecureT() {
       <section className="section-padding bg-gradient-to-r from-red-900/20 to-orange-900/20">
         <div className="max-w-4xl mx-auto px-4">
           <div className="glass-effect p-12 rounded-lg text-center border border-red-500/30 animate-secure-glow">
-            <div className="text-red-400 text-6xl mb-6 animate-pulse-secure">📚</div>
+            <div className="text-red-400 text-6xl mb-6 animate-pulse-secure"><BookOpen className="w-16 h-16" /></div>
             <h2 className="text-4xl font-bold mb-6">
               Полная <span className="gradient-text">документация</span>
             </h2>
@@ -1017,7 +1058,7 @@ export default function SecureT() {
                 rel="noopener noreferrer"
                 className="px-8 py-4 bg-red-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:bg-red-600 active:scale-95 flex items-center justify-center gap-2 animate-pulse-secure"
               >
-                <span>📖</span>
+                <span><FileText className="w-5 h-5" /></span>
                 Открыть документацию
               </a>
               <a 
@@ -1026,14 +1067,14 @@ export default function SecureT() {
                 rel="noopener noreferrer"
                 className="px-8 py-4 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2"
               >
-                <span>🚀</span>
+                <span><Rocket className="w-5 h-5" /></span>
                 Быстрый старт
               </a>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 text-left">
               <div className="glass-effect p-6 rounded-lg border border-red-500/20 group hover:scale-105 transition-all duration-300">
-                <div className="text-red-400 text-2xl mb-3 group-hover:animate-pulse-secure">🔧</div>
+                <div className="text-red-400 text-2xl mb-3 group-hover:animate-pulse-secure"><Wrench className="w-6 h-6" /></div>
                 <h4 className="font-bold mb-2">Установка и настройка</h4>
                 <p className="text-gray-300 text-sm">
                   Пошаговые инструкции по установке и первоначальной настройке системы
@@ -1041,7 +1082,7 @@ export default function SecureT() {
               </div>
 
               <div className="glass-effect p-6 rounded-lg border border-orange-500/20 group hover:scale-105 transition-all duration-300">
-                <div className="text-orange-400 text-2xl mb-3 group-hover:animate-pulse-secure">⚙️</div>
+                <div className="text-orange-400 text-2xl mb-3 group-hover:animate-pulse-secure"><Settings className="w-6 h-6" /></div>
                 <h4 className="font-bold mb-2">Конфигурация</h4>
                 <p className="text-gray-300 text-sm">
                   Подробные примеры конфигураций для различных сценариев использования
@@ -1049,7 +1090,7 @@ export default function SecureT() {
               </div>
 
               <div className="glass-effect p-6 rounded-lg border border-yellow-500/20 group hover:scale-105 transition-all duration-300">
-                <div className="text-yellow-400 text-2xl mb-3 group-hover:animate-pulse-secure">🚀</div>
+                <div className="text-yellow-400 text-2xl mb-3 group-hover:animate-pulse-secure"><Rocket className="w-6 h-6" /></div>
                 <h4 className="font-bold mb-2">API и интеграция</h4>
                 <p className="text-gray-300 text-sm">
                   Руководство по использованию API и интеграции с внешними системами
@@ -1074,7 +1115,7 @@ export default function SecureT() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group">
-              <div className="text-blue-400 text-4xl mb-4 group-hover:animate-pulse-secure">🏆</div>
+              <div className="text-blue-400 text-4xl mb-4 group-hover:animate-pulse-secure"><Trophy className="w-10 h-10" /></div>
               <h3 className="text-xl font-bold mb-4">Сертификат ФСТЭК</h3>
               <p className="text-gray-300 mb-4">
                 Сертификат соответствия требованиям безопасности информации № РОСС RU.0001.01БИ00 от 15.03.2024
@@ -1094,7 +1135,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group">
-              <div className="text-green-400 text-4xl mb-4 group-hover:animate-pulse-secure">🛡️</div>
+              <div className="text-green-400 text-4xl mb-4 group-hover:animate-pulse-secure"><Shield className="w-10 h-10" /></div>
               <h3 className="text-xl font-bold mb-4">Лицензия ФСБ</h3>
               <p className="text-gray-300 mb-4">
                 Лицензия на разработку и производство средств защиты конфиденциальной информации № 149 от 22.08.2023
@@ -1114,7 +1155,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group">
-              <div className="text-purple-400 text-4xl mb-4 group-hover:animate-pulse-secure">🌍</div>
+              <div className="text-purple-400 text-4xl mb-4 group-hover:animate-pulse-secure"><Globe2 className="w-10 h-10" /></div>
               <h3 className="text-xl font-bold mb-4">ISO 27001:2013</h3>
               <p className="text-gray-300 mb-4">
                 Международный стандарт системы менеджмента информационной безопасности
@@ -1134,7 +1175,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group">
-              <div className="text-red-400 text-4xl mb-4 group-hover:animate-pulse-secure">📋</div>
+              <div className="text-red-400 text-4xl mb-4 group-hover:animate-pulse-secure"><FileText className="w-10 h-10" /></div>
               <h3 className="text-xl font-bold mb-4">Реестр Минпромторга</h3>
               <p className="text-gray-300 mb-4">
                 Включение в единый реестр российских программ для ЭВМ и баз данных
@@ -1154,7 +1195,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group">
-              <div className="text-yellow-400 text-4xl mb-4 group-hover:animate-pulse-secure">✅</div>
+              <div className="text-yellow-400 text-4xl mb-4 group-hover:animate-pulse-secure"><CheckSquare className="w-10 h-10" /></div>
               <h3 className="text-xl font-bold mb-4">Соответствие ГОСТ</h3>
               <p className="text-gray-300 mb-4">
                 Соответствие требованиям ГОСТ Р 50922-2006, ГОСТ Р 51241-2017 и другим стандартам
@@ -1174,7 +1215,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 group">
-              <div className="text-cyan-400 text-4xl mb-4 group-hover:animate-pulse-secure">🔐</div>
+              <div className="text-cyan-400 text-4xl mb-4 group-hover:animate-pulse-secure"><Key className="w-10 h-10" /></div>
               <h3 className="text-xl font-bold mb-4">Криптографические алгоритмы</h3>
               <p className="text-gray-300 mb-4">
                 Использование сертифицированных отечественных криптографических алгоритмов
@@ -1230,7 +1271,7 @@ export default function SecureT() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
-              <div className="text-blue-400 text-3xl mb-4 group-hover:animate-pulse-secure">📚</div>
+              <div className="text-blue-400 text-3xl mb-4 group-hover:animate-pulse-secure"><BookOpen className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Руководство пользователя</h4>
               <p className="text-gray-300 mb-4">Подробное руководство по работе с интерфейсом и основными функциями</p>
               <ul className="text-sm text-gray-400 mb-4 space-y-1">
@@ -1251,7 +1292,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
-              <div className="text-green-400 text-3xl mb-4 group-hover:animate-pulse-secure">⚙️</div>
+              <div className="text-green-400 text-3xl mb-4 group-hover:animate-pulse-secure"><Settings className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Руководство администратора</h4>
               <p className="text-gray-300 mb-4">Техническое руководство для системных администраторов</p>
               <ul className="text-sm text-gray-400 mb-4 space-y-1">
@@ -1272,7 +1313,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
-              <div className="text-purple-400 text-3xl mb-4 group-hover:animate-pulse-secure">🎥</div>
+              <div className="text-purple-400 text-3xl mb-4 group-hover:animate-pulse-secure"><Video className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Видеоуроки</h4>
               <p className="text-gray-300 mb-4">Серия обучающих видеороликов для быстрого освоения</p>
               <ul className="text-sm text-gray-400 mb-4 space-y-1">
@@ -1293,7 +1334,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
-              <div className="text-red-400 text-3xl mb-4 group-hover:animate-pulse-secure">🎓</div>
+              <div className="text-red-400 text-3xl mb-4 group-hover:animate-pulse-secure"><GraduationCap className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Онлайн-курсы</h4>
               <p className="text-gray-300 mb-4">Интерактивные курсы с практическими заданиями</p>
               <ul className="text-sm text-gray-400 mb-4 space-y-1">
@@ -1314,7 +1355,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
-              <div className="text-yellow-400 text-3xl mb-4 group-hover:animate-pulse-secure">🔧</div>
+              <div className="text-yellow-400 text-3xl mb-4 group-hover:animate-pulse-secure"><Wrench className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Практические сценарии</h4>
               <p className="text-gray-300 mb-4">Готовые сценарии для типовых задач безопасности</p>
               <ul className="text-sm text-gray-400 mb-4 space-y-1">
@@ -1335,7 +1376,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
-              <div className="text-cyan-400 text-3xl mb-4 group-hover:animate-pulse-secure">📞</div>
+              <div className="text-cyan-400 text-3xl mb-4 group-hover:animate-pulse-secure"><Headphones className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Персональное обучение</h4>
               <p className="text-gray-300 mb-4">Индивидуальные занятия с экспертом по безопасности</p>
               <ul className="text-sm text-gray-400 mb-4 space-y-1">
@@ -1376,28 +1417,28 @@ export default function SecureT() {
                 <h3 className="text-2xl font-bold mb-6 text-green-400">Соответствие требованиям 44-ФЗ и 223-ФЗ</h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
-                    <div className="text-green-400 text-xl">✅</div>
+                    <div className="text-green-400 text-xl"><CheckCircle className="w-5 h-5" /></div>
                     <div>
                       <h4 className="font-semibold mb-2">Реестр отечественного ПО</h4>
                       <p className="text-gray-300 text-sm">Включен в единый реестр российских программ (№14158)</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <div className="text-green-400 text-xl">✅</div>
+                    <div className="text-green-400 text-xl"><CheckCircle className="w-5 h-5" /></div>
                     <div>
                       <h4 className="font-semibold mb-2">Импортозамещение</h4>
                       <p className="text-gray-300 text-sm">100% российская разработка без зарубежных компонентов</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <div className="text-green-400 text-xl">✅</div>
+                    <div className="text-green-400 text-xl"><CheckCircle className="w-5 h-5" /></div>
                     <div>
                       <h4 className="font-semibold mb-2">Техническая поддержка</h4>
                       <p className="text-gray-300 text-sm">Гарантированная поддержка на территории РФ</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <div className="text-green-400 text-xl">✅</div>
+                    <div className="text-green-400 text-xl"><CheckCircle className="w-5 h-5" /></div>
                     <div>
                       <h4 className="font-semibold mb-2">Сертификация</h4>
                       <p className="text-gray-300 text-sm">Все необходимые сертификаты ФСТЭК и лицензии ФСБ</p>
@@ -1431,7 +1472,7 @@ export default function SecureT() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
                     <div className="flex items-center space-x-3">
-                      <span className="text-2xl">📋</span>
+                      <span className="text-2xl"><ClipboardList className="w-6 h-6" /></span>
                       <div>
                         <p className="font-medium">Коммерческое предложение</p>
                         <p className="text-sm text-gray-400">Готовое КП для госзакупок</p>
@@ -1450,7 +1491,7 @@ export default function SecureT() {
 
                   <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
                     <div className="flex items-center space-x-3">
-                      <span className="text-2xl">📊</span>
+                      <span className="text-2xl"><FileSpreadsheet className="w-6 h-6" /></span>
                       <div>
                         <p className="font-medium">Техническое задание</p>
                         <p className="text-sm text-gray-400">Образец ТЗ для тендера</p>
@@ -1469,7 +1510,7 @@ export default function SecureT() {
 
                   <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
                     <div className="flex items-center space-x-3">
-                      <span className="text-2xl">📑</span>
+                      <span className="text-2xl"><FileCheck className="w-6 h-6" /></span>
                       <div>
                         <p className="font-medium">Пакет документов</p>
                         <p className="text-gray-400 text-sm">Все сертификаты и лицензии</p>
@@ -1488,7 +1529,7 @@ export default function SecureT() {
 
                   <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
                     <div className="flex items-center space-x-3">
-                      <span className="text-2xl">💰</span>
+                      <span className="text-2xl"><DollarSign className="w-6 h-6" /></span>
                       <div>
                         <p className="font-medium">Прайс-лист</p>
                         <p className="text-sm text-gray-400">Актуальные цены и условия</p>
@@ -1575,7 +1616,7 @@ export default function SecureT() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-blue-400 text-3xl mb-4">📄</div>
+              <div className="text-blue-400 text-3xl mb-4"><FileText className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Техническая документация</h4>
               <p className="text-gray-300 mb-4">Подробные руководства по внедрению и настройке</p>
               <button 
@@ -1590,7 +1631,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-green-400 text-3xl mb-4">🎯</div>
+              <div className="text-green-400 text-3xl mb-4"><Target className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Методические материалы</h4>
               <p className="text-gray-300 mb-4">Лучшие практики информационной безопасности</p>
               <button 
@@ -1605,7 +1646,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-purple-400 text-3xl mb-4">🔧</div>
+              <div className="text-purple-400 text-3xl mb-4"><Wrench className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Инструменты настройки</h4>
               <p className="text-gray-300 mb-4">Утилиты для конфигурирования системы</p>
               <button 
@@ -1620,7 +1661,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-red-400 text-3xl mb-4">📊</div>
+              <div className="text-red-400 text-3xl mb-4"><Eye className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Отчеты и аналитика</h4>
               <p className="text-gray-300 mb-4">Шаблоны отчетов и аналитические данные</p>
               <button 
@@ -1635,7 +1676,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-yellow-400 text-3xl mb-4">🎓</div>
+              <div className="text-yellow-400 text-3xl mb-4"><GraduationCap className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Обучающие материалы</h4>
               <p className="text-gray-300 mb-4">Курсы и тренинги по безопасности</p>
               <button 
@@ -1650,7 +1691,7 @@ export default function SecureT() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-cyan-400 text-3xl mb-4">📋</div>
+              <div className="text-cyan-400 text-3xl mb-4"><Award className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Сертификаты и лицензии</h4>
               <p className="text-gray-300 mb-4">Документы о соответствии стандартам</p>
               <button 
@@ -1847,23 +1888,23 @@ export default function SecureT() {
             <div className="mb-6">
               <h3 className="text-lg font-semibold text-orange-400 mb-4">Доступная документация:</h3>
               <div className="space-y-3">
-                <div className="flex items-center space-x-3 p-3 bg-gray-800 rounded-lg">
-                  <span className="text-2xl">📚</span>
-                  <div>
+                <div className="flex items-start p-3 bg-gray-800 rounded-lg">
+                  <BookOpen className="w-6 h-6 text-orange-400 modal-documentation-icon flex-shrink-0 mt-0.5" />
+                  <div className="ml-3">
                     <p className="text-white font-medium">Полная документация</p>
                     <p className="text-gray-400 text-sm">Техническое руководство</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-3 p-3 bg-gray-800 rounded-lg">
-                  <span className="text-2xl">🚀</span>
-                  <div>
+                <div className="flex items-start p-3 bg-gray-800 rounded-lg">
+                  <Rocket className="w-6 h-6 text-orange-400 modal-documentation-icon flex-shrink-0 mt-0.5" />
+                  <div className="ml-3">
                     <p className="text-white font-medium">Быстрый старт</p>
                     <p className="text-gray-400 text-sm">Руководство по установке</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-3 p-3 bg-gray-800 rounded-lg">
-                  <span className="text-2xl">⚙️</span>
-                  <div>
+                <div className="flex items-start p-3 bg-gray-800 rounded-lg">
+                  <Settings className="w-6 h-6 text-orange-400 modal-documentation-icon flex-shrink-0 mt-0.5" />
+                  <div className="ml-3">
                     <p className="text-white font-medium">Примеры конфигураций</p>
                     <p className="text-gray-400 text-sm">Готовые настройки</p>
                   </div>

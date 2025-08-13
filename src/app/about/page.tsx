@@ -2,6 +2,138 @@
 
 import { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
+import { 
+  User, 
+  Code, 
+  UserCog, 
+  Wrench, 
+  Palette, 
+  ClipboardList, 
+  Monitor, 
+  Utensils, 
+  Handshake, 
+  TestTube, 
+  Rocket, 
+  Calendar,
+  Briefcase,
+  Settings,
+  Users,
+  Building2,
+  Award,
+  Target,
+  Lightbulb,
+  Zap,
+  Star,
+  CheckCircle,
+  TrendingUp,
+  Globe,
+  Shield,
+  Database,
+  Server,
+  Cpu,
+  Network,
+  Smartphone,
+  Tablet,
+  Laptop,
+  Printer,
+  Camera,
+  Headphones,
+  Keyboard,
+  Mouse,
+  HardDrive,
+  Wifi,
+  Bluetooth,
+  Usb,
+  Power,
+  Battery,
+  Volume2,
+  Mic,
+  Video,
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  DollarSign,
+  FileText,
+  Package,
+  Truck,
+  Home,
+  CheckSquare,
+  AlertCircle,
+  Info,
+  HelpCircle,
+  BookOpen,
+  GraduationCap,
+  Trophy,
+  Medal,
+  Crown,
+  Heart,
+  ThumbsUp,
+  MessageSquare,
+  PhoneCall,
+  MailOpen,
+  Send,
+  Download,
+  Upload,
+  Share2,
+  Link,
+  ExternalLink,
+  ArrowRight,
+  ArrowLeft,
+  ChevronRight,
+  ChevronLeft,
+  Plus,
+  Minus,
+  X,
+  Search,
+  Filter,
+  SortAsc,
+  SortDesc,
+  Eye,
+  EyeOff,
+  Lock,
+  Unlock,
+  Key,
+  CreditCard,
+  ShoppingCart,
+  ShoppingBag,
+  Tag,
+  Percent,
+  BarChart3,
+  PieChart,
+  LineChart,
+  Activity,
+  TrendingDown,
+  AlertTriangle,
+  XCircle,
+  Check,
+  Circle,
+  Square,
+  Triangle,
+  Hexagon,
+  Octagon,
+  Star as StarIcon,
+  Heart as HeartIcon,
+  Smile,
+  Frown,
+  Meh,
+  ThumbsDown,
+  GitBranch,
+  GitCommit,
+  GitMerge,
+  GitPullRequest,
+  Github,
+  Gitlab,
+  Chrome,
+  Apple,
+  Slack,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube,
+  Twitch
+} from 'lucide-react';
 
 export default function About() {
   const [mounted, setMounted] = useState(false);
@@ -55,7 +187,7 @@ export default function About() {
     {
       name: 'Александр Гундырев',
       role: 'Основатель и CEO',
-      avatar: '👨‍💼',
+      avatar: <User className="w-8 h-8" />,
       skills: ['Стратегия', 'Управление', 'Бизнес-процессы'],
       experience: '10+ лет',
       projects: '200+',
@@ -64,7 +196,7 @@ export default function About() {
     {
       name: 'Мария Петрова',
       role: 'CTO',
-      avatar: '👩‍💻',
+      avatar: <Code className="w-8 h-8" />,
       skills: ['Архитектура', 'DevOps', 'Команда'],
       experience: '8+ лет',
       projects: '150+',
@@ -73,7 +205,7 @@ export default function About() {
     {
       name: 'Дмитрий Козлов',
       role: 'Lead Developer',
-      avatar: '👨‍💻',
+      avatar: <Monitor className="w-8 h-8" />,
       skills: ['React', 'Node.js', 'Python'],
       experience: '6+ лет',
       projects: '100+',
@@ -82,7 +214,7 @@ export default function About() {
     {
       name: 'Елена Смирнова',
       role: 'Project Manager',
-      avatar: '👩‍💼',
+      avatar: <UserCog className="w-8 h-8" />,
       skills: ['Agile', 'Scrum', 'Планирование'],
       experience: '7+ лет',
       projects: '80+',
@@ -91,7 +223,7 @@ export default function About() {
     {
       name: 'Антон Васильев',
       role: 'DevOps Engineer',
-      avatar: '👨‍🔧',
+      avatar: <Wrench className="w-8 h-8" />,
       skills: ['Docker', 'Kubernetes', 'AWS'],
       experience: '5+ лет',
       projects: '60+',
@@ -100,7 +232,7 @@ export default function About() {
     {
       name: 'Ольга Новикова',
       role: 'UX/UI Designer',
-      avatar: '👩‍🎨',
+      avatar: <Palette className="w-8 h-8" />,
       skills: ['Figma', 'Prototyping', 'Research'],
       experience: '4+ лет',
       projects: '90+',
@@ -123,14 +255,14 @@ export default function About() {
   };
 
   const workDayActivities = [
-    { time: '09:00', activity: 'Планирование задач', icon: '📋' },
-    { time: '10:00', activity: 'Разработка', icon: '💻' },
-    { time: '11:30', activity: 'Code Review', icon: '🔍' },
-    { time: '13:00', activity: 'Обед', icon: '🍽️' },
-    { time: '14:00', activity: 'Встреча с клиентом', icon: '🤝' },
-    { time: '15:30', activity: 'Тестирование', icon: '🧪' },
-    { time: '17:00', activity: 'Деплой', icon: '🚀' },
-    { time: '18:00', activity: 'Планирование на завтра', icon: '📅' }
+    { time: '09:00', activity: 'Планирование задач', icon: <ClipboardList className="w-5 h-5" /> },
+    { time: '10:00', activity: 'Разработка', icon: <Monitor className="w-5 h-5" /> },
+    { time: '11:30', activity: 'Code Review', icon: <Search className="w-5 h-5" /> },
+    { time: '13:00', activity: 'Обед', icon: <Utensils className="w-5 h-5" /> },
+    { time: '14:00', activity: 'Встреча с клиентом', icon: <Handshake className="w-5 h-5" /> },
+    { time: '15:30', activity: 'Тестирование', icon: <TestTube className="w-5 h-5" /> },
+    { time: '17:00', activity: 'Деплой', icon: <Rocket className="w-5 h-5" /> },
+    { time: '18:00', activity: 'Планирование на завтра', icon: <Calendar className="w-5 h-5" /> }
   ];
 
   // Автоматическое переключение временной шкалы
@@ -462,12 +594,12 @@ export default function About() {
                 {/* Орбитальные элементы услуг */}
                 <div className="absolute inset-0">
                   {[
-                    { name: 'Разработка ПО', icon: '💻', angle: 0, color: 'text-purple-400' },
-                    { name: 'Электроника', icon: '⚡', angle: 60, color: 'text-cyan-400' },
-                    { name: 'Соловей', icon: '🐦', angle: 120, color: 'text-amber-400' },
-                    { name: 'Secure-T', icon: '🛡️', angle: 180, color: 'text-red-400' },
-                    { name: 'Dr.Web', icon: '🔧', angle: 240, color: 'text-green-400' },
-                    { name: 'UX Софт', icon: '🎨', angle: 300, color: 'text-blue-400' }
+                    { name: 'Разработка ПО', icon: <Monitor className="w-6 h-6" />, angle: 0, color: 'text-purple-400' },
+                    { name: 'Электроника', icon: <Zap className="w-6 h-6" />, angle: 60, color: 'text-cyan-400' },
+                    { name: 'Соловей', icon: <Star className="w-6 h-6" />, angle: 120, color: 'text-amber-400' },
+                    { name: 'Secure-T', icon: <Shield className="w-6 h-6" />, angle: 180, color: 'text-red-400' },
+                    { name: 'Dr.Web', icon: <Wrench className="w-6 h-6" />, angle: 240, color: 'text-green-400' },
+                    { name: 'UX Софт', icon: <Palette className="w-6 h-6" />, angle: 300, color: 'text-blue-400' }
                   ].map((service, index) => (
                     <div
                       key={index}
@@ -479,7 +611,7 @@ export default function About() {
                       }}
                       title={service.name}
                     >
-                      <span className={`text-xl ${service.color}`}>{service.icon}</span>
+                      <div className={`${service.color}`}>{service.icon}</div>
                     </div>
                   ))}
                 </div>
@@ -500,7 +632,7 @@ export default function About() {
               <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">🎯</span>
+                    <Target className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold">Наша миссия</h3>
                 </div>
@@ -512,7 +644,7 @@ export default function About() {
               <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">🚀</span>
+                    <Rocket className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold">Наше видение</h3>
                 </div>
@@ -524,7 +656,7 @@ export default function About() {
               <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">💡</span>
+                    <Lightbulb className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold">Наш подход</h3>
                 </div>
@@ -548,48 +680,48 @@ export default function About() {
                   skills: ['React', 'Node.js', 'Python', 'Mobile Apps'],
                   level: 95,
                   color: 'bg-purple-500',
-                  icon: '🔧'
+                  icon: <Wrench className="w-5 h-5" />
                 },
                 {
                   category: 'Инфраструктура',
                   skills: ['AWS', 'Docker', 'Kubernetes', 'DevOps'],
                   level: 88,
                   color: 'bg-blue-500',
-                  icon: '🏗️'
+                  icon: <Building2 className="w-5 h-5" />
                 },
                 {
                   category: 'Безопасность',
                   skills: ['Secure-T', 'Dr.Web', 'Защита данных'],
                   level: 92,
                   color: 'bg-red-500',
-                  icon: '🛡️'
+                  icon: <Shield className="w-5 h-5" />
                 },
                 {
                   category: 'Поставки',
                   skills: ['Электроника', 'Серверы', 'Госзакупки'],
                   level: 90,
                   color: 'bg-cyan-500',
-                  icon: '📦'
+                  icon: <Package className="w-5 h-5" />
                 },
                 {
                   category: 'Консалтинг',
                   skills: ['Архитектура', 'Планирование', 'Оптимизация'],
                   level: 85,
                   color: 'bg-green-500',
-                  icon: '💼'
+                  icon: <Briefcase className="w-5 h-5" />
                 },
                 {
                   category: 'Поддержка',
                   skills: ['24/7', 'Мониторинг', 'Обслуживание'],
                   level: 97,
                   color: 'bg-amber-500',
-                  icon: '🔧'
+                  icon: <Settings className="w-5 h-5" />
                 }
               ].map((area, index) => (
                 <div key={index} className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 transform hover:scale-105">
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`w-10 h-10 ${area.color} rounded-full flex items-center justify-center`}>
-                      <span className="text-white">{area.icon}</span>
+                      <div className="text-white">{area.icon}</div>
                     </div>
                     <h4 className="text-lg font-bold">{area.category}</h4>
                   </div>
@@ -869,7 +1001,7 @@ export default function About() {
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="glass-effect p-8 rounded-lg text-center hover-glow transition-all duration-300">
-              <div className="text-green-400 text-4xl mb-4">🎯</div>
+              <div className="text-green-400 text-4xl mb-4 flex justify-center"><Target className="w-12 h-12" /></div>
               <h3 className="text-xl font-bold mb-4">Результативность</h3>
               <p className="text-gray-300">
                 Мы ориентированы на достижение конкретных результатов и решение реальных задач бизнеса
@@ -877,7 +1009,7 @@ export default function About() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg text-center hover-glow transition-all duration-300">
-              <div className="text-blue-400 text-4xl mb-4">🔧</div>
+              <div className="text-blue-400 text-4xl mb-4 flex justify-center"><Wrench className="w-12 h-12" /></div>
               <h3 className="text-xl font-bold mb-4">Профессионализм</h3>
               <p className="text-gray-300">
                 Высокая экспертиза и постоянное развитие компетенций в области IT-технологий
@@ -885,7 +1017,7 @@ export default function About() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg text-center hover-glow transition-all duration-300">
-              <div className="text-purple-400 text-4xl mb-4">🤝</div>
+              <div className="text-purple-400 text-4xl mb-4 flex justify-center"><Handshake className="w-12 h-12" /></div>
               <h3 className="text-xl font-bold mb-4">Партнерство</h3>
               <p className="text-gray-300">
                 Долгосрочные отношения с клиентами, основанные на взаимном доверии и понимании
@@ -893,7 +1025,7 @@ export default function About() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg text-center hover-glow transition-all duration-300">
-              <div className="text-yellow-400 text-4xl mb-4">⚡</div>
+              <div className="text-yellow-400 text-4xl mb-4 flex justify-center"><Zap className="w-12 h-12" /></div>
               <h3 className="text-xl font-bold mb-4">Инновации</h3>
               <p className="text-gray-300">
                 Использование передовых технологий и современных подходов к решению задач
@@ -901,7 +1033,7 @@ export default function About() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg text-center hover-glow transition-all duration-300">
-              <div className="text-red-400 text-4xl mb-4">🛡️</div>
+              <div className="text-red-400 text-4xl mb-4 flex justify-center"><Shield className="w-12 h-12" /></div>
               <h3 className="text-xl font-bold mb-4">Надежность</h3>
               <p className="text-gray-300">
                 Гарантированное качество услуг и соблюдение всех договорных обязательств
@@ -909,7 +1041,7 @@ export default function About() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg text-center hover-glow transition-all duration-300">
-              <div className="text-cyan-400 text-4xl mb-4">📈</div>
+              <div className="text-cyan-400 text-4xl mb-4 flex justify-center"><TrendingUp className="w-12 h-12" /></div>
               <h3 className="text-xl font-bold mb-4">Развитие</h3>
               <p className="text-gray-300">
                 Постоянное совершенствование процессов и расширение спектра предоставляемых услуг
@@ -943,7 +1075,7 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-purple-400 text-3xl mb-4">💻</div>
+              <div className="text-purple-400 text-3xl mb-4 flex justify-center"><Monitor className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Разработка ПО</h4>
               <p className="text-gray-300 text-sm mb-4">
                 Веб-приложения, мобильные приложения, десктопные программы
@@ -954,7 +1086,7 @@ export default function About() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-cyan-400 text-3xl mb-4">⚡</div>
+              <div className="text-cyan-400 text-3xl mb-4 flex justify-center"><Zap className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Поставка электроники</h4>
               <p className="text-gray-300 text-sm mb-4">
                 От аксессуаров до серверного оборудования, работа с госзакупками
@@ -964,19 +1096,10 @@ export default function About() {
               </a>
             </div>
 
-            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-blue-400 text-3xl mb-4">🔒</div>
-              <h4 className="text-lg font-bold mb-3">UX Софт</h4>
-              <p className="text-gray-300 text-sm mb-4">
-                Программное обеспечение для улучшения пользовательского опыта
-              </p>
-              <a href="/ux-software" className="text-blue-400 hover:text-blue-300 text-sm font-medium">
-                Подробнее →
-              </a>
-            </div>
+
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-amber-400 text-3xl mb-4">🐦</div>
+              <div className="text-amber-400 text-3xl mb-4 flex justify-center"><Star className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Соловей</h4>
               <p className="text-gray-300 text-sm mb-4">
                 Платформа видеосвязи на поддомене заказчика
@@ -987,7 +1110,7 @@ export default function About() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-red-400 text-3xl mb-4">🛡️</div>
+              <div className="text-red-400 text-3xl mb-4 flex justify-center"><Shield className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Secure-T</h4>
               <p className="text-gray-300 text-sm mb-4">
                 Решения информационной безопасности и защиты данных
@@ -998,7 +1121,7 @@ export default function About() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-green-400 text-3xl mb-4">🔧</div>
+              <div className="text-green-400 text-3xl mb-4 flex justify-center"><Wrench className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">Dr.Web</h4>
               <p className="text-gray-300 text-sm mb-4">
                 Официальный партнер Dr.Web, антивирусные решения
@@ -1009,7 +1132,7 @@ export default function About() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-yellow-400 text-3xl mb-4">🏢</div>
+              <div className="text-yellow-400 text-3xl mb-4 flex justify-center"><Building2 className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">B2B решения</h4>
               <p className="text-gray-300 text-sm mb-4">
                 Корпоративные поставки и индивидуальные условия
@@ -1018,7 +1141,7 @@ export default function About() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-pink-400 text-3xl mb-4">🏛️</div>
+              <div className="text-pink-400 text-3xl mb-4 flex justify-center"><Award className="w-8 h-8" /></div>
               <h4 className="text-lg font-bold mb-3">B2G решения</h4>
               <p className="text-gray-300 text-sm mb-4">
                 Работа с государственными организациями по 44-ФЗ и 223-ФЗ

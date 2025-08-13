@@ -2,6 +2,32 @@
 
 import { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
+import { 
+  Bird, 
+  Lightbulb, 
+  Users, 
+  Monitor, 
+  MessageSquare, 
+  Smartphone, 
+  Shield, 
+  BarChart3, 
+  Palette, 
+  Plug, 
+  Building2, 
+  GraduationCap, 
+  Handshake, 
+  Stethoscope, 
+  Scale, 
+  Landmark, 
+  Wrench, 
+  Tv, 
+  Check, 
+  Video, 
+  Phone, 
+  VolumeX, 
+  Mic, 
+  Volume2 
+} from 'lucide-react';
 
 export default function Solovey() {
   const [isCallActive, setIsCallActive] = useState(false);
@@ -150,7 +176,7 @@ export default function Solovey() {
           <div className="mb-8">
             <div className="inline-flex items-center space-x-4 mb-6">
               <div className="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center relative">
-                <span className="text-black font-bold text-2xl">🐦</span>
+                <Bird className="w-8 h-8 text-black" />
                 {/* Анимированные звуковые линии */}
                 <div className="absolute -right-8 top-1/2 transform -translate-y-1/2">
                   {[...Array(4)].map((_, i) => (
@@ -207,8 +233,9 @@ export default function Solovey() {
           </div>
           
           <div className="glass-effect p-4 rounded-lg inline-block">
-            <p className="text-sm text-gray-400">
-              💡 Устанавливается на поддомене заказчика с нашей технической поддержкой
+            <p className="text-sm text-gray-400 flex items-center gap-2">
+              <Lightbulb className="w-4 h-4 text-amber-400" />
+              Устанавливается на поддомене заказчика с нашей технической поддержкой
             </p>
           </div>
         </div>
@@ -284,7 +311,7 @@ export default function Solovey() {
                       )}
                       {participant.status === 'muted' && (
                         <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
-                          <span className="text-xs">🔇</span>
+                          <VolumeX className="w-3 h-3 text-white" />
                         </div>
                       )}
                     </div>
@@ -295,16 +322,16 @@ export default function Solovey() {
               {/* Панель управления */}
               <div className="flex justify-center gap-4">
                 <button className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">
-                  🎤
+                  <Mic className="w-5 h-5 text-white" />
                 </button>
                 <button className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">
-                  📹
+                  <Video className="w-5 h-5 text-white" />
                 </button>
                 <button className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">
-                  🖥️
+                  <Monitor className="w-5 h-5 text-white" />
                 </button>
                 <button className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
-                  📞
+                  <Phone className="w-5 h-5 text-white" />
                 </button>
               </div>
             </div>
@@ -358,7 +385,7 @@ export default function Solovey() {
               {/* Центральный сервер */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <div className="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center animate-pulse">
-                  <span className="text-black font-bold">🖥️</span>
+                  <Monitor className="w-4 h-4 text-black" />
                 </div>
                 <div className="text-center mt-2 text-sm text-amber-400 font-semibold">
                   Соловей Сервер
@@ -478,7 +505,7 @@ export default function Solovey() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-amber-400 text-4xl mb-4">📹</div>
+              <div className="text-amber-400 text-4xl mb-4 flex justify-center"><Video className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">HD видеосвязь</h3>
               <p className="text-gray-300">
                 Качественная видеосвязь в разрешении до 4K с адаптивной настройкой под канал связи
@@ -486,7 +513,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-yellow-400 text-4xl mb-4">👥</div>
+              <div className="text-yellow-400 text-4xl mb-4 flex justify-center"><Users className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Групповые конференции</h3>
               <p className="text-gray-300">
                 Поддержка до 100 участников одновременно с возможностью модерации
@@ -494,7 +521,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-orange-400 text-4xl mb-4">🖥️</div>
+              <div className="text-orange-400 text-4xl mb-4 flex justify-center"><Monitor className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Демонстрация экрана</h3>
               <p className="text-gray-300">
                 Совместное использование экрана, презентаций и приложений
@@ -502,7 +529,7 @@ export default function Solovey() {
             </div>
 
             <div className="text-green-400 p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-green-400 text-4xl mb-4">💬</div>
+              <div className="text-green-400 text-4xl mb-4 flex justify-center"><MessageSquare className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Чат и файлообмен</h3>
               <p className="text-gray-300">
                 Встроенный чат с возможностью отправки файлов и ссылок
@@ -510,7 +537,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-blue-400 text-4xl mb-4">📱</div>
+              <div className="text-blue-400 text-4xl mb-4 flex justify-center"><Smartphone className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Мультиплатформенность</h3>
               <p className="text-gray-300">
                 Работает в браузере, на мобильных устройствах и десктопе
@@ -518,7 +545,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-purple-400 text-4xl mb-4">🔒</div>
+              <div className="text-purple-400 text-4xl mb-4 flex justify-center"><Shield className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Безопасность</h3>
               <p className="text-gray-300">
                 End-to-end шифрование и защита от несанкционированного доступа
@@ -526,7 +553,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-red-400 text-4xl mb-4">📊</div>
+              <div className="text-red-400 text-4xl mb-4 flex justify-center"><BarChart3 className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Аналитика</h3>
               <p className="text-gray-300">
                 Детальная статистика использования и отчеты по конференциям
@@ -534,7 +561,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-cyan-400 text-4xl mb-4">🎨</div>
+              <div className="text-cyan-400 text-4xl mb-4 flex justify-center"><Palette className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Брендинг</h3>
               <p className="text-gray-300">
                 Настройка интерфейса под корпоративный стиль заказчика
@@ -542,7 +569,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-pink-400 text-4xl mb-4">🔌</div>
+              <div className="text-pink-400 text-4xl mb-4 flex justify-center"><Plug className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">API интеграция</h3>
               <p className="text-gray-300">
                 Возможность интеграции с корпоративными системами через API
@@ -566,7 +593,7 @@ export default function Solovey() {
               <h3 className="text-2xl font-bold mb-6 text-amber-400">На поддомене заказчика</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
-                  <div className="text-amber-400 text-xl mt-1">✓</div>
+                  <Check className="text-amber-400 w-5 h-5 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold mb-2">Ваш домен</h4>
                     <p className="text-gray-300 text-sm">meet.yourcompany.ru или conference.yourcompany.com</p>
@@ -574,7 +601,7 @@ export default function Solovey() {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="text-amber-400 text-xl mt-1">✓</div>
+                  <Check className="text-amber-400 w-5 h-5 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold mb-2">Полный контроль</h4>
                     <p className="text-gray-300 text-sm">Управление пользователями и настройками</p>
@@ -582,7 +609,7 @@ export default function Solovey() {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="text-amber-400 text-xl mt-1">✓</div>
+                  <Check className="text-amber-400 w-5 h-5 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold mb-2">Корпоративный стиль</h4>
                     <p className="text-gray-300 text-sm">Логотип, цвета и дизайн под ваш бренд</p>
@@ -590,7 +617,7 @@ export default function Solovey() {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="text-amber-400 text-xl mt-1">✓</div>
+                  <Check className="text-amber-400 w-5 h-5 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold mb-2">Техподдержка</h4>
                     <p className="text-gray-300 text-sm">Наша команда обеспечивает работу сервиса</p>
@@ -633,7 +660,7 @@ export default function Solovey() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-amber-400 text-3xl mb-4">🏢</div>
+              <div className="text-amber-400 text-3xl mb-4 flex justify-center"><Building2 className="w-6 h-6" /></div>
               <h4 className="text-lg font-bold mb-3">Корпоративные встречи</h4>
               <p className="text-gray-300 text-sm">
                 Планерки, совещания, презентации для сотрудников
@@ -641,7 +668,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-yellow-400 text-3xl mb-4">🎓</div>
+              <div className="text-yellow-400 text-3xl mb-4 flex justify-center"><GraduationCap className="w-6 h-6" /></div>
               <h4 className="text-lg font-bold mb-3">Обучение и тренинги</h4>
               <p className="text-gray-300 text-sm">
                 Дистанционное обучение персонала и клиентов
@@ -649,7 +676,7 @@ export default function Solovey() {
             </div>
 
             <div className="text-green-400 p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-green-400 text-3xl mb-4">🤝</div>
+              <div className="text-green-400 text-3xl mb-4 flex justify-center"><Handshake className="w-6 h-6" /></div>
               <h4 className="text-lg font-bold mb-3">Переговоры с клиентами</h4>
               <p className="text-gray-300 text-sm">
                 Презентации продуктов и услуг потенциальным клиентам
@@ -657,7 +684,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-blue-400 text-3xl mb-4">🏥</div>
+              <div className="text-blue-400 text-3xl mb-4 flex justify-center"><Stethoscope className="w-6 h-6" /></div>
               <h4 className="text-lg font-bold mb-3">Телемедицина</h4>
               <p className="text-gray-300 text-sm">
                 Консультации врачей и медицинские консилиумы
@@ -665,7 +692,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-purple-400 text-3xl mb-4">⚖️</div>
+              <div className="text-purple-400 text-3xl mb-4 flex justify-center"><Scale className="w-6 h-6" /></div>
               <h4 className="text-lg font-bold mb-3">Юридические консультации</h4>
               <p className="text-gray-300 text-sm">
                 Удаленные консультации и судебные заседания
@@ -673,7 +700,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-red-400 text-3xl mb-4">🏛️</div>
+              <div className="text-red-400 text-3xl mb-4 flex justify-center"><Landmark className="w-6 h-6" /></div>
               <h4 className="text-lg font-bold mb-3">Государственные услуги</h4>
               <p className="text-gray-300 text-sm">
                 Прием граждан и межведомственное взаимодействие
@@ -681,7 +708,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-cyan-400 text-3xl mb-4">🔧</div>
+              <div className="text-cyan-400 text-3xl mb-4 flex justify-center"><Wrench className="w-6 h-6" /></div>
               <h4 className="text-lg font-bold mb-3">Техническая поддержка</h4>
               <p className="text-gray-300 text-sm">
                 Удаленная диагностика и решение проблем
@@ -689,7 +716,7 @@ export default function Solovey() {
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-pink-400 text-3xl mb-4">📺</div>
+              <div className="text-pink-400 text-3xl mb-4 flex justify-center"><Tv className="w-6 h-6" /></div>
               <h4 className="text-lg font-bold mb-3">Вебинары и события</h4>
               <p className="text-gray-300 text-sm">
                 Массовые онлайн-мероприятия и конференции

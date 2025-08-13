@@ -3,6 +3,22 @@
 import Navigation from '../components/Navigation';
 import LicenseCalculator from '../components/LicenseCalculator';
 import { useState, useEffect } from 'react';
+import { 
+  Shield, 
+  RefreshCw, 
+  Search, 
+  CheckCircle, 
+  AlertTriangle, 
+  Info, 
+  XCircle, 
+  Smartphone, 
+  Trophy, 
+  Monitor, 
+  Building2, 
+  Globe, 
+  Cloud, 
+  Wrench 
+} from 'lucide-react';
 
 export default function DrWeb() {
   // Добавляем стили для анимации
@@ -337,8 +353,8 @@ export default function DrWeb() {
                   notification.type === 'update' ? 'text-blue-400' :
                   'text-green-400'
                 }`}>
-                  {notification.type === 'threat' ? '🛡️' : 
-                   notification.type === 'update' ? '🔄' : '🔍'}
+                  {notification.type === 'threat' ? <Shield className="w-5 h-5" /> : 
+                   notification.type === 'update' ? <RefreshCw className="w-5 h-5" /> : <Search className="w-5 h-5" />}
                 </div>
                 <div>
                   <p className="text-sm text-gray-300">{notification.message}</p>
@@ -367,9 +383,9 @@ export default function DrWeb() {
                   alert.type === 'warning' ? 'text-yellow-400' :
                   alert.type === 'info' ? 'text-blue-400' : 'text-red-400'
                 }`}>
-                  {alert.type === 'success' ? '✅' : 
-                   alert.type === 'warning' ? '⚠️' : 
-                   alert.type === 'info' ? 'ℹ️' : '❌'}
+                   {alert.type === 'success' ? <CheckCircle className="w-5 h-5" /> : 
+                    alert.type === 'warning' ? <AlertTriangle className="w-5 h-5" /> : 
+                    alert.type === 'info' ? <Info className="w-5 h-5" /> : <XCircle className="w-5 h-5" />}
                 </div>
                 <p className="text-sm text-gray-300">{alert.message}</p>
               </div>
@@ -395,9 +411,9 @@ export default function DrWeb() {
                   alert.type === 'warning' ? 'text-yellow-400' :
                   alert.type === 'info' ? 'text-blue-400' : 'text-red-400'
                 }`}>
-                  {alert.type === 'success' ? '✅' : 
-                   alert.type === 'warning' ? '⚠️' : 
-                   alert.type === 'info' ? 'ℹ️' : '❌'}
+                   {alert.type === 'success' ? <CheckCircle className="w-5 h-5" /> : 
+                    alert.type === 'warning' ? <AlertTriangle className="w-5 h-5" /> : 
+                    alert.type === 'info' ? <Info className="w-5 h-5" /> : <XCircle className="w-5 h-5" />}
                 </div>
                 <p className="text-sm text-gray-300">{alert.message}</p>
               </div>
@@ -423,9 +439,9 @@ export default function DrWeb() {
                   alert.type === 'warning' ? 'text-yellow-400' :
                   alert.type === 'info' ? 'text-blue-400' : 'text-red-400'
                 }`}>
-                  {alert.type === 'success' ? '✅' : 
-                   alert.type === 'warning' ? '⚠️' : 
-                   alert.type === 'info' ? 'ℹ️' : '❌'}
+                   {alert.type === 'success' ? <CheckCircle className="w-5 h-5" /> : 
+                    alert.type === 'warning' ? <AlertTriangle className="w-5 h-5" /> : 
+                    alert.type === 'info' ? <Info className="w-5 h-5" /> : <XCircle className="w-5 h-5" />}
                 </div>
                 <p className="text-sm text-gray-300">{alert.message}</p>
               </div>
@@ -446,7 +462,7 @@ export default function DrWeb() {
           {/* Анимированная статистика */}
           <div className="grid md:grid-cols-4 gap-8 mb-16">
             <div className="glass-effect p-8 rounded-lg text-center hover-glow transition-all duration-300 border border-green-500/30">
-              <div className="text-green-400 text-4xl mb-4">🛡️</div>
+              <div className="text-green-400 text-4xl mb-4 flex justify-center"><Shield className="w-8 h-8" /></div>
               <div className="text-3xl font-bold text-green-400 mb-2">
                 {stats.threatsBlocked.toLocaleString()}+
               </div>
@@ -457,7 +473,7 @@ export default function DrWeb() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg text-center hover-glow transition-all duration-300 border border-green-500/30">
-              <div className="text-green-400 text-4xl mb-4">📱</div>
+              <div className="text-green-400 text-4xl mb-4 flex justify-center"><Smartphone className="w-8 h-8" /></div>
               <div className="text-3xl font-bold text-green-400 mb-2">
                 {stats.devicesProtected.toLocaleString()}+
               </div>
@@ -468,7 +484,7 @@ export default function DrWeb() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg text-center hover-glow transition-all duration-300 border border-green-500/30">
-              <div className="text-green-400 text-4xl mb-4">🔄</div>
+              <div className="text-green-400 text-4xl mb-4 flex justify-center"><RefreshCw className="w-8 h-8" /></div>
               <div className="text-3xl font-bold text-green-400 mb-2">
                 {stats.updatesDaily.toLocaleString()}+
               </div>
@@ -479,7 +495,7 @@ export default function DrWeb() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg text-center hover-glow transition-all duration-300 border border-green-500/30">
-              <div className="text-green-400 text-4xl mb-4">🏆</div>
+              <div className="text-green-400 text-4xl mb-4 flex justify-center"><Trophy className="w-8 h-8" /></div>
               <div className="text-3xl font-bold text-green-400 mb-2">
                 {stats.yearsExperience}+
               </div>
@@ -508,7 +524,7 @@ export default function DrWeb() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 border-l-4 border-green-500 group hover:scale-105 hover:border-green-400">
-              <div className="text-green-400 text-4xl mb-4 group-hover:animate-bounce">🖥️</div>
+              <div className="text-green-400 text-4xl mb-4 group-hover:animate-bounce"><Monitor className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4 group-hover:text-green-300 transition-colors">Dr.Web Security Space</h3>
               <p className="text-gray-300 mb-4">
                 Комплексная защита для домашних компьютеров и ноутбуков
@@ -533,7 +549,7 @@ export default function DrWeb() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 border-l-4 border-green-500 group hover:scale-105 hover:border-green-400">
-              <div className="text-green-400 text-4xl mb-4 group-hover:animate-bounce">🏢</div>
+              <div className="text-green-400 text-4xl mb-4 group-hover:animate-bounce"><Building2 className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4 group-hover:text-green-300 transition-colors">Dr.Web Enterprise Suite</h3>
               <p className="text-gray-300 mb-4">
                 Корпоративное решение для защиты бизнеса
@@ -558,7 +574,7 @@ export default function DrWeb() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 border-l-4 border-green-500 group hover:scale-105 hover:border-green-400">
-              <div className="text-green-400 text-4xl mb-4 group-hover:animate-bounce">📱</div>
+              <div className="text-green-400 text-4xl mb-4 group-hover:animate-bounce"><Smartphone className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4 group-hover:text-green-300 transition-colors">Dr.Web Mobile Security</h3>
               <p className="text-gray-300 mb-4">
                 Защита мобильных устройств Android и iOS
@@ -583,7 +599,7 @@ export default function DrWeb() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 border-l-4 border-green-500 group hover:scale-105 hover:border-green-400">
-              <div className="text-green-400 text-4xl mb-4 group-hover:animate-bounce">🌐</div>
+              <div className="text-green-400 text-4xl mb-4 group-hover:animate-bounce"><Globe className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4 group-hover:text-green-300 transition-colors">Dr.Web Gateway Security</h3>
               <p className="text-gray-300 mb-4">
                 Защита интернет-шлюзов и почтовых серверов
@@ -608,7 +624,7 @@ export default function DrWeb() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 border-l-4 border-green-500 group hover:scale-105 hover:border-green-400">
-              <div className="text-green-400 text-4xl mb-4 group-hover:animate-bounce">☁️</div>
+              <div className="text-green-400 text-4xl mb-4 group-hover:animate-bounce"><Cloud className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4 group-hover:text-green-300 transition-colors">Dr.Web Cloud</h3>
               <p className="text-gray-300 mb-4">
                 Облачные решения безопасности
@@ -633,7 +649,7 @@ export default function DrWeb() {
             </div>
 
             <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300 border-l-4 border-green-500 group hover:scale-105 hover:border-green-400">
-              <div className="text-green-400 text-4xl mb-4 group-hover:animate-bounce">🔧</div>
+              <div className="text-green-400 text-4xl mb-4 group-hover:animate-bounce"><Wrench className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4 group-hover:text-green-300 transition-colors">Dr.Web CureIt!</h3>
               <p className="text-gray-300 mb-4">
                 Бесплатная утилита для лечения зараженных компьютеров
