@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { 
   Monitor, 
   Zap, 
@@ -12,54 +12,31 @@ import {
 import DraggableCard from './DraggableCard';
 
 export default function InteractiveBlocks() {
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
-  const [landedCount, setLandedCount] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [wasRecentlyDragged, setWasRecentlyDragged] = useState(false);
-  const [containerHeight, setContainerHeight] = useState(0);
-  const landedCountRef = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
-    
-    // Получаем реальную высоту контейнера
-    const updateContainerHeight = () => {
-      if (containerRef.current) {
-        const height = containerRef.current.offsetHeight;
-        setContainerHeight(height);
-      }
-    };
-    
-    // Обновляем высоту при монтировании и изменении размера окна
-    updateContainerHeight();
-    window.addEventListener('resize', updateContainerHeight);
-    
-    return () => {
-      window.removeEventListener('resize', updateContainerHeight);
-    };
   }, []);
 
-  const handleBlockLanded = useCallback(() => {
-    landedCountRef.current += 1;
-    setLandedCount(landedCountRef.current);
-  }, []);
+  // Убрана неиспользуемая функция handleBlockLanded
 
   const handleDragStart = useCallback(() => {
     setIsDragging(true);
   }, []);
 
-  const handleDragEnd = useCallback((wasDragging: boolean) => {
+  const handleDragEnd = useCallback(() => {
     // Сбрасываем состояние перетаскивания сразу
     setIsDragging(false);
     
-    // Если было реальное перетаскивание, блокируем клики на короткое время
-    if (wasDragging) {
-      setWasRecentlyDragged(true);
-      setTimeout(() => {
-        setWasRecentlyDragged(false);
-      }, 300); // 300мс блокировки после перетаскивания
-    }
+    // Блокируем клики на короткое время после перетаскивания
+    setWasRecentlyDragged(true);
+    setTimeout(() => {
+      setWasRecentlyDragged(false);
+    }, 300); // 300мс блокировки после перетаскивания
   }, []);
 
   if (!mounted) return null;
@@ -156,9 +133,7 @@ export default function InteractiveBlocks() {
             key={block.id}
             initialX={initialPos.x}
             initialY={initialPos.y}
-            containerHeight={containerHeight}
             className="w-72 draggable-card"
-            onLanded={handleBlockLanded}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
           >
@@ -174,7 +149,7 @@ export default function InteractiveBlocks() {
                 }
                 // Переходим по ссылке только при чистом клике
                 console.log('Чистый клик по блоку:', block.title, 'Переход на:', block.link);
-                window.location.href = block.link;
+                router.push(block.link);
               }}
             >
               <div className="flex items-center space-x-4 mb-4">

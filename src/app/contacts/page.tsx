@@ -9,36 +9,10 @@ import {
   Handshake, 
   Phone, 
   Mail, 
-  MapPin, 
-  Globe, 
-  Smartphone, 
-  Monitor, 
-  ClipboardList, 
-  CheckCircle, 
-  XCircle, 
-  AlertTriangle, 
-  Info, 
-  Search, 
-  Send, 
-  Download, 
-  RefreshCw, 
   Clock, 
-  Calendar, 
-  Target, 
-  Lightbulb, 
-  Rocket, 
-  Star, 
-  Gem, 
-  Palette, 
-  Sparkles, 
-  Zap, 
-  Droplets, 
-  Waves, 
-  Rainbow, 
-  Sun, 
-  Moon, 
   User,
-  BarChart3
+  BarChart3,
+  CheckCircle
 } from 'lucide-react';
 
 export default function Contacts() {
@@ -287,7 +261,7 @@ export default function Contacts() {
                 <div>
                   <h4 className="text-lg font-semibold mb-2 text-gray-200">Полное наименование</h4>
                   <p className="text-gray-300">
-                    Общество с ограниченной ответственностью "ГУНДЫРЕВ"
+                    Общество с ограниченной ответственностью &quot;ГУНДЫРЕВ&quot;
                   </p>
                 </div>
 
@@ -366,7 +340,7 @@ export default function Contacts() {
                       </span>
                     </div>
                     <p className="text-sm text-gray-400 mt-2">
-                      ПАО "Банк ПРИМЕРНЫЙ", г. Москва
+                      ПАО &quot;Банк ПРИМЕРНЫЙ&quot;, г. Москва
                     </p>
                   </div>
                 </div>

@@ -8,131 +8,20 @@ import {
   UserCog, 
   Wrench, 
   Palette, 
-  ClipboardList, 
   Monitor, 
-  Utensils, 
   Handshake, 
-  TestTube, 
   Rocket, 
-  Calendar,
   Briefcase,
   Settings,
-  Users,
   Building2,
   Award,
   Target,
   Lightbulb,
   Zap,
   Star,
-  CheckCircle,
   TrendingUp,
-  Globe,
   Shield,
-  Database,
-  Server,
-  Cpu,
-  Network,
-  Smartphone,
-  Tablet,
-  Laptop,
-  Printer,
-  Camera,
-  Headphones,
-  Keyboard,
-  Mouse,
-  HardDrive,
-  Wifi,
-  Bluetooth,
-  Usb,
-  Power,
-  Battery,
-  Volume2,
-  Mic,
-  Video,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  DollarSign,
-  FileText,
-  Package,
-  Truck,
-  Home,
-  CheckSquare,
-  AlertCircle,
-  Info,
-  HelpCircle,
-  BookOpen,
-  GraduationCap,
-  Trophy,
-  Medal,
-  Crown,
-  Heart,
-  ThumbsUp,
-  MessageSquare,
-  PhoneCall,
-  MailOpen,
-  Send,
-  Download,
-  Upload,
-  Share2,
-  Link,
-  ExternalLink,
-  ArrowRight,
-  ArrowLeft,
-  ChevronRight,
-  ChevronLeft,
-  Plus,
-  Minus,
-  X,
-  Search,
-  Filter,
-  SortAsc,
-  SortDesc,
-  Eye,
-  EyeOff,
-  Lock,
-  Unlock,
-  Key,
-  CreditCard,
-  ShoppingCart,
-  ShoppingBag,
-  Tag,
-  Percent,
-  BarChart3,
-  PieChart,
-  LineChart,
-  Activity,
-  TrendingDown,
-  AlertTriangle,
-  XCircle,
-  Check,
-  Circle,
-  Square,
-  Triangle,
-  Hexagon,
-  Octagon,
-  Star as StarIcon,
-  Heart as HeartIcon,
-  Smile,
-  Frown,
-  Meh,
-  ThumbsDown,
-  GitBranch,
-  GitCommit,
-  GitMerge,
-  GitPullRequest,
-  Github,
-  Gitlab,
-  Chrome,
-  Apple,
-  Slack,
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Youtube,
-  Twitch
+  Package
 } from 'lucide-react';
 
 export default function About() {
@@ -145,11 +34,7 @@ export default function About() {
     years: 0,
     support: 0
   });
-  const [workDaySimulation, setWorkDaySimulation] = useState({
-    currentTime: '09:00',
-    currentActivity: 'Планирование задач',
-    teamStatus: 'active'
-  });
+  // Убрана неиспользуемая переменная workDaySimulation
   const [floatingTechs, setFloatingTechs] = useState<Array<{
     id: number;
     tech: string;
@@ -254,16 +139,7 @@ export default function About() {
     'Infrastructure': ['Linux', 'Nginx', 'Git']
   };
 
-  const workDayActivities = [
-    { time: '09:00', activity: 'Планирование задач', icon: <ClipboardList className="w-5 h-5" /> },
-    { time: '10:00', activity: 'Разработка', icon: <Monitor className="w-5 h-5" /> },
-    { time: '11:30', activity: 'Code Review', icon: <Search className="w-5 h-5" /> },
-    { time: '13:00', activity: 'Обед', icon: <Utensils className="w-5 h-5" /> },
-    { time: '14:00', activity: 'Встреча с клиентом', icon: <Handshake className="w-5 h-5" /> },
-    { time: '15:30', activity: 'Тестирование', icon: <TestTube className="w-5 h-5" /> },
-    { time: '17:00', activity: 'Деплой', icon: <Rocket className="w-5 h-5" /> },
-    { time: '18:00', activity: 'Планирование на завтра', icon: <Calendar className="w-5 h-5" /> }
-  ];
+  // Убрана неиспользуемая переменная workDayActivities
 
   // Автоматическое переключение временной шкалы
   useEffect(() => {
@@ -315,18 +191,7 @@ export default function About() {
 
   // Симуляция рабочего дня
   useEffect(() => {
-    let activityIndex = 0;
-    const interval = setInterval(() => {
-      const activity = workDayActivities[activityIndex];
-      setWorkDaySimulation({
-        currentTime: activity.time,
-        currentActivity: activity.activity,
-        teamStatus: activity.time === '13:00' ? 'break' : 'active'
-      });
-      activityIndex = (activityIndex + 1) % workDayActivities.length;
-    }, 4000);
-
-    return () => clearInterval(interval);
+    // Убрана анимация симуляции рабочего дня для упрощения
   }, []);
 
   // Инициализация монтирования

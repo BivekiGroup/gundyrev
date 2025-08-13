@@ -129,7 +129,7 @@ export default function Footer() {
                 <div>
                   <h5 className="text-gray-200 font-medium mb-1">Полное наименование:</h5>
                   <p className="text-gray-300 text-xs">
-                    ООО "ГУНДЫРЕВ"
+                    ООО &quot;ГУНДЫРЕВ&quot;
                   </p>
                 </div>
 
@@ -226,7 +226,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-400 text-xs mt-2">
-              ПАО "Банк ПРИМЕРНЫЙ", г. Москва
+              ПАО &quot;Банк ПРИМЕРНЫЙ&quot;, г. Москва
             </p>
           </div>
 
@@ -234,7 +234,7 @@ export default function Footer() {
           <div className="border-t border-gray-700 pt-6">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="text-gray-400 text-sm mb-4 md:mb-0">
-                © 2024 ООО "ГУНДЫРЕВ". Все права защищены.
+                © 2024 ООО &quot;ГУНДЫРЕВ&quot;. Все права защищены.
               </div>
               
               <div className="flex space-x-6 text-sm">

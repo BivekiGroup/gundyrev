@@ -14,18 +14,15 @@ import {
   Package, 
   Truck, 
   Home, 
+  Star, 
   Zap, 
-  Battery, 
-  HardDrive, 
-  Wifi, 
+  FileText, 
   Building2, 
   Package2, 
   Wrench, 
   MapPin, 
-  FileText, 
   DollarSign, 
-  Star, 
-  X 
+  X
 } from 'lucide-react';
 
 export default function Electronics() {

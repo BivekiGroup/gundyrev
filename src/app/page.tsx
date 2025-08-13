@@ -161,7 +161,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
-      <Navigation onContactClick={() => setIsContactModalOpen(true)} />
+      <Navigation />
       
       {/* Hero Section с заголовком и интерактивными элементами */}
       <section className="relative section-padding pt-32 overflow-hidden">

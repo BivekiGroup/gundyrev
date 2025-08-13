@@ -4,44 +4,38 @@ import { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import { 
   Shield, 
-  Zap, 
-  Settings, 
-  Target, 
-  Lock, 
-  Search, 
-  Eye, 
-  CheckCircle, 
   AlertTriangle, 
-  Info, 
-  AlertCircle, 
+  Search, 
+  CheckCircle, 
+  Lock, 
   Flame, 
   HardDrive, 
   Monitor, 
   Globe, 
   Folder, 
+  Zap, 
+  Settings, 
+  Target, 
+  ChevronDown, 
+  Eye, 
   BookOpen, 
+  FileText, 
   Rocket, 
-  Wrench, 
-  GraduationCap, 
-  Phone, 
   Trophy, 
   Globe2, 
-  FileText, 
   CheckSquare, 
   Key, 
-  Award, 
-  FileCheck, 
-  Download, 
-  Users, 
   Video, 
-  Book, 
+  GraduationCap, 
   Headphones, 
-  Building, 
-  FileSpreadsheet, 
   ClipboardList, 
+  FileSpreadsheet, 
+  FileCheck, 
   DollarSign, 
-  FileDown,
-  ChevronDown
+  Award, 
+  AlertCircle,
+  Info,
+  Wrench
 } from 'lucide-react';
 
 export default function SecureT() {
@@ -93,7 +87,7 @@ export default function SecureT() {
   }>>([]);
 
   // Состояние системы
-  const [systemStatus, setSystemStatus] = useState({
+  const [systemStatus] = useState({
     firewall: 'active',
     encryption: 'active',
     monitoring: 'active',

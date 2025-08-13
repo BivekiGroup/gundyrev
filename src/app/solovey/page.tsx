@@ -25,8 +25,7 @@ import {
   Video, 
   Phone, 
   VolumeX, 
-  Mic, 
-  Volume2 
+  Mic 
 } from 'lucide-react';
 
 export default function Solovey() {

@@ -4,10 +4,10 @@ import { join } from 'path';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
+  const { slug } = await params;
   try {
-    const { slug } = params;
     
     // Определяем какой файл показать
     let fileName = '';
