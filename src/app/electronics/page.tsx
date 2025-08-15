@@ -746,7 +746,7 @@ export default function Electronics() {
             <span className="text-3xl font-bold gradient-text">GUNDYREV</span>
           </div>
           <p className="text-gray-400 mb-4">
-            © 2024 GUNDYREV. Все права защищены.
+            © 2025 GUNDYREV. Все права защищены.
           </p>
           <p className="text-gray-500 text-sm">
             Поставка электроники для бизнеса и государственных организаций

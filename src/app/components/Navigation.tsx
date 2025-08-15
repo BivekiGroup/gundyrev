@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { 
   Shield, 
   Settings, 
@@ -13,12 +13,12 @@ import {
   Sun 
 } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
-import ContactModal from './ContactModal';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const closeProductsTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Модалка перемещена на главную страницу; открываем её через переход на /?contact=open
   const { theme, toggleTheme } = useTheme();
 
   const productItems = [
@@ -62,9 +62,18 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             {/* Продукты с выпадающим меню */}
             <div 
-              className="relative group"
-              onMouseEnter={() => setIsProductsOpen(true)}
-              onMouseLeave={() => setIsProductsOpen(false)}
+              className="relative"
+              onMouseEnter={() => {
+                if (closeProductsTimer.current) {
+                  clearTimeout(closeProductsTimer.current);
+                  closeProductsTimer.current = null;
+                }
+                setIsProductsOpen(true);
+              }}
+              onMouseLeave={() => {
+                // Небольшая задержка, чтобы не пропадало при переходе курсора
+                closeProductsTimer.current = setTimeout(() => setIsProductsOpen(false), 150);
+              }}
             >
               <button className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium flex items-center space-x-1">
                 <span>Продукты</span>
@@ -75,7 +84,7 @@ export default function Navigation() {
               
               {/* Улучшенное выпадающее меню с категориями */}
               {isProductsOpen && (
-                <div className="absolute top-full left-0 mt-2 w-80 glass-effect rounded-lg shadow-lg border border-gray-600/20 overflow-hidden dropdown-menu">
+                <div className="absolute top-full left-0 w-80 glass-effect rounded-lg shadow-lg border border-gray-600/20 overflow-hidden dropdown-menu z-50">
                   <div className="py-2">
                     {productItems.map((category, categoryIndex) => (
                       <div key={category.category} className={categoryIndex > 0 ? 'border-t border-gray-600/20 mt-2 pt-2' : ''}>
@@ -120,13 +129,13 @@ export default function Navigation() {
             ))}
 
             {/* Кнопка "Оставить заявку" */}
-            <button
-              onClick={() => setIsContactModalOpen(true)}
+            <Link
+              href="/?contact=open"
               className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-lg font-medium text-sm hover:from-green-600 hover:to-emerald-600 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2"
             >
               <Phone className="w-4 h-4" />
               Оставить заявку
-            </button>
+            </Link>
 
             {/* Улучшенный переключатель темы */}
             <div className="flex items-center space-x-3">
@@ -153,12 +162,13 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-3">
             {/* Мобильная кнопка "Оставить заявку" */}
-            <button
-              onClick={() => setIsContactModalOpen(true)}
+            <Link
+              href="/?contact=open"
+              onClick={() => setIsMenuOpen(false)}
               className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1.5 rounded-md font-medium text-xs hover:from-green-600 hover:to-emerald-600 transition-all duration-200"
             >
               <Phone className="w-4 h-4" />
-            </button>
+            </Link>
 
             {/* Мобильный переключатель темы */}
             <button
@@ -235,29 +245,21 @@ export default function Navigation() {
                 ))}
                 
                 {/* Кнопка "Оставить заявку" в мобильном меню */}
-                <button
-                  onClick={() => {
-                    setIsContactModalOpen(true);
-                    setIsMenuOpen(false);
-                  }}
+                <Link 
+                  href="/?contact=open"
+                  onClick={() => setIsMenuOpen(false)}
                   className="w-full text-left px-3 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-medium rounded-md hover:from-green-600 hover:to-emerald-600 transition-all duration-200 mt-2 flex items-center gap-2"
                 >
                   <Phone className="w-4 h-4" />
                   Оставить заявку
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         )}
       </div>
 
-      {/* Модальное окно контактов */}
-      <ContactModal 
-        isOpen={isContactModalOpen}
-        onClose={() => setIsContactModalOpen(false)}
-        defaultType="sales"
-        title="Оставить заявку"
-      />
+      {/* Модалка перенесена на главную страницу */}
     </nav>
   );
-} 
+}

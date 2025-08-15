@@ -1743,7 +1743,7 @@ export default function SecureT() {
             <span className="text-3xl font-bold gradient-text">GUNDYREV</span>
           </div>
           <p className="text-gray-400 mb-4">
-            © 2024 GUNDYREV. Все права защищены.
+            © 2025 GUNDYREV. Все права защищены.
           </p>
           <p className="text-gray-500 text-sm">
             Решения информационной безопасности SECURE-T
@@ -1753,21 +1753,21 @@ export default function SecureT() {
 
       {/* Модальное окно "Наши решения" */}
       {isSolutionsModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-          <div className="bg-gray-900 rounded-lg p-8 max-w-md w-full max-h-[90vh] overflow-y-auto border border-red-500/30">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-red-400">Наши решения SECURE-T</h2>
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-900 rounded-lg p-6 w-[520px] max-w-[92vw] border border-red-500/30">
+            <div className="flex justify-between items-center mb-3">
+              <h2 className="text-xl font-bold text-red-400">Наши решения SECURE-T</h2>
               <button 
                 onClick={handleCloseModal}
-                className="text-gray-400 hover:text-white text-2xl"
+                className="text-gray-400 hover:text-white text-xl"
               >
                 ×
               </button>
             </div>
             
-            <form onSubmit={handleSolutionsSubmit} className="space-y-4">
+            <form onSubmit={handleSolutionsSubmit} className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Имя *
                 </label>
                 <input
@@ -1776,12 +1776,12 @@ export default function SecureT() {
                   value={solutionsForm.name}
                   onChange={handleSolutionsInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Email *
                 </label>
                 <input
@@ -1790,12 +1790,12 @@ export default function SecureT() {
                   value={solutionsForm.email}
                   onChange={handleSolutionsInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Компания
                 </label>
                 <input
@@ -1803,12 +1803,12 @@ export default function SecureT() {
                   name="company"
                   value={solutionsForm.company}
                   onChange={handleSolutionsInputChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Интересующее решение *
                 </label>
                 <select
@@ -1816,7 +1816,7 @@ export default function SecureT() {
                   value={solutionsForm.solution}
                   onChange={handleSolutionsInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
                 >
                   <option value="">Выберите решение</option>
                   <option value="Криптографическая защита">Криптографическая защита</option>
@@ -1831,31 +1831,31 @@ export default function SecureT() {
                 </select>
               </div>
               
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+              <div className="col-span-2">
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Дополнительная информация
                 </label>
                 <textarea
                   name="message"
                   value={solutionsForm.message}
                   onChange={handleSolutionsInputChange}
-                  rows={4}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                  rows={3}
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
                   placeholder="Расскажите о ваших потребностях в области информационной безопасности..."
                 />
               </div>
               
-              <div className="flex gap-4 pt-4">
+              <div className="col-span-2 flex gap-4 pt-2">
                 <button
                   type="submit"
-                  className="flex-1 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-colors"
+                  className="flex-1 bg-red-500 text-white py-2.5 px-4 rounded-md hover:bg-red-600 transition-colors text-sm"
                 >
                   Отправить заявку
                 </button>
                 <button
                   type="button"
                   onClick={handleCloseModal}
-                  className="flex-1 bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition-colors"
+                  className="flex-1 bg-gray-600 text-white py-2.5 px-4 rounded-md hover:bg-gray-700 transition-colors text-sm"
                 >
                   Отмена
                 </button>
@@ -1867,48 +1867,48 @@ export default function SecureT() {
 
       {/* Модальное окно "Документация" */}
       {isDocumentationModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-          <div className="bg-gray-900 rounded-lg p-8 max-w-md w-full max-h-[90vh] overflow-y-auto border border-red-500/30">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-red-400">Документация SECURE-T</h2>
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-900 rounded-lg p-6 w-[520px] max-w-[92vw] border border-red-500/30">
+            <div className="flex justify-between items-center mb-3">
+              <h2 className="text-xl font-bold text-red-400">Документация SECURE-T</h2>
               <button 
                 onClick={handleCloseModal}
-                className="text-gray-400 hover:text-white text-2xl"
+                className="text-gray-400 hover:text-white text-xl"
               >
                 ×
               </button>
             </div>
             
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold text-orange-400 mb-4">Доступная документация:</h3>
-              <div className="space-y-3">
-                <div className="flex items-start p-3 bg-gray-800 rounded-lg">
-                  <BookOpen className="w-6 h-6 text-orange-400 modal-documentation-icon flex-shrink-0 mt-0.5" />
+            <div className="mb-4">
+              <h3 className="text-base font-semibold text-orange-400 mb-3">Доступная документация:</h3>
+              <div className="space-y-2">
+                <div className="flex items-start p-2.5 bg-gray-800 rounded-lg">
+                  <BookOpen className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
                   <div className="ml-3">
-                    <p className="text-white font-medium">Полная документация</p>
-                    <p className="text-gray-400 text-sm">Техническое руководство</p>
+                    <p className="text-white font-medium text-sm">Полная документация</p>
+                    <p className="text-gray-400 text-xs">Техническое руководство</p>
                   </div>
                 </div>
-                <div className="flex items-start p-3 bg-gray-800 rounded-lg">
-                  <Rocket className="w-6 h-6 text-orange-400 modal-documentation-icon flex-shrink-0 mt-0.5" />
+                <div className="flex items-start p-2.5 bg-gray-800 rounded-lg">
+                  <Rocket className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
                   <div className="ml-3">
-                    <p className="text-white font-medium">Быстрый старт</p>
-                    <p className="text-gray-400 text-sm">Руководство по установке</p>
+                    <p className="text-white font-medium text-sm">Быстрый старт</p>
+                    <p className="text-gray-400 text-xs">Руководство по установке</p>
                   </div>
                 </div>
-                <div className="flex items-start p-3 bg-gray-800 rounded-lg">
-                  <Settings className="w-6 h-6 text-orange-400 modal-documentation-icon flex-shrink-0 mt-0.5" />
+                <div className="flex items-start p-2.5 bg-gray-800 rounded-lg">
+                  <Settings className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
                   <div className="ml-3">
-                    <p className="text-white font-medium">Примеры конфигураций</p>
-                    <p className="text-gray-400 text-sm">Готовые настройки</p>
+                    <p className="text-white font-medium text-sm">Примеры конфигураций</p>
+                    <p className="text-gray-400 text-xs">Готовые настройки</p>
                   </div>
                 </div>
               </div>
             </div>
             
-            <form onSubmit={handleDocumentationSubmit} className="space-y-4">
+            <form onSubmit={handleDocumentationSubmit} className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Имя *
                 </label>
                 <input
@@ -1917,12 +1917,12 @@ export default function SecureT() {
                   value={documentationForm.name}
                   onChange={handleDocumentationInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Email *
                 </label>
                 <input
@@ -1931,12 +1931,12 @@ export default function SecureT() {
                   value={documentationForm.email}
                   onChange={handleDocumentationInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Компания
                 </label>
                 <input
@@ -1944,12 +1944,12 @@ export default function SecureT() {
                   name="company"
                   value={documentationForm.company}
                   onChange={handleDocumentationInputChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Тип документации *
                 </label>
                 <select
@@ -1957,7 +1957,7 @@ export default function SecureT() {
                   value={documentationForm.documentType}
                   onChange={handleDocumentationInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
                 >
                   <option value="">Выберите тип документации</option>
                   <option value="Полная документация">Полная документация</option>
@@ -1985,8 +1985,8 @@ export default function SecureT() {
                 </select>
               </div>
               
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+              <div className="col-span-2">
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Комментарий
                 </label>
                 <textarea
@@ -1994,22 +1994,22 @@ export default function SecureT() {
                   value={documentationForm.message}
                   onChange={handleDocumentationInputChange}
                   rows={3}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
                   placeholder="Укажите, для каких целей вам нужна документация..."
                 />
               </div>
               
-              <div className="flex gap-4 pt-4">
+              <div className="col-span-2 flex gap-4 pt-2">
                 <button
                   type="submit"
-                  className="flex-1 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-colors"
+                  className="flex-1 bg-red-500 text-white py-2.5 px-4 rounded-md hover:bg-red-600 transition-colors text-sm"
                 >
                   Получить документацию
                 </button>
                 <button
                   type="button"
                   onClick={handleCloseModal}
-                  className="flex-1 bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition-colors"
+                  className="flex-1 bg-gray-600 text-white py-2.5 px-4 rounded-md hover:bg-gray-700 transition-colors text-sm"
                 >
                   Отмена
                 </button>

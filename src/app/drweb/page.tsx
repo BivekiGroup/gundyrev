@@ -719,7 +719,7 @@ export default function DrWeb() {
             <span className="text-3xl font-bold gradient-text">GUNDYREV</span>
           </div>
           <p className="text-gray-400 mb-4">
-            © 2024 GUNDYREV. Официальный партнер Dr.Web.
+            © 2025 GUNDYREV. Официальный партнер Dr.Web.
           </p>
           <p className="text-gray-500 text-sm">
             Dr.Web — надежная антивирусная защита

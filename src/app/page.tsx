@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { 
   Rocket, 
   Lightbulb, 
@@ -41,6 +42,8 @@ export default function Home() {
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
   // Инициализация
   useEffect(() => {
@@ -75,6 +78,16 @@ export default function Home() {
 
     return () => clearInterval(interval);
   }, [mounted]);
+
+  // Открытие модального окна при переходе с параметром ?contact=open
+  useEffect(() => {
+    const contact = searchParams.get('contact');
+    if (contact === 'open') {
+      setIsContactModalOpen(true);
+      // Очистим параметр чтобы избежать повторного открытия при навигации назад
+      router.replace('/', { scroll: false });
+    }
+  }, [searchParams, router]);
 
   const codeExamples = [
     {
@@ -1068,17 +1081,17 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
       <footer className="border-t border-gray-800 py-8">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <p className="text-gray-400">
-            © 2024 GUNDYREV. Все права защищены.
+            © 2025 GUNDYREV. Все права защищены.
           </p>
         </div>
       </footer>
 
-      {/* Contact Modal */}
+      {/* Contact Modal (на главной) */}
       <ContactModal 
         isOpen={isContactModalOpen}
         onClose={() => setIsContactModalOpen(false)}
-        defaultType="general"
-        title="Обсудить проект"
+        defaultType="sales"
+        title="Оставить заявку"
       />
     </div>
   );
