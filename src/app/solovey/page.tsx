@@ -56,6 +56,47 @@ export default function Solovey() {
     travelCostPerMeeting: 5000
   });
 
+  // Modals
+  const [isImplementModalOpen, setIsImplementModalOpen] = useState(false);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [isConsultModalOpen, setIsConsultModalOpen] = useState(false);
+
+  const [implementForm, setImplementForm] = useState({ name: '', email: '', company: '', message: '' });
+  const [demoForm, setDemoForm] = useState({ name: '', email: '', company: '', message: '' });
+  const [consultForm, setConsultForm] = useState({ name: '', email: '', company: '', message: '' });
+
+  const openModal = (type: 'implement' | 'demo' | 'consult') => {
+    if (type === 'implement') setIsImplementModalOpen(true);
+    if (type === 'demo') setIsDemoModalOpen(true);
+    if (type === 'consult') setIsConsultModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+  const closeModals = () => {
+    setIsImplementModalOpen(false);
+    setIsDemoModalOpen(false);
+    setIsConsultModalOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  const handleFormChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    form: 'implement' | 'demo' | 'consult'
+  ) => {
+    const { name, value } = e.target;
+    const setter = form === 'implement' ? setImplementForm : form === 'demo' ? setDemoForm : setConsultForm;
+    setter(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent, form: 'implement' | 'demo' | 'consult') => {
+    e.preventDefault();
+    const data = form === 'implement' ? implementForm : form === 'demo' ? demoForm : consultForm;
+    alert(`Спасибо, ${data.name}! Мы свяжемся с вами.`);
+    if (form === 'implement') setImplementForm({ name: '', email: '', company: '', message: '' });
+    if (form === 'demo') setDemoForm({ name: '', email: '', company: '', message: '' });
+    if (form === 'consult') setConsultForm({ name: '', email: '', company: '', message: '' });
+    closeModals();
+  };
+
   const avatars = [
     { name: 'Анна', role: 'Менеджер', status: 'speaking', avatar: '👩‍💼' },
     { name: 'Михаил', role: 'Разработчик', status: 'listening', avatar: '👨‍💻' },
@@ -226,7 +267,7 @@ export default function Solovey() {
             >
               {isCallActive ? 'Завершить демо' : 'Попробовать демо'}
             </button>
-            <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+            <button onClick={() => openModal('implement')} className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 hover-glow transition-all duration-300 transform hover:scale-105">
               Заказать внедрение
             </button>
           </div>
@@ -527,7 +568,7 @@ export default function Solovey() {
               </p>
             </div>
 
-            <div className="text-green-400 p-8 rounded-lg hover-glow transition-all duration-300">
+            <div className="glass-effect p-8 rounded-lg hover-glow transition-all duration-300">
               <div className="text-green-400 text-4xl mb-4 flex justify-center"><MessageSquare className="w-8 h-8" /></div>
               <h3 className="text-xl font-bold mb-4">Чат и файлообмен</h3>
               <p className="text-gray-300">
@@ -674,7 +715,7 @@ export default function Solovey() {
               </p>
             </div>
 
-            <div className="text-green-400 p-6 rounded-lg hover-glow transition-all duration-300">
+            <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
               <div className="text-green-400 text-3xl mb-4 flex justify-center"><Handshake className="w-6 h-6" /></div>
               <h4 className="text-lg font-bold mb-3">Переговоры с клиентами</h4>
               <p className="text-gray-300 text-sm">
@@ -854,10 +895,10 @@ export default function Solovey() {
               Обсудим ваши потребности и подготовим индивидуальное предложение
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-amber-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300">
+              <button onClick={() => openModal('demo')} className="px-8 py-3 bg-amber-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105">
                 Заказать демо
               </button>
-              <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
+              <button onClick={() => openModal('consult')} className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 hover-glow transition-all duration-300 hover:scale-105">
                 Получить консультацию
               </button>
             </div>
@@ -879,6 +920,199 @@ export default function Solovey() {
           </p>
         </div>
       </footer>
+
+      {/* Implement Modal */}
+      {isImplementModalOpen && (
+        <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass-effect rounded-lg p-6 w-[520px] max-w-[92vw] relative border border-amber-500/30">
+            <button
+              onClick={closeModals}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+            >
+              ×
+            </button>
+            <h3 className="text-xl font-bold mb-4 text-amber-400">Заказать внедрение</h3>
+            <form onSubmit={(e) => handleSubmit(e, 'implement')} className="space-y-3">
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Имя *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={implementForm.name}
+                  onChange={(e) => handleFormChange(e, 'implement')}
+                  required
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={implementForm.email}
+                  onChange={(e) => handleFormChange(e, 'implement')}
+                  required
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Компания</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={implementForm.company}
+                  onChange={(e) => handleFormChange(e, 'implement')}
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Комментарий</label>
+                <textarea
+                  name="message"
+                  value={implementForm.message}
+                  onChange={(e) => handleFormChange(e, 'implement')}
+                  rows={4}
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                  placeholder="Опишите требования и сроки..."
+                />
+              </div>
+              <div className="flex space-x-4 pt-2">
+                <button type="button" onClick={closeModals} className="flex-1 px-4 py-2.5 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors text-sm">Отмена</button>
+                <button type="submit" className="flex-1 px-4 py-2.5 bg-amber-500 text-black rounded-md hover:bg-amber-600 transition-colors text-sm">Отправить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Demo Modal */}
+      {isDemoModalOpen && (
+        <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass-effect rounded-lg p-6 w-[520px] max-w-[92vw] relative border border-amber-500/30">
+            <button
+              onClick={closeModals}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+            >
+              ×
+            </button>
+            <h3 className="text-xl font-bold mb-4 text-amber-400">Заказать демо</h3>
+            <form onSubmit={(e) => handleSubmit(e, 'demo')} className="space-y-3">
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Имя *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={demoForm.name}
+                  onChange={(e) => handleFormChange(e, 'demo')}
+                  required
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={demoForm.email}
+                  onChange={(e) => handleFormChange(e, 'demo')}
+                  required
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Компания</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={demoForm.company}
+                  onChange={(e) => handleFormChange(e, 'demo')}
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Комментарий</label>
+                <textarea
+                  name="message"
+                  value={demoForm.message}
+                  onChange={(e) => handleFormChange(e, 'demo')}
+                  rows={4}
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                  placeholder="Задачи и желаемые сроки..."
+                />
+              </div>
+              <div className="flex space-x-4 pt-2">
+                <button type="button" onClick={closeModals} className="flex-1 px-4 py-2.5 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors text-sm">Отмена</button>
+                <button type="submit" className="flex-1 px-4 py-2.5 bg-amber-500 text-black rounded-md hover:bg-amber-600 transition-colors text-sm">Отправить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Consult Modal */}
+      {isConsultModalOpen && (
+        <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass-effect rounded-lg p-6 w-[520px] max-w-[92vw] relative border border-amber-500/30">
+            <button
+              onClick={closeModals}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+            >
+              ×
+            </button>
+            <h3 className="text-xl font-bold mb-4 text-amber-400">Получить консультацию</h3>
+            <form onSubmit={(e) => handleSubmit(e, 'consult')} className="space-y-3">
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Имя *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={consultForm.name}
+                  onChange={(e) => handleFormChange(e, 'consult')}
+                  required
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={consultForm.email}
+                  onChange={(e) => handleFormChange(e, 'consult')}
+                  required
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Компания</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={consultForm.company}
+                  onChange={(e) => handleFormChange(e, 'consult')}
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Вопрос *</label>
+                <textarea
+                  name="message"
+                  value={consultForm.message}
+                  onChange={(e) => handleFormChange(e, 'consult')}
+                  rows={4}
+                  required
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                  placeholder="Опишите ваш вопрос по Соловью..."
+                />
+              </div>
+              <div className="flex space-x-4 pt-2">
+                <button type="button" onClick={closeModals} className="flex-1 px-4 py-2.5 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors text-sm">Отмена</button>
+                <button type="submit" className="flex-1 px-4 py-2.5 bg-amber-500 text-black rounded-md hover:bg-amber-600 transition-colors text-sm">Отправить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 } 

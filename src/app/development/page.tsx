@@ -1,3 +1,5 @@
+"use client";
+
 import Navigation from '../components/Navigation';
 import { 
   Globe, 
@@ -10,8 +12,46 @@ import {
   BarChart3,
   Store
 } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function Development() {
+  const [isProjectsModalOpen, setIsProjectsModalOpen] = useState(false);
+  const [isDiscussModalOpen, setIsDiscussModalOpen] = useState(false);
+
+  const [discussForm, setDiscussForm] = useState({
+    name: '',
+    email: '',
+    company: '',
+    projectType: '',
+    message: ''
+  });
+
+  const handleOpenProjects = () => {
+    setIsProjectsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+  const handleOpenDiscuss = () => {
+    setIsDiscussModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+  const handleCloseModals = () => {
+    setIsProjectsModalOpen(false);
+    setIsDiscussModalOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  const handleDiscussChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setDiscussForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleDiscussSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(`Спасибо за обращение, ${discussForm.name}! Мы свяжемся с вами для обсуждения проекта.`);
+    setDiscussForm({ name: '', email: '', company: '', projectType: '', message: '' });
+    handleCloseModals();
+  };
+
   return (
     <>
       <Navigation />
@@ -32,10 +72,10 @@ export default function Development() {
             Создаем современные программные решения для автоматизации бизнес-процессов и цифровой трансформации
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-purple-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300">
+            <button onClick={handleOpenProjects} className="px-8 py-3 bg-purple-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300">
               Наши проекты
             </button>
-            <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
+            <button onClick={handleOpenDiscuss} className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 hover-glow hover:scale-105 transition-all duration-300">
               Обсудить проект
             </button>
           </div>
@@ -322,10 +362,10 @@ export default function Development() {
               Обсудим ваши задачи и предложим оптимальное техническое решение
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-purple-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300">
+              <button onClick={handleOpenDiscuss} className="px-8 py-3 bg-purple-500 text-white font-semibold rounded-lg hover-glow hover:scale-105 transition-all duration-300">
                 Обсудить проект
               </button>
-              <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
+              <button onClick={handleOpenDiscuss} className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 hover-glow hover:scale-105 transition-all duration-300">
                 Получить смету
               </button>
             </div>
@@ -347,6 +387,158 @@ export default function Development() {
           </p>
         </div>
       </footer>
+
+      {/* Projects Modal */}
+      {isProjectsModalOpen && (
+        <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass-effect rounded-lg p-6 max-w-3xl w-full relative border border-purple-500/30 max-h-[90vh] overflow-y-auto">
+            <button
+              onClick={handleCloseModals}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+            >
+              ×
+            </button>
+
+            <h3 className="text-xl font-bold mb-4 text-purple-400">Наши проекты</h3>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="glass-effect p-4 rounded-md border border-purple-500/20">
+                <div className="flex items-center gap-2 mb-2 text-purple-300"><Briefcase className="w-5 h-5" /> CRM-система</div>
+                <p className="text-gray-300 text-sm mb-3">Система управления клиентами для торговой компании</p>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <span className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded">React</span>
+                  <span className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded">Node.js</span>
+                  <span className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded">PostgreSQL</span>
+                </div>
+              </div>
+              <div className="glass-effect p-4 rounded-md border border-indigo-500/20">
+                <div className="flex items-center gap-2 mb-2 text-indigo-300"><BarChart3 className="w-5 h-5" /> Система аналитики</div>
+                <p className="text-gray-300 text-sm mb-3">Платформа для анализа данных и отчетов</p>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <span className="bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">Python</span>
+                  <span className="bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">Django</span>
+                  <span className="bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">ClickHouse</span>
+                </div>
+              </div>
+              <div className="glass-effect p-4 rounded-md border border-blue-500/20 md:col-span-2">
+                <div className="flex items-center gap-2 mb-2 text-blue-300"><Store className="w-5 h-5" /> E-commerce платформа</div>
+                <p className="text-gray-300 text-sm mb-3">Интернет-магазин с интеграцией платежей и складского учета</p>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <span className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded">Next.js</span>
+                  <span className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded">Stripe</span>
+                  <span className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded">MongoDB</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 text-center">
+              <button
+                onClick={handleOpenDiscuss}
+                className="px-6 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-600 hover-glow hover:scale-105 transition-all duration-300 text-sm"
+              >
+                Обсудить проект
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Discuss Project Modal */}
+      {isDiscussModalOpen && (
+        <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass-effect rounded-lg p-6 w-[520px] max-w-[92vw] relative border border-purple-500/30">
+            <button
+              onClick={handleCloseModals}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+            >
+              ×
+            </button>
+
+            <h3 className="text-xl font-bold mb-4 text-purple-400">Обсудить проект</h3>
+
+            <form onSubmit={handleDiscussSubmit} className="space-y-3">
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Имя *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={discussForm.name}
+                  onChange={handleDiscussChange}
+                  required
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={discussForm.email}
+                  onChange={handleDiscussChange}
+                  required
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Компания</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={discussForm.company}
+                  onChange={handleDiscussChange}
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Тип проекта *</label>
+                <select
+                  name="projectType"
+                  value={discussForm.projectType}
+                  onChange={handleDiscussChange}
+                  required
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                >
+                  <option value="">Выберите тип</option>
+                  <option value="Веб-приложение">Веб-приложение</option>
+                  <option value="Мобильное приложение">Мобильное приложение</option>
+                  <option value="Backend/API">Backend/API</option>
+                  <option value="Автоматизация">Автоматизация</option>
+                  <option value="Десктопное приложение">Десктопное приложение</option>
+                  <option value="Другое">Другое</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Описание задачи *</label>
+                <textarea
+                  name="message"
+                  value={discussForm.message}
+                  onChange={handleDiscussChange}
+                  required
+                  rows={4}
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                  placeholder="Кратко опишите проект, цели и сроки..."
+                />
+              </div>
+
+              <div className="flex space-x-4 pt-2">
+                <button
+                  type="button"
+                  onClick={handleCloseModals}
+                  className="flex-1 px-4 py-2.5 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors text-sm"
+                >
+                  Отмена
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 px-4 py-2.5 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition-colors text-sm"
+                >
+                  Отправить
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 } 

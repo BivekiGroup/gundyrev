@@ -45,6 +45,48 @@ export default function Electronics() {
     icon: string;
   }>>([]);
 
+  // Modals
+  const [isCatalogModalOpen, setIsCatalogModalOpen] = useState(false);
+  const [isSpecModalOpen, setIsSpecModalOpen] = useState(false);
+  const [isCallbackModalOpen, setIsCallbackModalOpen] = useState(false);
+
+  const [specForm, setSpecForm] = useState({ name: '', email: '', company: '', items: '' });
+  const [callbackForm, setCallbackForm] = useState({ name: '', phone: '', time: '' });
+
+  const openModal = (type: 'catalog' | 'spec' | 'callback') => {
+    if (type === 'catalog') setIsCatalogModalOpen(true);
+    if (type === 'spec') setIsSpecModalOpen(true);
+    if (type === 'callback') setIsCallbackModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+  const closeModals = () => {
+    setIsCatalogModalOpen(false);
+    setIsSpecModalOpen(false);
+    setIsCallbackModalOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  const handleSpecChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSpecForm(prev => ({ ...prev, [name]: value }));
+  };
+  const handleCallbackChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setCallbackForm(prev => ({ ...prev, [name]: value }));
+  };
+  const handleSpecSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(`Спасибо, ${specForm.name}! Мы подготовим КП и свяжемся по ${specForm.email}.`);
+    setSpecForm({ name: '', email: '', company: '', items: '' });
+    closeModals();
+  };
+  const handleCallbackSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(`Заявка на звонок принята, ${callbackForm.name}. Мы перезвоним на ${callbackForm.phone}.`);
+    setCallbackForm({ name: '', phone: '', time: '' });
+    closeModals();
+  };
+
   const categories = [
     { id: 'all', name: 'Все товары', icon: <ShoppingCart className="w-5 h-5" />, color: 'cyan' },
     { id: 'computers', name: 'Компьютеры', icon: <Monitor className="w-5 h-5" />, color: 'blue' },
@@ -191,7 +233,7 @@ export default function Electronics() {
             >
               Калькулятор стоимости
             </button>
-            <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+            <button onClick={() => openModal('catalog')} className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 hover-glow transition-all duration-300 transform hover:scale-105">
               Каталог товаров
             </button>
           </div>
@@ -539,7 +581,7 @@ export default function Electronics() {
 
       {/* Калькулятор стоимости */}
       {isCalculatorOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="glass-effect p-8 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-2xl font-bold gradient-text">Калькулятор стоимости</h3>
@@ -728,10 +770,10 @@ export default function Electronics() {
               Отправьте нам спецификацию — подготовим коммерческое предложение в течение дня
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300 transform hover:scale-105">
+              <button onClick={() => openModal('spec')} className="px-8 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300 transform hover:scale-105">
                 Отправить спецификацию
               </button>
-              <button className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+              <button onClick={() => openModal('callback')} className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 hover-glow transition-all duration-300 transform hover:scale-105">
                 Заказать звонок
               </button>
             </div>
@@ -753,6 +795,91 @@ export default function Electronics() {
           </p>
         </div>
       </footer>
+      
+      {/* Catalog Modal */}
+      {isCatalogModalOpen && (
+        <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="glass-effect p-6 rounded-lg max-w-2xl w-full relative border border-cyan-500/30">
+            <button onClick={closeModals} className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform">×</button>
+            <h3 className="text-xl font-bold mb-4 text-cyan-400">Категории каталога</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {categories.map((c) => (
+                <button
+                  key={c.id}
+                  onClick={() => { setSelectedCategory(c.id); closeModals(); }}
+                  className="glass-effect p-3 rounded-md text-left hover:bg-white/10 transition-colors text-sm"
+                >
+                  <div className="flex items-center gap-2 text-gray-200">{c.icon} <span>{c.name}</span></div>
+                </button>
+              ))}
+            </div>
+            <div className="text-xs text-gray-400 mt-4">Совет: можно выбирать категории фильтрами в каталоге.</div>
+            <div className="mt-4 text-right">
+              <button onClick={closeModals} className="px-5 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors text-sm">Закрыть</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Send Specification Modal */}
+      {isSpecModalOpen && (
+        <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="glass-effect p-6 rounded-lg w-[520px] max-w-[92vw] relative border border-cyan-500/30">
+            <button onClick={closeModals} className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform">×</button>
+            <h3 className="text-xl font-bold mb-4 text-cyan-400">Отправить спецификацию</h3>
+            <form onSubmit={handleSpecSubmit} className="space-y-3">
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Имя *</label>
+                <input name="name" value={specForm.name} onChange={handleSpecChange} required className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm"/>
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Email *</label>
+                <input type="email" name="email" value={specForm.email} onChange={handleSpecChange} required className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm"/>
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Компания</label>
+                <input name="company" value={specForm.company} onChange={handleSpecChange} className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm"/>
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Список позиций *</label>
+                <textarea name="items" value={specForm.items} onChange={handleSpecChange} required rows={4} placeholder="Укажите модели, количество и предпочтения по брендам..." className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm"/>
+              </div>
+              <div className="flex gap-4 pt-2">
+                <button type="button" onClick={closeModals} className="flex-1 px-4 py-2.5 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors text-sm">Отмена</button>
+                <button type="submit" className="flex-1 px-4 py-2.5 bg-cyan-500 text-black rounded-md hover:bg-cyan-600 transition-colors text-sm">Отправить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Callback Modal */}
+      {isCallbackModalOpen && (
+        <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="glass-effect p-6 rounded-lg w-[520px] max-w-[92vw] relative border border-cyan-500/30">
+            <button onClick={closeModals} className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform">×</button>
+            <h3 className="text-xl font-bold mb-4 text-cyan-400">Заказать звонок</h3>
+            <form onSubmit={handleCallbackSubmit} className="space-y-3">
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Имя *</label>
+                <input name="name" value={callbackForm.name} onChange={handleCallbackChange} required className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm"/>
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Телефон *</label>
+                <input name="phone" value={callbackForm.phone} onChange={handleCallbackChange} required className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm"/>
+              </div>
+              <div>
+                <label className="block text-[11px] font-medium text-gray-300 mb-1.5">Удобное время</label>
+                <input name="time" value={callbackForm.time} onChange={handleCallbackChange} placeholder="Например, завтра 11:00–13:00" className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm"/>
+              </div>
+              <div className="flex gap-4 pt-2">
+                <button type="button" onClick={closeModals} className="flex-1 px-4 py-2.5 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors text-sm">Отмена</button>
+                <button type="submit" className="flex-1 px-4 py-2.5 bg-cyan-500 text-black rounded-md hover:bg-cyan-600 transition-colors text-sm">Заказать</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 } 

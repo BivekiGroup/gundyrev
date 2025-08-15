@@ -729,11 +729,11 @@ export default function DrWeb() {
 
       {/* Products Modal */}
       {isProductsModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50 p-4">
-          <div className="bg-gray-900 rounded-lg p-8 max-w-4xl w-full relative border border-green-500/30 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass-effect rounded-lg p-6 max-w-4xl w-full relative border border-green-500/30 max-h-[90vh] overflow-y-auto">
             <button 
               onClick={handleCloseModal}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
+              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
             >
               ×
             </button>
@@ -755,7 +755,7 @@ export default function DrWeb() {
                     setIsProductsModalOpen(false);
                     setIsLicenseModalOpen(true);
                   }}
-                  className="w-full px-4 py-2 bg-green-500 text-black rounded-lg hover:bg-green-600 transition-colors"
+                  className="w-full px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors text-sm"
                 >
                   Заказать лицензию
                 </button>
@@ -775,7 +775,7 @@ export default function DrWeb() {
                     setIsProductsModalOpen(false);
                     setIsLicenseModalOpen(true);
                   }}
-                  className="w-full px-4 py-2 bg-green-500 text-black rounded-lg hover:bg-green-600 transition-colors"
+                  className="w-full px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors text-sm"
                 >
                   Заказать лицензию
                 </button>
@@ -795,7 +795,7 @@ export default function DrWeb() {
                     setIsProductsModalOpen(false);
                     setIsLicenseModalOpen(true);
                   }}
-                  className="w-full px-4 py-2 bg-green-500 text-black rounded-lg hover:bg-green-600 transition-colors"
+                  className="w-full px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors text-sm"
                 >
                   Заказать лицензию
                 </button>
@@ -815,7 +815,7 @@ export default function DrWeb() {
                     setIsProductsModalOpen(false);
                     setIsLicenseModalOpen(true);
                   }}
-                  className="w-full px-4 py-2 bg-green-500 text-black rounded-lg hover:bg-green-600 transition-colors"
+                  className="w-full px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors text-sm"
                 >
                   Заказать лицензию
                 </button>
@@ -825,7 +825,7 @@ export default function DrWeb() {
             <div className="mt-6 text-center">
               <button
                 onClick={handleCloseModal}
-                className="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                className="px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors text-sm"
               >
                 Закрыть
               </button>
@@ -836,20 +836,20 @@ export default function DrWeb() {
 
       {/* License Modal */}
       {isLicenseModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50 p-4">
-          <div className="bg-gray-900 rounded-lg p-8 max-w-md w-full relative border border-green-500/30">
+        <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass-effect rounded-lg p-6 w-[520px] max-w-[92vw] relative border border-green-500/30">
             <button 
               onClick={handleCloseModal}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
+              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
             >
               ×
             </button>
             
-            <h3 className="text-2xl font-bold mb-6 text-green-400">Получить лицензию Dr.Web</h3>
+            <h3 className="text-xl font-bold mb-4 text-green-400">Получить лицензию Dr.Web</h3>
             
-            <form onSubmit={handleLicenseSubmit} className="space-y-4">
+            <form onSubmit={handleLicenseSubmit} className="space-y-3">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                <label htmlFor="name" className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Имя *
                 </label>
                 <input
@@ -859,12 +859,12 @@ export default function DrWeb() {
                   value={licenseForm.name}
                   onChange={handleLicenseInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-green-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                <label htmlFor="email" className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Email *
                 </label>
                 <input
@@ -874,12 +874,12 @@ export default function DrWeb() {
                   value={licenseForm.email}
                   onChange={handleLicenseInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-green-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
                 />
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-1">
+                <label htmlFor="company" className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Компания
                 </label>
                 <input
@@ -888,12 +888,12 @@ export default function DrWeb() {
                   name="company"
                   value={licenseForm.company}
                   onChange={handleLicenseInputChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-green-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
                 />
               </div>
               
               <div>
-                <label htmlFor="product" className="block text-sm font-medium text-gray-300 mb-1">
+                <label htmlFor="product" className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Продукт *
                 </label>
                 <select
@@ -902,7 +902,7 @@ export default function DrWeb() {
                   value={licenseForm.product}
                   onChange={handleLicenseInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-green-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
                 >
                   <option value="">Выберите продукт</option>
                   <option value="Dr.Web Security Space">Dr.Web Security Space</option>
@@ -914,7 +914,7 @@ export default function DrWeb() {
               </div>
 
               <div>
-                <label htmlFor="licenses" className="block text-sm font-medium text-gray-300 mb-1">
+                <label htmlFor="licenses" className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Количество лицензий *
                 </label>
                 <input
@@ -925,12 +925,12 @@ export default function DrWeb() {
                   onChange={handleLicenseInputChange}
                   required
                   min="1"
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-green-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
+                <label htmlFor="message" className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Дополнительная информация
                 </label>
                 <textarea
@@ -939,22 +939,22 @@ export default function DrWeb() {
                   value={licenseForm.message}
                   onChange={handleLicenseInputChange}
                   rows={3}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-green-500"
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
                   placeholder="Укажите особые требования или вопросы..."
                 />
               </div>
               
-              <div className="flex space-x-4 pt-4">
+              <div className="flex space-x-4 pt-2">
                 <button
                   type="button"
                   onClick={handleCloseModal}
-                  className="flex-1 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                  className="flex-1 px-4 py-2.5 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors text-sm"
                 >
                   Отмена
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-2 bg-green-500 text-black rounded-lg hover:bg-green-600 transition-colors"
+                  className="flex-1 px-4 py-2.5 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors text-sm"
                 >
                   Отправить заявку
                 </button>
@@ -966,20 +966,20 @@ export default function DrWeb() {
 
       {/* Consultation Modal */}
       {isConsultationModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50 p-4">
-          <div className="bg-gray-900 rounded-lg p-8 max-w-md w-full relative border border-green-500/30">
+        <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass-effect rounded-lg p-6 w-[520px] max-w-[92vw] relative border border-green-500/30">
             <button 
               onClick={handleCloseModal}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
+              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
             >
               ×
             </button>
             
-            <h3 className="text-2xl font-bold mb-6 text-green-400">Получить консультацию</h3>
+            <h3 className="text-xl font-bold mb-4 text-green-400">Получить консультацию</h3>
             
-            <form onSubmit={handleConsultationSubmit} className="space-y-4">
+            <form onSubmit={handleConsultationSubmit} className="space-y-3">
               <div>
-                <label htmlFor="cons-name" className="block text-sm font-medium text-gray-300 mb-1">
+                <label htmlFor="cons-name" className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Имя *
                 </label>
                 <input
@@ -989,12 +989,12 @@ export default function DrWeb() {
                   value={consultationForm.name}
                   onChange={handleConsultationInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-green-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
                 />
               </div>
               
               <div>
-                <label htmlFor="cons-email" className="block text-sm font-medium text-gray-300 mb-1">
+                <label htmlFor="cons-email" className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Email *
                 </label>
                 <input
@@ -1004,12 +1004,12 @@ export default function DrWeb() {
                   value={consultationForm.email}
                   onChange={handleConsultationInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-green-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
                 />
               </div>
 
               <div>
-                <label htmlFor="cons-company" className="block text-sm font-medium text-gray-300 mb-1">
+                <label htmlFor="cons-company" className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Компания
                 </label>
                 <input
@@ -1018,12 +1018,12 @@ export default function DrWeb() {
                   name="company"
                   value={consultationForm.company}
                   onChange={handleConsultationInputChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-green-500"
+                  className="w-full px-3 py-1.5 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
                 />
               </div>
               
               <div>
-                <label htmlFor="cons-message" className="block text-sm font-medium text-gray-300 mb-1">
+                <label htmlFor="cons-message" className="block text-[11px] font-medium text-gray-300 mb-1.5">
                   Вопрос или задача *
                 </label>
                 <textarea
@@ -1033,22 +1033,22 @@ export default function DrWeb() {
                   onChange={handleConsultationInputChange}
                   required
                   rows={4}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-green-500"
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
                   placeholder="Опишите вашу задачу или вопрос по Dr.Web..."
                 />
               </div>
               
-              <div className="flex space-x-4 pt-4">
+              <div className="flex space-x-4 pt-2">
                 <button
                   type="button"
                   onClick={handleCloseModal}
-                  className="flex-1 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                  className="flex-1 px-4 py-2.5 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors text-sm"
                 >
                   Отмена
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-2 bg-green-500 text-black rounded-lg hover:bg-green-600 transition-colors"
+                  className="flex-1 px-4 py-2.5 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors text-sm"
                 >
                   Отправить
                 </button>
