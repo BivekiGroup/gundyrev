@@ -335,7 +335,7 @@ export default function DrWeb() {
       </section>
 
       {/* Live Security Dashboard */}
-      <section className="section-padding bg-black/50 relative overflow-hidden">
+      <section className="section-padding bg-black/50 relative overflow-hidden bg-white-light">
         {/* Живые уведомления */}
         <div className="fixed top-20 right-4 z-40 space-y-2 max-w-sm">
           {notifications.map((notification) => (
@@ -678,7 +678,7 @@ export default function DrWeb() {
 
 
       {/* Contact Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="glass-effect p-12 rounded-lg border-l-4 border-green-500">
             <h2 className="text-3xl font-bold mb-6">
@@ -713,7 +713,7 @@ export default function DrWeb() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black py-12">
+      <footer className="py-12 bg-white-light">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="mb-8">
             <span className="text-3xl font-bold gradient-text">GUNDYREV</span>

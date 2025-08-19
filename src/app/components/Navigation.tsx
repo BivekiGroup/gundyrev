@@ -75,7 +75,7 @@ export default function Navigation() {
                 closeProductsTimer.current = setTimeout(() => setIsProductsOpen(false), 150);
               }}
             >
-              <button className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium flex items-center space-x-1">
+              <button className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium flex items-center space-x-1 bg-transparent appearance-none outline-none focus:outline-none focus-visible:outline-none focus:ring-0">
                 <span>Продукты</span>
                 <svg className={`w-4 h-4 transition-transform duration-200 ${isProductsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -84,7 +84,7 @@ export default function Navigation() {
               
               {/* Улучшенное выпадающее меню с категориями */}
               {isProductsOpen && (
-                <div className="absolute top-full left-0 w-80 glass-effect rounded-lg shadow-lg border border-gray-600/20 overflow-hidden dropdown-menu z-50">
+                <div className="absolute top-full left-0 mt-2 w-80 glass-effect rounded-md shadow-none border border-transparent overflow-hidden dropdown-menu z-50">
                   <div className="py-2">
                     {productItems.map((category, categoryIndex) => (
                       <div key={category.category} className={categoryIndex > 0 ? 'border-t border-gray-600/20 mt-2 pt-2' : ''}>
@@ -131,7 +131,7 @@ export default function Navigation() {
             {/* Кнопка "Оставить заявку" */}
             <Link
               href="/?contact=open"
-              className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-lg font-medium text-sm hover:from-green-600 hover:to-emerald-600 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2"
+              className="btn-primary px-4 py-2 font-medium text-sm flex items-center gap-2"
             >
               <Phone className="w-4 h-4" />
               Оставить заявку
@@ -165,7 +165,7 @@ export default function Navigation() {
             <Link
               href="/?contact=open"
               onClick={() => setIsMenuOpen(false)}
-              className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1.5 rounded-md font-medium text-xs hover:from-green-600 hover:to-emerald-600 transition-all duration-200"
+              className="btn-primary text-white px-3 py-1.5 rounded-md font-medium text-xs transition-all duration-200"
             >
               <Phone className="w-4 h-4" />
             </Link>

@@ -1000,7 +1000,7 @@ export default function SecureT() {
       </section>
 
       {/* Technologies */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -1033,7 +1033,7 @@ export default function SecureT() {
       </section>
 
       {/* Full Documentation Block */}
-      <section className="section-padding bg-gradient-to-r from-red-900/20 to-orange-900/20">
+      <section className="section-padding bg-gradient-to-r from-red-900/20 to-orange-900/20 bg-white-light">
         <div className="max-w-4xl mx-auto px-4">
           <div className="glass-effect p-12 rounded-lg text-center border border-red-500/30 animate-secure-glow">
             <div className="text-red-400 text-6xl mb-6 animate-pulse-secure"><BookOpen className="w-16 h-16" /></div>
@@ -1096,7 +1096,7 @@ export default function SecureT() {
       </section>
 
       {/* Сертификаты и лицензии */}
-      <section className="section-padding bg-gradient-to-r from-blue-900/20 to-purple-900/20">
+      <section className="section-padding bg-gradient-to-r from-blue-900/20 to-purple-900/20 bg-white-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -1252,7 +1252,7 @@ export default function SecureT() {
       </section>
 
       {/* Обучающие инструкции */}
-      <section className="section-padding bg-gradient-to-r from-indigo-900/20 to-purple-900/20">
+      <section className="section-padding bg-gradient-to-r from-indigo-900/20 to-purple-900/20 bg-white-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -1394,7 +1394,7 @@ export default function SecureT() {
       </section>
 
       {/* Работа с госзакупками */}
-      <section className="section-padding bg-gradient-to-r from-green-900/20 to-emerald-900/20">
+      <section className="section-padding bg-gradient-to-r from-green-900/20 to-emerald-900/20 bg-white-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -1703,7 +1703,7 @@ export default function SecureT() {
       </section>
 
       {/* Contact Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="glass-effect p-12 rounded-lg">
             <h2 className="text-3xl font-bold mb-6">
@@ -1737,7 +1737,7 @@ export default function SecureT() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black py-12">
+      <footer className="py-12 bg-white-light">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="mb-8">
             <span className="text-3xl font-bold gradient-text">GUNDYREV</span>

@@ -54,8 +54,8 @@
   --accent-tertiary: #667eea;
   --gray: #f8fafc;
   --light-gray: #e2e8f0;
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(59, 130, 246, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(17, 24, 39, 0.08); /* neutral, no blue tint */
   --card-bg: rgba(248, 250, 252, 0.8);
   --text-primary: #1a202c;
   --text-secondary: #4a5568;
@@ -127,12 +127,16 @@ body {
 }
 
 .light .gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: currentColor !important;
+  background-clip: initial !important;
+  color: #111827 !important; /* near-black for readability */
+  filter: none !important;
 }
+
+/* Force dark text for key hero copy in light theme */
+.light .home-hero-desc { color: #111827 !important; }
 
 .glass-effect {
   background: var(--glass-bg);
@@ -165,6 +169,76 @@ body {
     0 0 40px rgba(0, 204, 106, 0.1),
     0 4px 20px rgba(0, 0, 0, 0.1);
 }
+
+/* App backgrounds for theme consistency */
+.app-bg {
+  background: linear-gradient(135deg, #000000 0%, #0b1220 50%, #000000 100%);
+}
+.light .app-bg {
+  background: #ffffff; /* remove any blue tint */
+}
+
+/* Section surface fades (dark/light aware) */
+.surface-fade {
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,24,39,0.3) 100%);
+}
+.surface-fade-strong {
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,24,39,0.5) 100%);
+}
+.light .surface-fade {
+  /* neutral white fade (no blue tint) */
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}
+.light .surface-fade-strong {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}
+
+/* Accent fades used for highlighted sections */
+.accent-fade {
+  background: linear-gradient(to bottom, rgba(6,95,70,0.2) 0%, rgba(16,185,129,0.2) 100%);
+}
+.light .accent-fade {
+  background: linear-gradient(to bottom, rgba(16,185,129,0.08) 0%, rgba(5,150,105,0.12) 100%);
+}
+
+/* Light-only accent fade (no change for dark) */
+.accent-fade-light {
+  background: transparent;
+}
+.light .accent-fade-light {
+  /* neutral white fade for light theme */
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}
+
+/* Buttons: consistent dark/light variants */
+.btn-primary {
+  background: linear-gradient(135deg, #22c55e, #10b981);
+  color: #fff;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+.light .btn-primary { background: #10b981; color: #ffffff; }
+.light .btn-primary:hover { background: #059669; }
+
+.btn-secondary {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: #fff;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+.light .btn-secondary { background: #6366f1; color: #ffffff; }
+.light .btn-secondary:hover { background: #4f46e5; }
+
+.btn-ghost {
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+.btn-ghost { background: rgba(255,255,255,0.06); color: #ffffff; border: 1px solid rgba(255,255,255,0.12); }
+.btn-ghost:hover { background: rgba(255,255,255,0.1); }
+.light .btn-ghost { background: rgba(255,255,255,0.9); color: #1f2937; border: 1px solid rgba(17,24,39,0.08); }
+.light .btn-ghost:hover { background: rgba(243,244,246,0.9); }
 
 /* Специализированные эффекты свечения для разных элементов */
 .glow-green {
@@ -782,14 +856,12 @@ body {
 
 /* Выпадающее меню продуктов */
 .dropdown-menu {
-  animation: dropdown-fade-in 0.2s ease-out;
+  animation: dropdown-fade-in 0.18s ease-out;
   z-index: 1000;
-  background: rgba(17, 24, 39, 0.95);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(75, 85, 99, 0.3);
-  box-shadow: 
-    0 10px 25px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(0, 255, 136, 0.1);
+  background: rgba(17, 24, 39, 0.96);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(75, 85, 99, 0.25);
+  box-shadow: none;
 }
 
 .dropdown-menu .hover\:bg-gray-700\/30:hover {
@@ -841,12 +913,18 @@ body {
 
 /* Уникальные hover эффекты */
 .light .hover-glow:hover {
-  box-shadow: 
-    0 0 30px rgba(102, 126, 234, 0.3),
-    0 0 60px rgba(118, 75, 162, 0.2),
-    0 8px 32px rgba(59, 130, 246, 0.15);
-  transform: translateY(-4px);
-  border-color: rgba(102, 126, 234, 0.4);
+  /* Soften hover to avoid oval highlight on white theme */
+  box-shadow: none;
+  transform: none;
+  border-color: inherit;
+}
+
+/* Specifically neutralize lift/glow on typical clickable controls */
+.light a.hover-glow:hover,
+.light button.hover-glow:hover,
+.light .hover-glow:hover {
+  box-shadow: none !important;
+  transform: none !important;
 }
 
 /* Стили для карточек в светлой теме */
@@ -943,16 +1021,10 @@ body {
 
 /* Уникальное выпадающее меню */
 .light .dropdown-menu {
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.98) 0%, 
-    rgba(248, 250, 252, 0.95) 100%
-  );
-  border: 1px solid rgba(102, 126, 234, 0.2);
-  box-shadow: 
-    0 20px 40px rgba(102, 126, 234, 0.15),
-    0 10px 20px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  box-shadow: none;
+  backdrop-filter: blur(14px) saturate(160%);
 }
 
 .light .dropdown-menu .text-gray-400 {
@@ -1003,6 +1075,20 @@ body {
 .light .text-gray-400 {
   color: #6b7280 !important;
 }
+
+/* === Extra neutralization for button halos in light theme === */
+.light a.glass-effect,
+.light button.glass-effect {
+  box-shadow: none !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(17, 24, 39, 0.08) !important;
+}
+.light .btn-primary,
+.light .btn-secondary,
+.light .btn-ghost {
+  box-shadow: none !important;
+}
+.light .dropdown-menu { box-shadow: none !important; }
 
 .light .bg-gray-700 {
   background-color: #d1d5db !important;
@@ -2317,4 +2403,55 @@ body {
   transform: none !important;
   transition: none !important;
   animation: none !important;
+}
+/* Helper: force white background only in light theme */
+.bg-white-light { background: transparent; }
+.light .bg-white-light { background: #ffffff !important; }
+/* Section titles: blue only in light theme; restore gradient in dark */
+.section-title { color: inherit; }
+.light .section-title { color: #3b82f6 !important; }
+.dark .section-title {
+  background: linear-gradient(135deg, #00ff88, #00cc6a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Soft glow for titles (light theme only) */
+.title-glow { text-shadow: none; }
+.light .title-glow {
+  text-shadow:
+    0 0 10px rgba(29, 78, 216, 0.25),
+    0 0 4px rgba(29, 78, 216, 0.2);
+}
+
+/* Light theme: remove oval focus/active highlights on clickable elements */
+.light a,
+.light button {
+  -webkit-tap-highlight-color: transparent;
+}
+.light a:focus,
+.light a:focus-visible,
+.light button:focus,
+.light button:focus-visible,
+.light [role="button"]:focus,
+.light [role="button"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.light a:active,
+.light button:active,
+.light [role="button"]:active {
+  box-shadow: none !important;
+}
+/* Stat numbers: black in light, gradient in dark */
+.stat-number { color: inherit; }
+.light .stat-number { color: #111827 !important; }
+.dark .stat-number {
+  background: linear-gradient(135deg, #00ff88, #00cc6a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }

@@ -380,7 +380,7 @@ export default function Solovey() {
       </section>
 
       {/* 3D Сетевая визуализация */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -620,7 +620,7 @@ export default function Solovey() {
       </section>
 
       {/* Deployment Options */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -767,7 +767,7 @@ export default function Solovey() {
       </section>
 
       {/* Technical Specs */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -885,7 +885,7 @@ export default function Solovey() {
       </section>
 
       {/* Contact Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="glass-effect p-12 rounded-lg">
             <h2 className="text-3xl font-bold mb-6">
@@ -907,7 +907,7 @@ export default function Solovey() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black py-12">
+      <footer className="py-12 bg-white-light">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="mb-8">
             <span className="text-3xl font-bold gradient-text">GUNDYREV</span>

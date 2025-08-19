@@ -341,7 +341,7 @@ export default function Electronics() {
       </section>
 
       {/* Трекер доставки */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -396,7 +396,7 @@ export default function Electronics() {
       </section>
 
       {/* Government Procurement */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -554,7 +554,7 @@ export default function Electronics() {
       </section>
 
       {/* Brands */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -665,7 +665,7 @@ export default function Electronics() {
       )}
 
       {/* Интерактивная карта складов */}
-      <section className="section-padding bg-gray-900/50">
+      <section className="section-padding bg-white-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -722,7 +722,7 @@ export default function Electronics() {
       </section>
 
       {/* Анимированная схема подключения */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -760,7 +760,7 @@ export default function Electronics() {
       </section>
 
       {/* Contact Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="glass-effect p-12 rounded-lg hover-glow transition-all duration-300">
             <h2 className="text-3xl font-bold mb-6">
@@ -782,7 +782,7 @@ export default function Electronics() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black py-12">
+      <footer className="py-12 bg-white-light">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="mb-8">
             <span className="text-3xl font-bold gradient-text">GUNDYREV</span>

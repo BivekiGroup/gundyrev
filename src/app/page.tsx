@@ -27,6 +27,7 @@ import {
   MessageCircle
 } from 'lucide-react';
 import Navigation from './components/Navigation';
+import { useTheme } from './contexts/ThemeContext';
 import InteractiveBlocks from './components/InteractiveBlocks';
 import ContactModal from './components/ContactModal';
 
@@ -44,6 +45,7 @@ export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { theme } = useTheme();
 
   // Инициализация
   useEffect(() => {
@@ -160,7 +162,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
 
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+      <div className="min-h-screen app-bg">
         <Navigation />
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-center">
@@ -173,11 +175,11 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+    <div className="min-h-screen app-bg">
       <Navigation />
       
       {/* Hero Section с заголовком и интерактивными элементами */}
-      <section className="relative section-padding pt-32 overflow-hidden">
+      <section className="relative section-padding pt-32 overflow-hidden accent-fade-light">
         <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
           {/* Заголовок и описание */}
           <div className="relative inline-block mb-8">
@@ -199,14 +201,14 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
             </div>
           </div>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+          <p className="home-hero-desc text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
             Комплексные IT-решения для бизнеса. От разработки до поставки оборудования.
           </p>
 
           {/* Живые счетчики под описанием */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-3xl font-bold gradient-text mb-2">{liveCounters.projects}+</div>
+              <div className="text-3xl font-bold stat-number mb-2">{liveCounters.projects}+</div>
               <div className="text-gray-400 text-sm">Проектов</div>
               <div className="w-full bg-gray-700 rounded-full h-1 mt-2">
                 <div 
@@ -217,7 +219,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
             </div>
             
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-3xl font-bold gradient-text mb-2">{liveCounters.clients}+</div>
+              <div className="text-3xl font-bold stat-number mb-2">{liveCounters.clients}+</div>
               <div className="text-gray-400 text-sm">Клиентов</div>
               <div className="w-full bg-gray-700 rounded-full h-1 mt-2">
                 <div 
@@ -228,7 +230,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
             </div>
             
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-3xl font-bold gradient-text mb-2">{liveCounters.lines.toLocaleString()}+</div>
+              <div className="text-3xl font-bold stat-number mb-2">{liveCounters.lines.toLocaleString()}+</div>
               <div className="text-gray-400 text-sm">Строк кода</div>
               <div className="w-full bg-gray-700 rounded-full h-1 mt-2">
                 <div 
@@ -239,7 +241,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
             </div>
             
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">
-              <div className="text-3xl font-bold gradient-text mb-2">{liveCounters.uptime}%</div>
+              <div className="text-3xl font-bold stat-number mb-2">{liveCounters.uptime}%</div>
               <div className="text-gray-400 text-sm">Uptime</div>
               <div className="w-full bg-gray-700 rounded-full h-1 mt-2">
                 <div 
@@ -254,21 +256,21 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <button 
               onClick={() => setIsContactModalOpen(true)}
-              className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center"
+              className="px-8 py-3 btn-primary font-semibold hover-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center"
             >
               <Rocket className="w-5 h-5" />
               Обсудить проект
             </button>
             <button 
               onClick={() => setIsContactModalOpen(true)}
-              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center"
+              className="px-8 py-3 btn-secondary font-semibold hover-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center"
             >
               <Lightbulb className="w-5 h-5" />
               Получить консультацию
             </button>
             <button 
               onClick={() => setIsContactModalOpen(true)}
-              className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 flex items-center gap-2 justify-center"
+              className="px-8 py-3 btn-ghost font-semibold transition-all duration-300 flex items-center gap-2 justify-center hover-glow hover:scale-105"
             >
               <BarChart3 className="w-5 h-5" />
               Заказать презентацию
@@ -307,10 +309,10 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
       </section>
 
       {/* Современная секция технологий */}
-      <section className="section-padding bg-gradient-to-b from-transparent to-gray-900/30">
+      <section className="section-padding bg-white-light">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">Наши технологии</h2>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 section-title">Наши технологии</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Мы используем передовые технологии для создания инновационных решений
             </p>
@@ -389,7 +391,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
 
           {/* Интерактивная диаграмма экспертизы */}
           <div className="glass-effect p-8 rounded-xl mb-16">
-            <h3 className="text-2xl font-bold text-center mb-8 gradient-text">Уровень экспертизы</h3>
+            <h3 className="text-2xl font-bold text-center mb-8 section-title">Уровень экспертизы</h3>
             
             <div className="grid md:grid-cols-2 gap-8">
               {[
@@ -424,7 +426,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
 
           {/* Облако технологий */}
           <div className="relative h-80 glass-effect rounded-xl p-8 overflow-hidden">
-            <h3 className="text-2xl font-bold text-center mb-8 gradient-text">Облако технологий</h3>
+            <h3 className="text-2xl font-bold text-center mb-8 section-title">Облако технологий</h3>
             
             <div className="relative h-full">
               {technologies.map((tech, index) => {
@@ -494,17 +496,17 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
           {/* Статистика технологий */}
           <div className="grid md:grid-cols-3 gap-8 mt-16">
             <div className="text-center glass-effect p-6 rounded-xl hover-glow transition-all duration-300">
-              <div className="text-4xl font-bold gradient-text mb-2">21+</div>
+              <div className="text-4xl font-bold stat-number mb-2">21+</div>
               <div className="text-gray-400">Технологий в стеке</div>
             </div>
             
             <div className="text-center glass-effect p-6 rounded-xl hover-glow transition-all duration-300">
-              <div className="text-4xl font-bold gradient-text mb-2">5+</div>
+              <div className="text-4xl font-bold stat-number mb-2">5+</div>
               <div className="text-gray-400">Лет опыта</div>
             </div>
             
             <div className="text-center glass-effect p-6 rounded-xl hover-glow transition-all duration-300">
-              <div className="text-4xl font-bold gradient-text mb-2">100%</div>
+              <div className="text-4xl font-bold stat-number mb-2">100%</div>
               <div className="text-gray-400">Современные решения</div>
             </div>
           </div>
@@ -512,10 +514,10 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
       </section>
 
       {/* Интерактивный код-редактор */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-6 gradient-text">Живой код</h2>
+            <h2 className="text-4xl font-bold mb-6 section-title">Живой код</h2>
             <p className="text-xl text-gray-300">Примеры нашего кода в реальном времени</p>
           </div>
 
@@ -585,11 +587,11 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
       </section>
 
       {/* About Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-6 gradient-text">О нас</h2>
+              <h2 className="text-4xl font-bold mb-6 section-title">О нас</h2>
               <p className="text-gray-300 text-lg mb-6">
                 GUNDYREV — это команда профессионалов, специализирующихся на создании 
                 современных IT-решений и поставке высококачественного оборудования.
@@ -601,11 +603,11 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
               </p>
               <div className="grid grid-cols-2 gap-4 mt-8">
                 <div className="glass-effect p-4 rounded-lg">
-                  <div className="text-2xl font-bold gradient-text">5+</div>
+                  <div className="text-2xl font-bold stat-number">5+</div>
                   <div className="text-gray-400">лет опыта</div>
                 </div>
                 <div className="glass-effect p-4 rounded-lg">
-                  <div className="text-2xl font-bold gradient-text">100+</div>
+                  <div className="text-2xl font-bold stat-number">100+</div>
                   <div className="text-gray-400">проектов</div>
                 </div>
               </div>
@@ -639,10 +641,10 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
       </section>
 
       {/* Our Clients Section */}
-      <section className="section-padding bg-gradient-to-b from-transparent to-gray-900/30">
+      <section className="section-padding bg-white-light">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">Наши клиенты</h2>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 section-title">Наши клиенты</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Нам доверяют ведущие организации и компании России
             </p>
@@ -654,7 +656,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
               <div className="text-green-400 mb-3 flex justify-center">
                 <Landmark className="w-10 h-10" />
               </div>
-              <div className="text-3xl font-bold gradient-text mb-2">15+</div>
+              <div className="text-3xl font-bold stat-number mb-2">15+</div>
               <div className="text-gray-400">Госорганы</div>
             </div>
             
@@ -662,7 +664,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
               <div className="text-blue-400 mb-3 flex justify-center">
                 <Building className="w-10 h-10" />
               </div>
-              <div className="text-3xl font-bold gradient-text mb-2">30+</div>
+              <div className="text-3xl font-bold stat-number mb-2">30+</div>
               <div className="text-gray-400">Коммерческие организации</div>
             </div>
             
@@ -670,7 +672,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
               <div className="text-purple-400 mb-3 flex justify-center">
                 <GraduationCap className="w-10 h-10" />
               </div>
-              <div className="text-3xl font-bold gradient-text mb-2">8+</div>
+              <div className="text-3xl font-bold stat-number mb-2">8+</div>
               <div className="text-gray-400">Образовательные учреждения</div>
             </div>
             
@@ -678,7 +680,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
               <div className="text-red-400 mb-3 flex justify-center">
                 <Hospital className="w-10 h-10" />
               </div>
-              <div className="text-3xl font-bold gradient-text mb-2">12+</div>
+              <div className="text-3xl font-bold stat-number mb-2">12+</div>
               <div className="text-gray-400">Медицинские организации</div>
             </div>
           </div>
@@ -858,7 +860,13 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
 
           {/* CTA for Potential Clients */}
           <div className="text-center mt-16">
-            <h3 className="text-2xl font-bold mb-6 text-white">Хотите стать нашим клиентом?</h3>
+            <h3
+              className={`text-2xl font-bold mb-6 ${
+                theme === 'light' ? 'text-blue-400 title-glow' : 'gradient-text'
+              }`}
+            >
+              Хотите стать нашим клиентом?
+            </h3>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Присоединяйтесь к числу довольных клиентов GUNDYREV. Мы готовы обсудить ваш проект и предложить оптимальное решение.
             </p>
@@ -884,12 +892,10 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
       </section>
 
       {/* Government Procurement Section */}
-      <section className="section-padding bg-gradient-to-b from-green-900/20 to-emerald-900/20">
+      <section className="section-padding bg-white-light">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="gradient-text">Работаем с госзакупками</span>
-            </h2>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 section-title">Работаем с госзакупками</h2>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-8">
               Профессиональное участие в государственных и корпоративных закупках. 
               Соответствуем всем требованиям 44-ФЗ и 223-ФЗ.
@@ -1029,9 +1035,9 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
       </section>
 
       {/* Interactive Services Section */}
-      <section className="section-padding bg-gradient-to-b from-transparent to-gray-900/50">
+      <section className="section-padding bg-white-light">
         <div className="max-w-6xl mx-auto px-6 text-center mb-12">
-          <h2 className="text-4xl font-bold mb-6 gradient-text">Наши направления</h2>
+          <h2 className="text-4xl font-bold mb-6 section-title">Наши направления</h2>
           <p className="text-xl text-gray-300 mb-8">
             Перетаскивайте блоки и изучайте наши услуги интерактивно
           </p>
@@ -1042,9 +1048,9 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
       </section>
 
       {/* Contact Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-white-light">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-8 gradient-text">Свяжитесь с нами</h2>
+          <h2 className="text-4xl font-bold mb-8 section-title">Свяжитесь с нами</h2>
           <p className="text-xl text-gray-300 mb-12">
             Готовы обсудить ваш проект? Мы всегда открыты для новых возможностей.
           </p>
