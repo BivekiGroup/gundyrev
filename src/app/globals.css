@@ -1080,9 +1080,11 @@ body {
 .light a.glass-effect,
 .light button.glass-effect {
   box-shadow: none !important;
-  background: #ffffff !important;
-  border: 1px solid rgba(17, 24, 39, 0.08) !important;
+  background: transparent !important;
+  border: none !important;
 }
+.light .hover\:bg-white\/10:hover { background-color: transparent !important; }
+.light .dropdown-menu .hover\:bg-gray-700\/30:hover { background-color: transparent !important; }
 .light .btn-primary,
 .light .btn-secondary,
 .light .btn-ghost {
@@ -2455,3 +2457,16 @@ body {
   background-clip: text;
   color: transparent;
 }
+/* Navigation product link: remove any halo/oval backgrounds */
+nav .nav-link { background: transparent !important; box-shadow: none !important; outline: none !important; border: none !important; }
+.light nav .nav-link { background: transparent !important; box-shadow: none !important; }
+.light nav .nav-link:hover { background: transparent !important; text-shadow: none !important; }
+.modal-close { background: transparent; border: none; outline: none; box-shadow: none; }
+.modal-close:focus, .modal-close:active { outline: none; box-shadow: none; }
+.light .modal-close { background: transparent !important; border: none !important; box-shadow: none !important; outline: none !important; -webkit-appearance: none; }
+.light .modal-close:hover { background: transparent !important; }
+/* Plain text-like button utility */
+.btn-plain { background: transparent; border: none; outline: none; box-shadow: none; padding: 0; }
+.btn-plain:focus, .btn-plain:active { outline: none; box-shadow: none; }
+.light .btn-plain { background: transparent !important; border: none !important; box-shadow: none !important; }
+.light .btn-plain:hover { background: transparent !important; }

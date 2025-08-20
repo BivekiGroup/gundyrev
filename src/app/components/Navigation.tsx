@@ -75,7 +75,7 @@ export default function Navigation() {
                 closeProductsTimer.current = setTimeout(() => setIsProductsOpen(false), 150);
               }}
             >
-              <button className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium flex items-center space-x-1 bg-transparent appearance-none outline-none focus:outline-none focus-visible:outline-none focus:ring-0">
+              <button className="nav-link text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium flex items-center space-x-1 bg-transparent appearance-none outline-none focus:outline-none focus-visible:outline-none focus:ring-0 rounded-none px-0 py-0">
                 <span>Продукты</span>
                 <svg className={`w-4 h-4 transition-transform duration-200 ${isProductsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />

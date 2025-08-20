@@ -1050,7 +1050,7 @@ export default function SecureT() {
                 href="/docs/SECURE-T_Documentation.md"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 bg-red-500 text-white font-semibold rounded-lg hover-glow transition-all duration-300 hover:bg-red-600 active:scale-95 flex items-center justify-center gap-2 animate-pulse-secure"
+                className="px-8 py-4 bg-red-500 text-white font-semibold rounded-lg transition-colors duration-300 hover:bg-red-600 active:scale-95 flex items-center justify-center gap-2 animate-pulse-secure"
               >
                 <span><FileText className="w-5 h-5" /></span>
                 Открыть документацию
@@ -1122,7 +1122,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Сертификат ФСТЭК' }));
                   handleDocumentationClick();
                 }}
-                className="text-blue-400 hover:text-blue-300 font-medium cursor-pointer"
+                className="btn-plain text-blue-400 hover:text-blue-300 font-medium cursor-pointer"
               >
                 Скачать сертификат →
               </button>
@@ -1142,7 +1142,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Лицензия ФСБ' }));
                   handleDocumentationClick();
                 }}
-                className="text-green-400 hover:text-green-300 font-medium cursor-pointer"
+                className="btn-plain text-green-400 hover:text-green-300 font-medium cursor-pointer"
               >
                 Скачать лицензию →
               </button>
@@ -1162,7 +1162,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'ISO 27001' }));
                   handleDocumentationClick();
                 }}
-                className="text-purple-400 hover:text-purple-300 font-medium cursor-pointer"
+                className="btn-plain text-purple-400 hover:text-purple-300 font-medium cursor-pointer"
               >
                 Скачать сертификат →
               </button>
@@ -1182,7 +1182,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Реестр Минпромторга' }));
                   handleDocumentationClick();
                 }}
-                className="text-red-400 hover:text-red-300 font-medium cursor-pointer"
+                className="btn-plain text-red-400 hover:text-red-300 font-medium cursor-pointer"
               >
                 Скачать справку →
               </button>
@@ -1202,7 +1202,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Соответствие ГОСТ' }));
                   handleDocumentationClick();
                 }}
-                className="text-yellow-400 hover:text-yellow-300 font-medium cursor-pointer"
+                className="btn-plain text-yellow-400 hover:text-yellow-300 font-medium cursor-pointer"
               >
                 Скачать документы →
               </button>
@@ -1222,7 +1222,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Криптографические алгоритмы' }));
                   handleDocumentationClick();
                 }}
-                className="text-cyan-400 hover:text-cyan-300 font-medium cursor-pointer"
+                className="btn-plain text-cyan-400 hover:text-cyan-300 font-medium cursor-pointer"
               >
                 Скачать спецификацию →
               </button>
@@ -1274,15 +1274,15 @@ export default function SecureT() {
                 <li>• Основные операции</li>
                 <li>• Решение типовых задач</li>
               </ul>
-              <button 
-                onClick={() => {
-                  setDocumentationForm(prev => ({ ...prev, documentType: 'Руководство пользователя' }));
-                  handleDocumentationClick();
-                }}
-                className="text-blue-400 hover:text-blue-300 font-medium cursor-pointer"
-              >
-                Скачать руководство →
-              </button>
+                  <button 
+                    onClick={() => {
+                      setDocumentationForm(prev => ({ ...prev, documentType: 'Руководство пользователя' }));
+                      handleDocumentationClick();
+                    }}
+                    className="btn-plain text-blue-400 hover:text-blue-300 font-medium cursor-pointer"
+                  >
+                    Скачать руководство →
+                  </button>
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
@@ -1295,15 +1295,15 @@ export default function SecureT() {
                 <li>• Мониторинг системы</li>
                 <li>• Резервное копирование</li>
               </ul>
-              <button 
-                onClick={() => {
-                  setDocumentationForm(prev => ({ ...prev, documentType: 'Руководство администратора' }));
-                  handleDocumentationClick();
-                }}
-                className="text-green-400 hover:text-green-300 font-medium cursor-pointer"
-              >
-                Скачать руководство →
-              </button>
+                  <button 
+                    onClick={() => {
+                      setDocumentationForm(prev => ({ ...prev, documentType: 'Руководство администратора' }));
+                      handleDocumentationClick();
+                    }}
+                    className="btn-plain text-green-400 hover:text-green-300 font-medium cursor-pointer"
+                  >
+                    Скачать руководство →
+                  </button>
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
@@ -1321,7 +1321,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Видеоуроки' }));
                   handleDocumentationClick();
                 }}
-                className="text-purple-400 hover:text-purple-300 font-medium cursor-pointer"
+                className="btn-plain text-purple-400 hover:text-purple-300 font-medium cursor-pointer"
               >
                 Получить доступ →
               </button>
@@ -1342,7 +1342,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Онлайн-курсы' }));
                   handleDocumentationClick();
                 }}
-                className="text-red-400 hover:text-red-300 font-medium cursor-pointer"
+                className="btn-plain text-red-400 hover:text-red-300 font-medium cursor-pointer"
               >
                 Записаться на курс →
               </button>
@@ -1358,15 +1358,15 @@ export default function SecureT() {
                 <li>• Аудит системы</li>
                 <li>• Интеграция с внешними системами</li>
               </ul>
-              <button 
-                onClick={() => {
-                  setDocumentationForm(prev => ({ ...prev, documentType: 'Практические сценарии' }));
-                  handleDocumentationClick();
-                }}
-                className="text-yellow-400 hover:text-yellow-300 font-medium cursor-pointer"
-              >
-                Скачать сценарии →
-              </button>
+                  <button 
+                    onClick={() => {
+                      setDocumentationForm(prev => ({ ...prev, documentType: 'Практические сценарии' }));
+                      handleDocumentationClick();
+                    }}
+                    className="btn-plain text-yellow-400 hover:text-yellow-300 font-medium cursor-pointer"
+                  >
+                    Скачать сценарии →
+                  </button>
             </div>
 
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 group">
@@ -1384,7 +1384,7 @@ export default function SecureT() {
                   setSolutionsForm(prev => ({ ...prev, solution: 'Персональное обучение' }));
                   handleSolutionsClick();
                 }}
-                className="text-cyan-400 hover:text-cyan-300 font-medium cursor-pointer"
+                className="btn-plain text-cyan-400 hover:text-cyan-300 font-medium cursor-pointer"
               >
                 Заказать консультацию →
               </button>
@@ -1477,7 +1477,7 @@ export default function SecureT() {
                         setDocumentationForm(prev => ({ ...prev, documentType: 'Коммерческое предложение для госзакупок' }));
                         handleDocumentationClick();
                       }}
-                      className="text-yellow-400 hover:text-yellow-300 text-sm font-medium"
+                      className="btn-plain text-yellow-400 hover:text-yellow-300 text-sm font-medium"
                     >
                       Скачать
                     </button>
@@ -1496,7 +1496,7 @@ export default function SecureT() {
                         setDocumentationForm(prev => ({ ...prev, documentType: 'Техническое задание' }));
                         handleDocumentationClick();
                       }}
-                      className="text-yellow-400 hover:text-yellow-300 text-sm font-medium"
+                      className="btn-plain text-yellow-400 hover:text-yellow-300 text-sm font-medium"
                     >
                       Скачать
                     </button>
@@ -1515,7 +1515,7 @@ export default function SecureT() {
                         setDocumentationForm(prev => ({ ...prev, documentType: 'Пакет документов для госзакупок' }));
                         handleDocumentationClick();
                       }}
-                      className="text-yellow-400 hover:text-yellow-300 text-sm font-medium"
+                      className="btn-plain text-yellow-400 hover:text-yellow-300 text-sm font-medium"
                     >
                       Скачать
                     </button>
@@ -1534,7 +1534,7 @@ export default function SecureT() {
                         setDocumentationForm(prev => ({ ...prev, documentType: 'Прайс-лист' }));
                         handleDocumentationClick();
                       }}
-                      className="text-yellow-400 hover:text-yellow-300 text-sm font-medium"
+                      className="btn-plain text-yellow-400 hover:text-yellow-300 text-sm font-medium"
                     >
                       Скачать
                     </button>
@@ -1618,7 +1618,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Полная документация' }));
                   handleDocumentationClick();
                 }}
-                className="text-blue-400 hover:text-blue-300 font-medium cursor-pointer"
+                className="btn-plain text-blue-400 hover:text-blue-300 font-medium cursor-pointer"
               >
                 Скачать →
               </button>
@@ -1633,7 +1633,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Методические материалы' }));
                   handleDocumentationClick();
                 }}
-                className="text-green-400 hover:text-green-300 font-medium cursor-pointer"
+                className="btn-plain text-green-400 hover:text-green-300 font-medium cursor-pointer"
               >
                 Скачать →
               </button>
@@ -1648,7 +1648,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Инструменты настройки' }));
                   handleDocumentationClick();
                 }}
-                className="text-purple-400 hover:text-purple-300 font-medium cursor-pointer"
+                className="btn-plain text-purple-400 hover:text-purple-300 font-medium cursor-pointer"
               >
                 Скачать →
               </button>
@@ -1663,7 +1663,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Отчеты и аналитика' }));
                   handleDocumentationClick();
                 }}
-                className="text-red-400 hover:text-red-300 font-medium cursor-pointer"
+                className="btn-plain text-red-400 hover:text-red-300 font-medium cursor-pointer"
               >
                 Скачать →
               </button>
@@ -1678,7 +1678,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Обучающие материалы' }));
                   handleDocumentationClick();
                 }}
-                className="text-yellow-400 hover:text-yellow-300 font-medium cursor-pointer"
+                className="btn-plain text-yellow-400 hover:text-yellow-300 font-medium cursor-pointer"
               >
                 Скачать →
               </button>
@@ -1693,7 +1693,7 @@ export default function SecureT() {
                   setDocumentationForm(prev => ({ ...prev, documentType: 'Сертификаты и лицензии' }));
                   handleDocumentationClick();
                 }}
-                className="text-cyan-400 hover:text-cyan-300 font-medium cursor-pointer"
+                className="btn-plain text-cyan-400 hover:text-cyan-300 font-medium cursor-pointer"
               >
                 Скачать →
               </button>
@@ -1759,7 +1759,7 @@ export default function SecureT() {
               <h2 className="text-xl font-bold text-red-400">Наши решения SECURE-T</h2>
               <button 
                 onClick={handleCloseModal}
-                className="text-gray-400 hover:text-white text-xl"
+                className="modal-close text-gray-400 hover:text-white text-xl"
               >
                 ×
               </button>
@@ -1873,7 +1873,7 @@ export default function SecureT() {
               <h2 className="text-xl font-bold text-red-400">Документация SECURE-T</h2>
               <button 
                 onClick={handleCloseModal}
-                className="text-gray-400 hover:text-white text-xl"
+                className="modal-close text-gray-400 hover:text-white text-xl"
               >
                 ×
               </button>

@@ -733,7 +733,7 @@ export default function DrWeb() {
           <div className="glass-effect rounded-lg p-6 max-w-4xl w-full relative border border-green-500/30 max-h-[90vh] overflow-y-auto">
             <button 
               onClick={handleCloseModal}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+              className="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
             >
               ×
             </button>
@@ -840,7 +840,7 @@ export default function DrWeb() {
           <div className="glass-effect rounded-lg p-6 w-[520px] max-w-[92vw] relative border border-green-500/30">
             <button 
               onClick={handleCloseModal}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+              className="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
             >
               ×
             </button>
@@ -970,7 +970,7 @@ export default function DrWeb() {
           <div className="glass-effect rounded-lg p-6 w-[520px] max-w-[92vw] relative border border-green-500/30">
             <button 
               onClick={handleCloseModal}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+              className="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
             >
               ×
             </button>

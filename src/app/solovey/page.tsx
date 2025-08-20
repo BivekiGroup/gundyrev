@@ -927,7 +927,7 @@ export default function Solovey() {
           <div className="glass-effect rounded-lg p-6 w-[520px] max-w-[92vw] relative border border-amber-500/30">
             <button
               onClick={closeModals}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+              className="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
             >
               ×
             </button>
@@ -991,7 +991,7 @@ export default function Solovey() {
           <div className="glass-effect rounded-lg p-6 w-[520px] max-w-[92vw] relative border border-amber-500/30">
             <button
               onClick={closeModals}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+              className="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
             >
               ×
             </button>
@@ -1055,7 +1055,7 @@ export default function Solovey() {
           <div className="glass-effect rounded-lg p-6 w-[520px] max-w-[92vw] relative border border-amber-500/30">
             <button
               onClick={closeModals}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+              className="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
             >
               ×
             </button>

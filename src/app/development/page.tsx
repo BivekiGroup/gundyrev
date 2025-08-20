@@ -392,9 +392,9 @@ export default function Development() {
       {isProjectsModalOpen && (
         <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="glass-effect rounded-lg p-6 max-w-3xl w-full relative border border-purple-500/30 max-h-[90vh] overflow-y-auto">
-            <button
+            <button 
               onClick={handleCloseModals}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+              className="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
             >
               ×
             </button>
@@ -447,9 +447,9 @@ export default function Development() {
       {isDiscussModalOpen && (
         <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="glass-effect rounded-lg p-6 w-[520px] max-w-[92vw] relative border border-purple-500/30">
-            <button
+            <button 
               onClick={handleCloseModals}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+              className="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
             >
               ×
             </button>

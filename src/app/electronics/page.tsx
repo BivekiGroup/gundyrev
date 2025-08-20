@@ -231,7 +231,7 @@ export default function Electronics() {
               onClick={() => setIsCalculatorOpen(true)}
               className="px-8 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover-glow transition-all duration-300 transform hover:scale-105"
             >
-              Калькулятор стоимости
+              Корзина
             </button>
             <button onClick={() => openModal('catalog')} className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 hover-glow transition-all duration-300 transform hover:scale-105">
               Каталог товаров
@@ -584,10 +584,10 @@ export default function Electronics() {
         <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="glass-effect p-8 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-2xl font-bold gradient-text">Калькулятор стоимости</h3>
+              <h3 className="text-2xl font-bold gradient-text">Корзина</h3>
               <button
                 onClick={() => setIsCalculatorOpen(false)}
-                className="text-gray-400 hover:text-white transition-colors"
+                className="modal-close text-gray-400 hover:text-white transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -800,7 +800,7 @@ export default function Electronics() {
       {isCatalogModalOpen && (
         <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="glass-effect p-6 rounded-lg max-w-2xl w-full relative border border-cyan-500/30">
-            <button onClick={closeModals} className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform">×</button>
+            <button onClick={closeModals} className="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform">×</button>
             <h3 className="text-xl font-bold mb-4 text-cyan-400">Категории каталога</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {categories.map((c) => (
@@ -825,7 +825,7 @@ export default function Electronics() {
       {isSpecModalOpen && (
         <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="glass-effect p-6 rounded-lg w-[520px] max-w-[92vw] relative border border-cyan-500/30">
-            <button onClick={closeModals} className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform">×</button>
+            <button onClick={closeModals} className="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform">×</button>
             <h3 className="text-xl font-bold mb-4 text-cyan-400">Отправить спецификацию</h3>
             <form onSubmit={handleSpecSubmit} className="space-y-3">
               <div>
@@ -857,7 +857,7 @@ export default function Electronics() {
       {isCallbackModalOpen && (
         <div className="fixed inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="glass-effect p-6 rounded-lg w-[520px] max-w-[92vw] relative border border-cyan-500/30">
-            <button onClick={closeModals} className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform">×</button>
+            <button onClick={closeModals} className="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform">×</button>
             <h3 className="text-xl font-bold mb-4 text-cyan-400">Заказать звонок</h3>
             <form onSubmit={handleCallbackSubmit} className="space-y-3">
               <div>

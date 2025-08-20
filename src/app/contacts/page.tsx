@@ -383,7 +383,7 @@ export default function Contacts() {
                 >
                   {contactTypes.map(type => (
                     <option key={type.id} value={type.id}>
-                      {type.icon} {type.label}
+                      {type.label}
                     </option>
                   ))}
                 </select>

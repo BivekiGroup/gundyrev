@@ -61,7 +61,7 @@ export default function ContactModal({ isOpen, onClose, defaultType = 'general',
           <h3 className="text-xl font-bold gradient-text">{title}</h3>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
+            className="modal-close text-gray-400 hover:text-white text-xl transition-colors duration-200 hover:rotate-90 transform"
           >
             ×
           </button>
