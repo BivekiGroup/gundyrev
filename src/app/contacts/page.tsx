@@ -113,13 +113,13 @@ export default function Contacts() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div 
               className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300 animate-slide-in-up cursor-pointer"
-              onClick={() => copyToClipboard('+7 (495) 123-45-67', 'phone')}
+              onClick={() => copyToClipboard('+7 987 167-01-68', 'phone')}
               onMouseEnter={() => setHoveredCard('phone')}
               onMouseLeave={() => setHoveredCard(null)}
             >
               <div className="text-4xl mb-4 flex justify-center"><Phone className="w-12 h-12" /></div>
               <h3 className="text-xl font-bold mb-2">Телефон</h3>
-              <p className="text-gray-300">+7 (495) 123-45-67</p>
+              <p className="text-gray-300">+7 987 167-01-68</p>
               {copySuccess === 'phone' && (
                 <p className="text-green-400 text-sm mt-2 animate-copy-feedback">Скопировано!</p>
               )}
@@ -185,7 +185,7 @@ export default function Contacts() {
                   <h4 className="text-xl font-bold">Отдел продаж</h4>
                 </div>
                 <div className="space-y-2 text-gray-300">
-                  <p className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +7 (495) 123-45-67 доб. 101</p>
+                  <p className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +7 987 167-01-68 доб. 101</p>
                   <p 
                     className="cursor-pointer hover:text-white transition-colors flex items-center"
                     onClick={() => copyToClipboard('sales@gundyrev.ru', 'sales-email')}
@@ -203,7 +203,7 @@ export default function Contacts() {
                   <h4 className="text-xl font-bold">Техническая поддержка</h4>
                 </div>
                 <div className="space-y-2 text-gray-300">
-                  <p className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +7 (495) 123-45-67 доб. 102</p>
+                  <p className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +7 987 167-01-68 доб. 102</p>
                   <p 
                     className="cursor-pointer hover:text-white transition-colors flex items-center"
                     onClick={() => copyToClipboard('support@gundyrev.ru', 'support-email')}
@@ -221,7 +221,7 @@ export default function Contacts() {
                   <h4 className="text-xl font-bold">Бухгалтерия</h4>
                 </div>
                 <div className="space-y-2 text-gray-300">
-                  <p className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +7 (495) 123-45-67 доб. 103</p>
+                  <p className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +7 987 167-01-68 доб. 103</p>
                   <p 
                     className="cursor-pointer hover:text-white transition-colors flex items-center"
                     onClick={() => copyToClipboard('accounting@gundyrev.ru', 'accounting-email')}
@@ -240,7 +240,7 @@ export default function Contacts() {
                   <h4 className="text-xl font-bold">Партнёрство</h4>
                 </div>
                 <div className="space-y-2 text-gray-300">
-                  <p className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +7 (495) 123-45-67 доб. 104</p>
+                  <p className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +7 987 167-01-68 доб. 104</p>
                   <p 
                     className="cursor-pointer hover:text-white transition-colors flex items-center"
                     onClick={() => copyToClipboard('partners@gundyrev.ru', 'partners-email')}
@@ -277,9 +277,9 @@ export default function Contacts() {
                     <h4 className="text-lg font-semibold mb-2 text-gray-200">ИНН</h4>
                     <p 
                       className="text-gray-300 cursor-pointer hover:text-white transition-colors"
-                      onClick={() => copyToClipboard('7701234567', 'inn')}
+                      onClick={() => copyToClipboard('637607810692', 'inn')}
                     >
-                      7701234567
+                      637607810692
                       {copySuccess === 'inn' && <CheckCircle className="w-4 h-4 ml-2 text-green-400" />}
                     </p>
                   </div>
@@ -363,7 +363,7 @@ export default function Contacts() {
               <h3 className="text-2xl font-bold gradient-text">Связаться с нами</h3>
               <button
                 onClick={() => setIsFormOpen(false)}
-                className="text-gray-400 hover:text-white text-2xl"
+                className="modal-close text-gray-400 hover:text-white text-2xl"
               >
                 ×
               </button>

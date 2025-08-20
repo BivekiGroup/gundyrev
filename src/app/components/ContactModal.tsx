@@ -158,7 +158,7 @@ export default function ContactModal({ isOpen, onClose, defaultType = 'general',
 
         <div className="mt-3 pt-2 border-t border-gray-600/20 text-center">
           <p className="text-xs text-gray-400">
-            <Phone className="w-4 h-4 inline mr-1" /> <a href="tel:+74951234567" className="text-green-400 hover:text-green-300">+7 (495) 123-45-67</a>
+            <Phone className="w-4 h-4 inline mr-1" /> <a href="tel:+79871670168" className="text-green-400 hover:text-green-300">+7 987 167-01-68</a>
             <span className="mx-2 text-gray-600">•</span>
             <Mail className="w-4 h-4 inline mr-1" /> <a href="mailto:info@gundyrev.ru" className="text-green-400 hover:text-green-300">info@gundyrev.ru</a>
           </p>

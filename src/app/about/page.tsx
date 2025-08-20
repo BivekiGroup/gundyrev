@@ -28,6 +28,7 @@ export default function About() {
   const [mounted, setMounted] = useState(false);
   const [activeTimelineStep, setActiveTimelineStep] = useState(0);
   const [teamMemberFlipped, setTeamMemberFlipped] = useState<number[]>([]);
+  const [flipLocked, setFlipLocked] = useState(false);
   const [liveCounters, setLiveCounters] = useState({
     projects: 0,
     clients: 0,
@@ -200,15 +201,13 @@ export default function About() {
   }, []);
 
   const handleTeamMemberClick = (index: number) => {
-    setTeamMemberFlipped(prev => {
-      if (prev.includes(index)) {
-        // Если карточка уже открыта, закрываем её
-        return prev.filter(i => i !== index);
-      } else {
-        // Если карточка закрыта, открываем её
-        return [...prev, index];
-      }
-    });
+    if (flipLocked) return;
+    setFlipLocked(true);
+    setTeamMemberFlipped(prev => (
+      prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
+    ));
+    // Разблокируем переключение после завершения анимации переворота
+    setTimeout(() => setFlipLocked(false), 800);
   };
 
   const handleCompetencyClick = (competency: string) => {
@@ -305,7 +304,8 @@ export default function About() {
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-black to-gray-900"></div>
         
-        {/* Интерактивный фон с частицами */}
+        {/* Интерактивный фон с частицами (только на клиенте) */}
+        {mounted && (
         <div className="absolute inset-0 overflow-hidden">
           {/* Анимированная сетка */}
           <div className="absolute inset-0 opacity-10">
@@ -337,7 +337,7 @@ export default function About() {
           </div>
           
           {/* Анимированные частицы */}
-          {mounted && backgroundParticles.map((particle) => (
+          {backgroundParticles.map((particle) => (
             <div
               key={particle.id}
               className="absolute rounded-full pointer-events-none transition-all duration-100"
@@ -355,7 +355,7 @@ export default function About() {
           ))}
           
           {/* Соединительные линии между близкими частицами */}
-          {mounted && (
+          (
             <svg className="absolute inset-0 w-full h-full pointer-events-none">
               {backgroundParticles.map((particle1, i) => 
                 backgroundParticles.slice(i + 1).map((particle2, j) => {
@@ -381,7 +381,7 @@ export default function About() {
                 })
               )}
             </svg>
-          )}
+          )
           
           {/* Дополнительные световые эффекты */}
           <div className="absolute top-0 left-0 w-full h-full">
@@ -400,8 +400,10 @@ export default function About() {
             ))}
           </div>
         </div>
+        )}
         
-        {/* Плавающие технологии */}
+        {/* Плавающие технологии (только на клиенте) */}
+        {mounted && (
         <div className="absolute inset-0 overflow-hidden">
           {floatingTechs.map((tech) => (
             <div
@@ -418,6 +420,7 @@ export default function About() {
             </div>
           ))}
         </div>
+        )}
         
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-slate-500 rounded-full blur-3xl opacity-30"></div>
@@ -680,17 +683,25 @@ export default function About() {
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="relative h-80 cursor-pointer group"
+                className="relative h-80 cursor-pointer"
                 onClick={() => handleTeamMemberClick(index)}
+                style={{ perspective: '1000px' }}
               >
-                <div className="absolute inset-0 w-full h-full transition-all duration-700 transform-gpu" style={{ 
-                  transformStyle: 'preserve-3d',
-                  transform: teamMemberFlipped.includes(index) ? 'rotateY(180deg)' : 'rotateY(0deg)'
-                }}>
+                <div
+                  className="absolute inset-0 w-full h-full transform-gpu"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    transform: teamMemberFlipped.includes(index) ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                    transition: mounted ? 'transform 0.8s ease' : 'none',
+                    willChange: 'transform'
+                  }}
+                >
                   
                   {/* Лицевая сторона */}
-                  <div className="absolute inset-0 w-full h-full glass-effect rounded-lg p-6 flex flex-col items-center justify-center text-center hover-glow transition-all duration-300"
-                       style={{ backfaceVisibility: 'hidden' }}>
+                  <div
+                    className={`absolute inset-0 w-full h-full glass-effect rounded-lg p-6 flex flex-col items-center justify-center text-center ${teamMemberFlipped.includes(index) ? 'pointer-events-none' : 'pointer-events-auto'}`}
+                    style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(0deg) translateZ(1px)', willChange: 'transform' }}
+                  >
                     <div className="text-6xl mb-4">{member.avatar}</div>
                     <h3 className="text-xl font-bold mb-2">{member.name}</h3>
                     <p className="text-gray-400 mb-4">{member.role}</p>
@@ -698,8 +709,10 @@ export default function About() {
                   </div>
                   
                   {/* Обратная сторона */}
-                  <div className="absolute inset-0 w-full h-full glass-effect rounded-lg p-6 flex flex-col justify-center"
-                       style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
+                  <div
+                    className={`absolute inset-0 w-full h-full glass-effect rounded-lg p-6 flex flex-col justify-center ${teamMemberFlipped.includes(index) ? 'pointer-events-auto' : 'pointer-events-none'}`}
+                    style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg) translateZ(1px)', willChange: 'transform' }}
+                  >
                     <h3 className="text-lg font-bold mb-3 text-green-400">{member.name}</h3>
                     <p className="text-sm text-gray-300 mb-4">{member.description}</p>
                     
@@ -724,7 +737,7 @@ export default function About() {
                     
                     {/* Кнопка закрытия */}
                     <button 
-                      className="absolute top-2 right-2 w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center text-gray-300 hover:bg-gray-600"
+                      className="modal-close absolute top-2 right-2 w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center text-gray-300 hover:bg-gray-600"
                       onClick={(e) => {
                         e.stopPropagation();
                         setTeamMemberFlipped(prev => prev.filter(i => i !== index));

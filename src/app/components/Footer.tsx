@@ -82,10 +82,10 @@ export default function Footer() {
                 <li className="flex items-center space-x-2">
                   <Phone className="w-4 h-4 text-green-400" />
                   <a 
-                    href="tel:+74951234567" 
+                    href="tel:+79871670168" 
                     className="text-gray-300 hover:text-white transition-colors"
                   >
-                    +7 (495) 123-45-67
+                    +7 987 167-01-68
                   </a>
                 </li>
                 <li className="flex items-center space-x-2">
@@ -138,10 +138,10 @@ export default function Footer() {
                     <h5 className="text-gray-200 font-medium mb-1 text-xs">ИНН:</h5>
                     <p 
                       className="text-gray-300 text-xs cursor-pointer hover:text-white transition-colors"
-                      onClick={() => copyToClipboard('7701234567', 'inn')}
+                      onClick={() => copyToClipboard('637607810692', 'inn')}
                       title="Нажмите для копирования"
                     >
-                      7701234567
+                      637607810692
                       {copySuccess === 'inn' && <span className="text-green-400 ml-1">✓</span>}
                     </p>
                   </div>

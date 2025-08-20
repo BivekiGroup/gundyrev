@@ -27,7 +27,6 @@ import {
   MessageCircle
 } from 'lucide-react';
 import Navigation from './components/Navigation';
-import { useTheme } from './contexts/ThemeContext';
 import InteractiveBlocks from './components/InteractiveBlocks';
 import ContactModal from './components/ContactModal';
 
@@ -45,7 +44,7 @@ export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const searchParams = useSearchParams();
   const router = useRouter();
-  const { theme } = useTheme();
+  // avoid using theme during render to prevent SSR/CSR class mismatches
 
   // Инициализация
   useEffect(() => {
@@ -860,11 +859,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
 
           {/* CTA for Potential Clients */}
           <div className="text-center mt-16">
-            <h3
-              className={`text-2xl font-bold mb-6 ${
-                theme === 'light' ? 'text-blue-400 title-glow' : 'gradient-text'
-              }`}
-            >
+            <h3 className="text-2xl font-bold mb-6 section-title title-glow">
               Хотите стать нашим клиентом?
             </h3>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -1069,7 +1064,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')`
                 <Phone className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold mb-2 text-white">Телефон</h3>
-              <p className="text-gray-300">+7 (XXX) XXX-XX-XX</p>
+              <p className="text-gray-300">+7 987 167-01-68</p>
             </div>
             
             <div className="glass-effect p-6 rounded-lg hover-glow transition-all duration-300">

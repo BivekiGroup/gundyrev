@@ -237,10 +237,10 @@ export default function SecureTDocumentation() {
                   Написать в поддержку
                 </button>
                 <a 
-                  href="tel:+74951234567"
+                href="tel:+79871670168"
                   className="px-8 py-3 glass-effect text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
                 >
-                  Позвонить: +7 (495) 123-45-67
+                Позвонить: +7 987 167-01-68
                 </a>
               </div>
             </div>
