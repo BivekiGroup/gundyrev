@@ -2,7 +2,6 @@
 # Uses production-only deps in the final image and supports PORT env
 
 FROM node:20-alpine AS base
-ENV NODE_ENV=production
 WORKDIR /app
 RUN apk add --no-cache libc6-compat
 
@@ -10,7 +9,8 @@ RUN apk add --no-cache libc6-compat
 FROM base AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci
+# Ensure devDependencies are installed for build
+RUN npm ci --include=dev
 
 # Build the application
 FROM deps AS build
@@ -30,6 +30,7 @@ COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/package-lock.json ./package-lock.json
 
 # Install production dependencies only
+ENV NODE_ENV=production
 RUN npm ci --omit=dev && npm cache clean --force
 
 # Default port inside the container
