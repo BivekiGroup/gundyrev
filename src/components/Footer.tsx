@@ -34,7 +34,6 @@ export default function Footer() {
             <li><Link className="hover:text-white" href="/web">Веб‑разработка</Link></li>
             <li><Link className="hover:text-white" href="/solovey">Соловей</Link></li>
             <li><Link className="hover:text-white" href="/electronics">Электроника</Link></li>
-            <li><Link className="hover:text-white" href="/asmo">АСМО</Link></li>
           </ul>
         </div>
 

@@ -9,7 +9,6 @@ const solutions = [
   { href: "/web", label: "Веб‑разработка" },
   { href: "/solovey", label: "Соловей (онлайн‑звонки)" },
   { href: "/electronics", label: "Электроника (поставки)" },
-  { href: "/asmo", label: "АСМО (АСУ)" },
 ];
 
 export default function Header() {

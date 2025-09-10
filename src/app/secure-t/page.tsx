@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Secure‑T — Комплексная кибербезопасность | ГУНДЫРЕВ",
+  title: "Secure‑T — Платформа обучения и защиты сотрудников | ГУНДЫРЕВ",
   description:
-    "Аудит ИБ, разработка и внедрение комплексной защиты, ТЗИ (сертифицированные решения), обучение. Соответствие ФСТЭК/ФСБ и интеграция с существующими системами.",
+    "Secure‑T обучает сотрудников ИБ и проверяет знания через симуляции атак: фишинг, мошенничество, кража данных и подозрительные обращения. Демо на 2–3 недели.",
 };
 
 import SecureTAuditForm from "@/components/forms/pages/SecureTAuditForm";
@@ -34,19 +34,18 @@ export default function SecureTPage() {
             <span className="text-slate-300">Secure‑T</span>
           </div>
           <h1 className="text-3xl sm:text-5xl/tight font-semibold tracking-[-0.02em] text-white">
-            Комплексные решения по кибербезопасности для госструктур и бизнеса
+            Secure‑T — платформа для обучения и проверки знаний по ИБ
           </h1>
           <p className="mt-4 max-w-3xl text-slate-300 text-base sm:text-lg">
-            Проводим аудит ИБ и рисков, проектируем и внедряем комплексную защиту, используем
-            сертифицированные средства ТЗИ. Обучаем персонал и сопровождаем на всех этапах, соблюдая
-            требования регуляторов.
+            Обучает сотрудников и проверяет готовность к социальным атакам с помощью симуляций:
+            фишинг, мошенничество, кража персональных данных, подозрительные звонки и письма.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="#audit-form"
               className="inline-flex items-center rounded-md bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-medium px-5 py-3 transition-colors"
             >
-              Запросить аудит
+              Запросить демо и презентацию
             </a>
             <Link
               href="/#contact-form"
@@ -58,59 +57,30 @@ export default function SecureTPage() {
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* PROTECTION SCOPE */}
       <section className="mt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-white">Основные услуги</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-white">От чего защищает</h2>
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              {
-                title: "Аудит ИБ и рисков",
-                desc: "Инвентаризация активов, угроз и уязвимостей. Приоритеты и план работ.",
-              },
-              {
-                title: "Комплексная защита",
-                desc: "Проектирование, внедрение, регламенты, обучение. End‑to‑end подход.",
-              },
-              {
-                title: "Техническая защита информации",
-                desc: "Сертифицированные решения ФСТЭК/ФСБ для закрытых контуров.",
-              },
-              {
-                title: "Обучение персонала",
-                desc: "Тренинги и курсы по безопасности для ИТ и сотрудников.",
-              },
-            ].map((s) => (
-              <div key={s.title} className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
-                <h3 className="text-lg font-medium text-slate-100">{s.title}</h3>
-                <p className="mt-2 text-sm text-slate-400">{s.desc}</p>
+            {["Фишинг", "Мошенничество", "Кража персональных данных", "Подозрительные звонки и письма"].map((item) => (
+              <div key={item} className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
+                <h3 className="text-lg font-medium text-slate-100">{item}</h3>
+                <p className="mt-2 text-sm text-slate-400">Практические сценарии и тесты устойчивости.</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* WHY US */}
+      {/* ADVANTAGES */}
       <section className="mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-white">Почему Secure‑T от ГУНДЫРЕВ</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-white">Преимущества</h2>
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              {
-                k: "ФСТЭК/ФСБ",
-                title: "Соответствие требованиям",
-                desc: "Проекты и документация в соответствии с регуляторикой.",
-              },
-              {
-                k: "Опыт",
-                title: "Проекты в госсекторе",
-                desc: "Понимание закупочных процедур и специфики инфраструктуры.",
-              },
-              {
-                k: "Интеграция",
-                title: "С существующими системами",
-                desc: "Аккуратное внедрение, минимизация простоя и рисков.",
-              },
+              { k: "110+ тем", title: "Широкая база обучения", desc: "Более 110 тем, включая 55 по безопасной разработке ПО." },
+              { k: "80+ шаблонов", title: "Имитация фишинга", desc: "Готовые сценарии для регулярных кампаний и проверки." },
+              { k: "Гибкость", title: "Адаптация под компанию", desc: "Материалы настраиваются под стиль и процессы организации." },
             ].map((a) => (
               <div key={a.title} className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
                 <div className="text-xs uppercase tracking-wider text-cyan-300">{a.k}</div>
@@ -122,55 +92,62 @@ export default function SecureTPage() {
         </div>
       </section>
 
-      {/* CASE */}
+      {/* CAPABILITIES */}
       <section className="mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl ring-1 ring-white/10 bg-gradient-to-br from-white/[0.03] to-transparent p-6 md:p-8">
-            <div className="flex items-end justify-between gap-4">
-              <h2 className="text-2xl sm:text-3xl font-semibold text-white">Кейс: внедрение защиты в ведомстве</h2>
-              <a href="#audit-form" className="text-cyan-400 hover:text-cyan-300 text-sm">Запросить аудит</a>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-white">Возможности</h2>
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="rounded-xl ring-1 ring-white/10 p-5 bg-white/[0.02]">
+              <h3 className="text-lg font-medium text-slate-100">Редактирование готовых материалов</h3>
+              <p className="mt-2 text-sm text-slate-400">
+                Настройка обучающих модулей под корпоративный стиль и процессы
+                (формулировки, визуальный стиль, терминология, примеры из практики).
+              </p>
             </div>
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="rounded-xl ring-1 ring-white/10 p-5 bg-white/[0.02]">
-                <div className="text-slate-400 text-sm">Сроки</div>
-                <div className="text-2xl font-semibold text-white mt-1">6 недель</div>
-                <div className="text-slate-400 text-sm mt-2">Аудит, проектирование, внедрение</div>
-              </div>
-              <div className="rounded-xl ring-1 ring-white/10 p-5 bg-white/[0.02]">
-                <div className="text-slate-400 text-sm">Результат</div>
-                <div className="text-2xl font-semibold text-white mt-1">−70%</div>
-                <div className="text-slate-400 text-sm mt-2">Снижение критичных рисков</div>
-              </div>
-              <div className="rounded-xl ring-1 ring-white/10 p-5 bg-white/[0.02]">
-                <div className="text-slate-400 text-sm">Контур</div>
-                <div className="text-2xl font-semibold text-white mt-1">GIS + ISPDн</div>
-                <div className="text-slate-400 text-sm mt-2">Сертифицированные средства защиты</div>
-              </div>
+            <div className="rounded-xl ring-1 ring-white/10 p-5 bg-white/[0.02]">
+              <h3 className="text-lg font-medium text-slate-100">Создание собственных материалов</h3>
+              <p className="mt-2 text-sm text-slate-400">
+                Полноценный редактор для добавления своих курсов и проверок,
+                например по технике безопасности на производстве.
+              </p>
             </div>
-            <p className="mt-6 text-slate-300 max-w-3xl">
-              Проведён аудит, составлена модель угроз, внедрены средства защиты уровня
-              сети и рабочих станций, настроено логирование и мониторинг. Подготовлен пакет
-              документов для регуляторов.
+          </div>
+          <div className="mt-6 rounded-2xl ring-1 ring-white/10 bg-gradient-to-br from-white/[0.03] to-transparent p-6 md:p-8">
+            <h3 className="text-lg font-medium text-slate-100">Защита за пределами офиса</h3>
+            <p className="mt-2 text-slate-300 max-w-3xl">
+              Secure‑T помогает снижать риски и вне корпоративного периметра: формирует
+              устойчивые привычки безопасного поведения в реальной жизни.
             </p>
           </div>
         </div>
       </section>
 
-      {/* AUDIT FORM */}
+      {/* CLIENTS */}
+      <section className="mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-white">Клиенты</h2>
+          <p className="mt-3 text-slate-400 max-w-prose">
+            Среди пользователей платформы: РЖД, Аэрофлот, СберЛигал, СберКорус, ООО СТК (дочерняя компания Сбера),
+            Додо Пицца, ОТП Банк, Zenden, Эконика, НПО «Алмаз», а также госструктуры, НПФ и страховые компании.
+          </p>
+        </div>
+      </section>
+
+      {/* DEMO FORM */}
       <section id="audit-form" className="mt-16 mb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 items-start">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-semibold text-white">Запросить аудит</h2>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-white">Попробуйте Secure‑T</h2>
               <p className="mt-3 text-slate-400 max-w-prose">
-                Заполните форму — оценим текущий уровень защищённости, подготовим план
-                мер и ориентировочные сроки/бюджет.
+                Оставьте заявку — предоставим демо‑доступ и презентацию платформы.
+                Демо на 2–3 недели для 5–15 пользователей (можем продлить при необходимости).
               </p>
               <ul className="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-300">
-                <li className="rounded-lg ring-1 ring-white/10 p-3">Он‑сайт/удалённо</li>
-                <li className="rounded-lg ring-1 ring-white/10 p-3">От 10 рабочих дней</li>
-                <li className="rounded-lg ring-1 ring-white/10 p-3">ФСТЭК/ФСБ</li>
-                <li className="rounded-lg ring-1 ring-white/10 p-3">Конфиденциальность</li>
+                <li className="rounded-lg ring-1 ring-white/10 p-3">Демо 2–3 недели</li>
+                <li className="rounded-lg ring-1 ring-white/10 p-3">5–15 пользователей</li>
+                <li className="rounded-lg ring-1 ring-white/10 p-3">Презентация и Q&A</li>
+                <li className="rounded-lg ring-1 ring-white/10 p-3">Помощь с пилотом</li>
               </ul>
             </div>
 

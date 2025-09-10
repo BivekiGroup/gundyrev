@@ -139,11 +139,7 @@ export default function Home() {
                 desc: "Компьютеры, серверы, сети, периферия и спец. решения.",
                 href: "/electronics",
               },
-              {
-                title: "АСМО",
-                desc: "Автоматизированные системы управления.",
-                href: "/asmo",
-              },
+              
             ].map((card) => (
               <a
                 key={card.title}
