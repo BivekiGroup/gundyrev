@@ -29,8 +29,7 @@ export default function Home() {
               </h1>
               <p className="mt-5 text-slate-300 text-base sm:text-lg max-w-2xl">
                 Надежная кибербезопасность, лицензии Dr.Web, веб‑разработка и поставки
-                сертифицированной электроники. Работаем по требованиям ФСТЭК/ФСБ,
-                интегрируем с существующей инфраструктурой.
+                сертифицированной электроники. Интегрируем с существующей инфраструктурой.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -48,8 +47,8 @@ export default function Home() {
               </div>
               <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm text-slate-400">
                 <div className="rounded-lg ring-1 ring-white/10 p-3">
-                  ФСТЭК/ФСБ
-                  <div className="text-slate-200 font-medium">Соответствие</div>
+                  Экспертиза
+                  <div className="text-slate-200 font-medium">Проектные соответствия</div>
                 </div>
                 <div className="rounded-lg ring-1 ring-white/10 p-3">
                   5+ лет
@@ -116,7 +115,7 @@ export default function Home() {
             {[
               {
                 title: "Secure‑T",
-                desc: "Аудит ИБ, внедрение и тех. защита. Соответствие ФСТЭК/ФСБ.",
+                desc: "Аудит ИБ, внедрение и тех. защита.",
                 href: "/secure-t",
               },
               {
@@ -255,7 +254,7 @@ export default function Home() {
               <ul className="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-300">
                 <li className="rounded-lg ring-1 ring-white/10 p-3">44‑ФЗ/223‑ФЗ</li>
                 <li className="rounded-lg ring-1 ring-white/10 p-3">SLA 24×7</li>
-                <li className="rounded-lg ring-1 ring-white/10 p-3">ФСТЭК/ФСБ</li>
+                <li className="rounded-lg ring-1 ring-white/10 p-3">Импортозамещение</li>
                 <li className="rounded-lg ring-1 ring-white/10 p-3">B2B/B2G</li>
               </ul>
             </div>

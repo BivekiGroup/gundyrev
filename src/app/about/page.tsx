@@ -35,9 +35,7 @@ export default function AboutPage() {
             О компании ГУНДЫРЕВ
           </h1>
           <p className="mt-4 max-w-3xl text-slate-300 text-base sm:text-lg">
-            Мы создаём и внедряем комплексные ИТ‑решения для госсектора и бизнеса: кибербезопасность,
-            лицензии, веб‑разработка и поставки электроники. Работаем с акцентом на безопасность,
-            надёжность и требования госзаказчиков.
+            Мы создаём и внедряем комплексные ИТ‑решения для госсектора и бизнеса: от кибербезопасности и лицензий до веб‑разработки и поставок техники. Наш приоритет — гарантировать защиту, стабильность и соблюдение всех требований заказчиков.
           </p>
         </div>
       </section>
@@ -47,18 +45,24 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-semibold text-white">История</h2>
           <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {["Основание", "Рост и партнёрства", "Сегодня"].map((t, i) => (
-              <div key={t} className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
-                <div className="text-xs text-slate-400">Этап {i + 1}</div>
-                <h3 className="mt-1 text-slate-100 font-medium">{t}</h3>
-                <p className="mt-2 text-sm text-slate-400">
-                  Краткий обзор этапа развития компании и ключевых результатов.
-                </p>
-              </div>
-            ))}
+            <div className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
+              <div className="text-xs text-slate-400">Август 2024 года</div>
+              <h3 className="mt-1 text-slate-100 font-medium">Открытие компании</h3>
+              <p className="mt-2 text-sm text-slate-400">Начало деятельности по госзаказу.</p>
+            </div>
+            <div className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
+              <div className="text-xs text-slate-400">Март 2025 года</div>
+              <h3 className="mt-1 text-slate-100 font-medium">Продажа партнёрского ПО</h3>
+              <p className="mt-2 text-sm text-slate-400">Запуск направления по продаже партнёрского программного обеспечения.</p>
+            </div>
+            <div className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
+              <div className="text-xs text-slate-400">Сентябрь 2025 года</div>
+              <h3 className="mt-1 text-slate-100 font-medium">Разработка собственного ПО</h3>
+              <p className="mt-2 text-sm text-slate-400">Открытие направления разработки собственного ПО и веб‑разработки под заказ.</p>
+            </div>
           </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
       {/* DIRECTIONS */}
       <section className="mt-16">
@@ -82,20 +86,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* PARTNERS */}
-      <section className="mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-white">Партнёры и сертификаты</h2>
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {["Dr.Web", "ФСТЭК/ФСБ", "ОЕМ‑партнёры"].map((p) => (
-              <div key={p} className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
-                <h3 className="text-slate-100 font-medium">{p}</h3>
-                <p className="mt-2 text-sm text-slate-400">Сертификаты и статусы по запросу.</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* PARTNERS — удалено по требованию */}
 
       {/* VALUES */}
       <section className="mt-16">
@@ -116,39 +107,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* TEAM */}
-      <section className="mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-white">Команда</h2>
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="rounded-xl ring-1 ring-white/10 overflow-hidden">
-                <div className="aspect-video bg-slate-800" />
-                <div className="p-5">
-                  <div className="text-slate-200 font-medium">Специалист {i}</div>
-                  <div className="text-slate-400 text-sm">Экспертное направление</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* TEAM — удалено по требованию */}
 
-      {/* MEDIA */}
-      <section className="mt-16 mb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-white">Фото и видео</h2>
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="rounded-xl ring-1 ring-white/10 overflow-hidden">
-                <div className="aspect-video bg-gradient-to-br from-slate-800 to-slate-900 grid place-items-center text-slate-500 text-sm">
-                  Медиа {i}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* MEDIA — удалено по требованию */}
     </>
   );
 }

@@ -40,7 +40,7 @@ export default function Footer() {
         <div>
           <h4 className="text-sm font-semibold text-slate-200 mb-3">Контакты</h4>
           <ul className="text-sm text-slate-400 space-y-2">
-            <li>Тел.: +7 (000) 000-00-00</li>
+            <li>Тел.: +79930770168</li>
             <li>E‑mail: info@gundyrev.ru</li>
             <li>График: Пн–Пт, 10:00–19:00 (Мск)</li>
           </ul>

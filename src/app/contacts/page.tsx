@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContactsFeedbackForm from "@/components/forms/pages/ContactsFeedbackForm";
-import ContactsRFQForm from "@/components/forms/pages/ContactsRFQForm";
 
 export const metadata: Metadata = {
   title: "Контакты | ГУНДЫРЕВ",
@@ -37,7 +36,7 @@ export default function ContactsPage() {
             Контакты
           </h1>
           <p className="mt-4 max-w-3xl text-slate-300 text-base sm:text-lg">
-            Свяжитесь с нами по вопросам решений, поставок и сопровождения — ответим оперативно и предметно.
+            Свяжитесь с нами по вопросам решений, поставок и сопровождения.
           </p>
         </div>
       </section>
@@ -59,20 +58,38 @@ export default function ContactsPage() {
                 </div>
                 <div className="rounded-lg ring-1 ring-white/10 p-3">
                   <div className="text-slate-400">ИНН</div>
-                  <div>0000000000</div>
+                  <div>637607810692</div>
                 </div>
                 <div className="rounded-lg ring-1 ring-white/10 p-3">
                   <div className="text-slate-400">ОГРН</div>
-                  <div>0000000000000</div>
+                  <div>324632700122208</div>
                 </div>
                 <div className="rounded-lg ring-1 ring-white/10 p-3">
                   <div className="text-slate-400">Телефон</div>
-                  <div>+7 (000) 000-00-00</div>
+                  <div>+79930770168</div>
                 </div>
                 <div className="rounded-lg ring-1 ring-white/10 p-3">
                   <div className="text-slate-400">E‑mail</div>
                   <div>info@gundyrev.ru</div>
                 </div>
+                <div className="rounded-lg ring-1 ring-white/10 p-3">
+                  <div className="text-slate-400">Расчётный счёт</div>
+                  <div>40802810300007422481</div>
+                </div>
+                <div className="rounded-lg ring-1 ring-white/10 p-3">
+                  <div className="text-slate-400">БИК банка</div>
+                  <div>044525974</div>
+                </div>
+              </div>
+              <div className="mt-4">
+                <a
+                  href="https://egrul.nalog.ru/vyp-download/BC407B2C820C46B9253F7A5F2FA5F0FBF33C50A9F6CA19B7A1BC643E2F0CF263D91FED90EEA08D7FEEB72750DE7276EBAC0CD3C96F60F8F5C38F87149770AFFAF41AC15A210F46C1AC5513B43AEDF97C"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center rounded-md bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-medium px-4 py-2 transition-colors"
+                >
+                  Получить выписку из ЕГРИП
+                </a>
               </div>
             </div>
 
@@ -101,19 +118,7 @@ export default function ContactsPage() {
         </div>
       </section>
 
-      {/* RFQ FORM */}
-      <section className="mt-16 mb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-semibold text-white">Запросить коммерческое предложение</h2>
-              <p className="mt-3 text-slate-400 max-w-prose">Опишите потребности — подготовим КП и предложим оптимальные варианты.</p>
-            </div>
-
-            <ContactsRFQForm />
-          </div>
-        </div>
-      </section>
+      {/* RFQ FORM — удалено по требованию */}
     </>
   );
 }

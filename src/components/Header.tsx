@@ -4,18 +4,17 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const solutions = [
-  { href: "/secure-t", label: "Secure‑T (Кибербезопасность)" },
-  { href: "/drweb", label: "Dr.Web (Антивирус)" },
+  { href: "/secure-t", label: "Secure‑T" },
+  { href: "/drweb", label: "Dr.Web" },
   { href: "/web", label: "Веб‑разработка" },
-  { href: "/solovey", label: "Соловей (онлайн‑звонки)" },
-  { href: "/electronics", label: "Электроника (поставки)" },
+  { href: "/solovey", label: "Соловей" },
+  { href: "/electronics", label: "Электроника" },
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [openSolutions, setOpenSolutions] = useState(false);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -39,16 +38,13 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm text-slate-300">
-          <div className="relative">
+          <div
+            className="relative"
+            onMouseEnter={() => setOpenSolutions(true)}
+            onMouseLeave={() => setOpenSolutions(false)}
+          >
             <button
               className="inline-flex items-center gap-1 hover:text-white transition-colors"
-              onMouseEnter={() => setOpenSolutions(true)}
-              onFocus={() => setOpenSolutions(true)}
-              onMouseLeave={() => {
-                if (closeTimer.current) clearTimeout(closeTimer.current);
-                closeTimer.current = setTimeout(() => setOpenSolutions(false), 150);
-              }}
-              onBlur={() => setOpenSolutions(false)}
               onClick={() => setOpenSolutions((v) => !v)}
             >
               Решения
@@ -59,11 +55,6 @@ export default function Header() {
             {openSolutions && (
               <div
                 className="absolute left-0 top-full pt-2 w-[340px]"
-                onMouseEnter={() => {
-                  if (closeTimer.current) clearTimeout(closeTimer.current);
-                  setOpenSolutions(true);
-                }}
-                onMouseLeave={() => setOpenSolutions(false)}
               >
                 <div className="rounded-lg ring-1 ring-white/10 bg-slate-950/95 backdrop-blur p-2 shadow-xl">
                 {solutions.map((s) => (
