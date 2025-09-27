@@ -1,6 +1,12 @@
 import HomeLeadForm from "@/components/forms/pages/HomeLeadForm";
+import ReviewForm from "@/components/forms/pages/ReviewForm";
+import { getReviews } from "@/lib/reviews";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const reviews = await getReviews();
+
   return (
     <>
       {/* HERO */}
@@ -103,63 +109,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOLUTIONS */}
-      <section id="solutions" className="mt-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-white">Решения</h2>
-            <a href="#contact-form" className="text-cyan-400 hover:text-cyan-300 text-sm">Запросить консультацию</a>
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                title: "Secure‑T",
-                desc: "Аудит ИБ, внедрение и тех. защита.",
-                href: "/secure-t",
-              },
-              {
-                title: "Dr.Web",
-                desc: "Лицензии, централизованное администрирование и поддержка.",
-                href: "/drweb",
-              },
-              {
-                title: "Веб‑разработка",
-                desc: "Корпоративные сайты, порталы, ЛК и интеграции.",
-                href: "/web",
-              },
-              {
-                title: "Соловей",
-                desc: "Видеозвонки, запись, интеграции для организаций.",
-                href: "/solovey",
-              },
-              {
-                title: "Электроника",
-                desc: "Компьютеры, серверы, сети, периферия и спец. решения.",
-                href: "/electronics",
-              },
-              
-            ].map((card) => (
-              <a
-                key={card.title}
-                href={card.href}
-                className="group rounded-xl ring-1 ring-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:ring-white/20 p-6 transition"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-lg font-medium text-slate-100">{card.title}</h3>
-                    <p className="mt-2 text-sm text-slate-400">{card.desc}</p>
-                  </div>
-                  <span className="h-9 w-9 rounded-md bg-cyan-400/20 ring-1 ring-cyan-300/30 grid place-items-center text-cyan-300">
-                    →
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CLIENTS */}
       <section id="clients" className="mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -221,22 +170,52 @@ export default function Home() {
       </section>
 
       {/* CASES */}
-      <section id="cases" className="mt-16">
+      <section id="cases" className="mt-16 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between gap-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="text-2xl sm:text-3xl font-semibold text-white">Отзывы и кейсы</h2>
-            <a href="#contact-form" className="text-cyan-400 hover:text-cyan-300 text-sm">Обсудить проект</a>
+            <div className="flex flex-wrap gap-2">
+              <a href="#contact-form" className="text-cyan-400 hover:text-cyan-300 text-sm">
+                Обсудить проект
+              </a>
+              <a
+                href="#review-form"
+                className="inline-flex items-center rounded-md ring-1 ring-white/20 text-white px-4 py-2 text-sm hover:bg-white/5 transition-colors"
+              >
+                Написать отзыв
+              </a>
+            </div>
           </div>
-          <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {[1, 2].map((i) => (
-              <div key={i} className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
-                <p className="text-slate-200 text-base">
-                  “В рамках проекта были проведены аудит ИБ и внедрены
-                  сертифицированные средства защиты. Сроки соблюдены, риски снижены.”
-                </p>
-                <div className="mt-4 text-sm text-slate-400">ГК «Пример», ИТ‑директор</div>
-              </div>
-            ))}
+          <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {reviews.length ? (
+                reviews.map((item) => (
+                  <article key={item.id} className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
+                    <p className="text-slate-200 text-base leading-relaxed">{item.quote}</p>
+                    <div className="mt-4 text-sm text-slate-400">
+                      <div className="text-slate-200 font-medium">{item.author}</div>
+                      {(item.position || item.company) && (
+                        <div>
+                          {[item.position, item.company].filter(Boolean).join(", ")}
+                        </div>
+                      )}
+                      {item.focus && (
+                        <div className="mt-2 text-xs uppercase tracking-wide text-cyan-300/80">{item.focus}</div>
+                      )}
+                    </div>
+                  </article>
+                ))
+              ) : (
+                <div className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
+                  <p className="text-slate-200 text-base">
+                    Пока нет опубликованных отзывов. Будьте первыми — поделитесь опытом работы с нами.
+                  </p>
+                </div>
+              )}
+            </div>
+            <div id="review-form" className="scroll-mt-32">
+              <ReviewForm />
+            </div>
           </div>
         </div>
       </section>
