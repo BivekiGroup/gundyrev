@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -5,10 +6,8 @@ export default function Footer() {
     <footer id="contacts" className="mt-20 border-t border-white/10 bg-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid gap-8 md:grid-cols-4">
         <div className="space-y-3">
-          <div className="inline-flex items-center gap-2">
-            <div className="h-8 w-8 rounded bg-cyan-400/20 ring-1 ring-cyan-300/30 grid place-items-center text-cyan-300 font-bold">
-              Г
-            </div>
+          <div className="inline-flex items-center gap-3">
+            <Image src="/logo.svg" alt="Логотип Гундырев" width={28} height={36} />
             <span className="text-sm font-semibold tracking-wider text-slate-100">ГУНДЫРЕВ</span>
           </div>
           <p className="text-sm text-slate-400 max-w-xs">
@@ -51,7 +50,7 @@ export default function Footer() {
           <span>© {new Date().getFullYear()} ГУНДЫРЕВ. Все права защищены.</span>
           <Link href="/#contact-form" className="text-cyan-400 hover:text-cyan-300">Запросить КП</Link>
           <a href="https://biveki.ru" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
-            Разработка веб-приложений Biveki
+            Создано в партнёрстве с Biveki
           </a>
         </div>
       </div>

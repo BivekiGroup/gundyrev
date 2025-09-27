@@ -1,12 +1,6 @@
 import HomeLeadForm from "@/components/forms/pages/HomeLeadForm";
-import ReviewForm from "@/components/forms/pages/ReviewForm";
-import { getReviews } from "@/lib/reviews";
 
-export const dynamic = "force-dynamic";
-
-export default async function Home() {
-  const reviews = await getReviews();
-
+export default function Home() {
   return (
     <>
       {/* HERO */}
@@ -28,7 +22,7 @@ export default async function Home() {
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 rounded-full ring-1 ring-white/15 px-3 py-1 text-xs text-slate-300 mb-5">
-                B2B/B2G • кибербезопасность • поставки • разработка
+                B2B/B2G • поставки • разработка
               </div>
               <h1 className="text-3xl sm:text-5xl/tight font-semibold text-white tracking-[-0.02em]">
                 Комплексные ИТ‑решения и поставки для госсектора и бизнеса
@@ -170,52 +164,24 @@ export default async function Home() {
       </section>
 
       {/* CASES */}
-      <section id="cases" className="mt-16 scroll-mt-24">
+      <section id="cases" className="mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex items-end justify-between gap-4">
             <h2 className="text-2xl sm:text-3xl font-semibold text-white">Отзывы и кейсы</h2>
-            <div className="flex flex-wrap gap-2">
-              <a href="#contact-form" className="text-cyan-400 hover:text-cyan-300 text-sm">
-                Обсудить проект
-              </a>
-              <a
-                href="#review-form"
-                className="inline-flex items-center rounded-md ring-1 ring-white/20 text-white px-4 py-2 text-sm hover:bg-white/5 transition-colors"
-              >
-                Написать отзыв
-              </a>
-            </div>
+            <a href="#contact-form" className="text-cyan-400 hover:text-cyan-300 text-sm">
+              Обсудить проект
+            </a>
           </div>
-          <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-            <div className="grid gap-4 sm:grid-cols-2">
-              {reviews.length ? (
-                reviews.map((item) => (
-                  <article key={item.id} className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
-                    <p className="text-slate-200 text-base leading-relaxed">{item.quote}</p>
-                    <div className="mt-4 text-sm text-slate-400">
-                      <div className="text-slate-200 font-medium">{item.author}</div>
-                      {(item.position || item.company) && (
-                        <div>
-                          {[item.position, item.company].filter(Boolean).join(", ")}
-                        </div>
-                      )}
-                      {item.focus && (
-                        <div className="mt-2 text-xs uppercase tracking-wide text-cyan-300/80">{item.focus}</div>
-                      )}
-                    </div>
-                  </article>
-                ))
-              ) : (
-                <div className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
-                  <p className="text-slate-200 text-base">
-                    Пока нет опубликованных отзывов. Будьте первыми — поделитесь опытом работы с нами.
-                  </p>
-                </div>
-              )}
-            </div>
-            <div id="review-form" className="scroll-mt-32">
-              <ReviewForm />
-            </div>
+          <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {[1, 2].map((i) => (
+              <div key={i} className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
+                <p className="text-slate-200 text-base">
+                  “В рамках проекта были проведены аудит ИБ и внедрены
+                  сертифицированные средства защиты. Сроки соблюдены, риски снижены.”
+                </p>
+                <div className="mt-4 text-sm text-slate-400">ГК «Пример», ИТ‑директор</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -96,7 +96,7 @@ export default function AboutPage() {
             {[
               { k: "Безопасность", d: "Защита данных и ИС — приоритет." },
               { k: "Надёжность", d: "Стабильность и предсказуемость исполнения." },
-              { k: "Госзаказчик", d: "Понимание регуляторики и процессов." },
+              { k: "Госпоставщик", d: "Понимание регуляторики и процессов." },
             ].map((v) => (
               <div key={v.k} className="rounded-xl ring-1 ring-white/10 p-6 bg-white/[0.02]">
                 <div className="text-xs uppercase tracking-wider text-cyan-300">{v.k}</div>

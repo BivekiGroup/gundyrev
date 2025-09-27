@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const solutions = [
   { href: "/secure-t", label: "Secure‑T" },
@@ -30,10 +31,8 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded bg-cyan-400/20 ring-1 ring-cyan-300/30 grid place-items-center text-cyan-300 font-bold">
-            Г
-          </div>
+        <Link href="/" className="flex items-center gap-3">
+          <Image src="/logo.svg" alt="Логотип Гундырев" width={28} height={36} priority />
           <span className="text-sm font-semibold tracking-wider text-slate-100">ГУНДЫРЕВ</span>
         </Link>
 

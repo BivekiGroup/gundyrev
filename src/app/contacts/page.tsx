@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ContactsFeedbackForm from "@/components/forms/pages/ContactsFeedbackForm";
 
@@ -81,22 +82,17 @@ export default function ContactsPage() {
                   <div>044525974</div>
                 </div>
               </div>
-              <div className="mt-4">
-                <a
-                  href="https://egrul.nalog.ru/vyp-download/BC407B2C820C46B9253F7A5F2FA5F0FBF33C50A9F6CA19B7A1BC643E2F0CF263D91FED90EEA08D7FEEB72750DE7276EBAC0CD3C96F60F8F5C38F87149770AFFAF41AC15A210F46C1AC5513B43AEDF97C"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-md bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-medium px-4 py-2 transition-colors"
-                >
-                  Получить выписку из ЕГРИП
-                </a>
-              </div>
             </div>
 
             <div className="rounded-2xl ring-1 ring-white/10 overflow-hidden">
-              <div className="aspect-[16/10] w-full bg-gradient-to-br from-slate-800 to-slate-900 grid place-items-center text-slate-500 text-sm">
-                Карта офиса (плейсхолдер)
-              </div>
+              <Image
+                src="/owner.jpg"
+                alt="Руководитель компании"
+                width={1280}
+                height={853}
+                className="w-full h-auto object-cover"
+                priority
+              />
             </div>
           </div>
         </div>
