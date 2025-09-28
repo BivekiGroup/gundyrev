@@ -6,9 +6,8 @@ export default function Footer() {
     <footer id="contacts" className="mt-20 border-t border-white/10 bg-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid gap-8 md:grid-cols-4">
         <div className="space-y-3">
-          <div className="inline-flex items-center gap-3">
-            <Image src="/logo.svg" alt="Логотип Гундырев" width={28} height={36} />
-            <span className="text-sm font-semibold tracking-wider text-slate-100">ГУНДЫРЕВ</span>
+          <div className="inline-flex items-center">
+            <Image src="/logo.svg" alt="Логотип Гундырев" width={52} height={68} className="h-10 w-auto" />
           </div>
           <p className="text-sm text-slate-400 max-w-xs">
             B2B/B2G решения: кибербезопасность, лицензии, веб-разработка и поставки электроники.

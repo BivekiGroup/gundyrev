@@ -31,9 +31,15 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo.svg" alt="Логотип Гундырев" width={28} height={36} priority />
-          <span className="text-sm font-semibold tracking-wider text-slate-100">ГУНДЫРЕВ</span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.svg"
+            alt="Логотип Гундырев"
+            width={52}
+            height={68}
+            priority
+            className="h-10 w-auto"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm text-slate-300">
