@@ -45,17 +45,17 @@ export default function ContactsPage() {
       {/* INFO + MAP */}
       <section className="mt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-6 items-start">
-            <div className="rounded-2xl ring-1 ring-white/10 bg-white/[0.02] p-6">
+          <div className="grid lg:grid-cols-2 gap-6 items-stretch">
+            <div className="rounded-2xl ring-1 ring-white/10 bg-white/[0.02] p-6 h-full">
               <h2 className="text-xl font-semibold text-white">Юридическая и фактическая информация</h2>
               <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-300">
                 <div className="rounded-lg ring-1 ring-white/10 p-3">
                   <div className="text-slate-400">Юридический адрес</div>
-                  <div>г. Москва, ул. Пример, 1</div>
+                  <div>Самара, ул. Ленинская, д. 302</div>
                 </div>
                 <div className="rounded-lg ring-1 ring-white/10 p-3">
                   <div className="text-slate-400">Фактический адрес</div>
-                  <div>г. Москва, ул. Пример, 1</div>
+                  <div>Санкт-Петербург, Новочеркасский пр-кт, д. 33</div>
                 </div>
                 <div className="rounded-lg ring-1 ring-white/10 p-3">
                   <div className="text-slate-400">ИНН</div>
@@ -84,14 +84,15 @@ export default function ContactsPage() {
               </div>
             </div>
 
-            <div className="rounded-2xl ring-1 ring-white/10 overflow-hidden">
+            <div className="rounded-2xl ring-1 ring-white/10 bg-white/[0.02] p-6 h-full flex items-center">
               <Image
                 src="/owner.jpg"
                 alt="Руководитель компании"
                 width={1280}
                 height={853}
-                className="w-full h-auto object-cover"
+                className="w-full object-cover rounded-xl"
                 priority
+                style={{ aspectRatio: "4 / 3" }}
               />
             </div>
           </div>
