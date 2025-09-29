@@ -84,16 +84,17 @@ export default function ContactsPage() {
               </div>
             </div>
 
-            <div className="rounded-2xl ring-1 ring-white/10 bg-white/[0.02] p-6 h-full flex items-center">
-              <Image
-                src="/owner.jpg"
-                alt="Руководитель компании"
-                width={1280}
-                height={853}
-                className="w-full object-cover rounded-xl"
-                priority
-                style={{ aspectRatio: "4 / 3" }}
-              />
+            <div className="rounded-2xl ring-1 ring-white/10 bg-white/[0.02] p-6 h-full flex">
+              <div className="relative h-full w-full overflow-hidden rounded-xl">
+                <Image
+                  src="/owner.jpg"
+                  alt="Руководитель компании"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
