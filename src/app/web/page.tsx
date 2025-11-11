@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import WebRequestForm from "@/components/forms/pages/WebRequestForm";
 
 export const metadata: Metadata = {
@@ -116,18 +117,113 @@ export default function WebDevPage() {
             <h2 className="text-2xl sm:text-3xl font-semibold text-white">Примеры проектов</h2>
             <a href="#web-form" className="text-cyan-400 hover:text-cyan-300 text-sm">Обсудить задачу</a>
           </div>
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="rounded-xl ring-1 ring-white/10 bg-white/[0.02] overflow-hidden">
-                <div className="aspect-video w-full bg-gradient-to-br from-slate-800 to-slate-900 grid place-items-center text-slate-500 text-sm">
-                  Скриншот проекта {i}
-                </div>
-                <div className="p-5">
-                  <div className="text-slate-200 font-medium">Портал ведомства</div>
-                  <div className="text-slate-400 text-sm mt-1">ЛК гражданина • ЕСИА/СМЭВ • SSO</div>
+
+          {/* Note about portfolio */}
+          <div className="mt-4 rounded-lg bg-cyan-500/5 ring-1 ring-cyan-500/20 px-4 py-3">
+            <p className="text-sm text-cyan-200/80">
+              Представлены лишь некоторые из реализованных проектов. Полное портфолио доступно по запросу.
+            </p>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* ПротекАвто */}
+            <div className="rounded-xl ring-1 ring-white/10 bg-white/[0.02] overflow-hidden hover:ring-white/20 transition-all">
+              <div className="aspect-video w-full relative overflow-hidden bg-slate-900">
+                <Image
+                  src="/protekavto-marketplace.jpg"
+                  alt="ПротекАвто - маркетплейс автозапчастей"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <div className="text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-2">E-Commerce</div>
+                <h3 className="text-slate-100 font-semibold text-lg">ПротекАвто</h3>
+                <p className="text-slate-400 text-sm mt-2 leading-relaxed">
+                  Полнофункциональный маркетплейс автозапчастей с собственной CMS, системой продаж и аналитикой
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <span className="inline-flex items-center rounded-full bg-slate-800/50 px-2.5 py-1 text-xs text-slate-300">
+                    Интеграция 1С
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-slate-800/50 px-2.5 py-1 text-xs text-slate-300">
+                    API сторонних продавцов
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-slate-800/50 px-2.5 py-1 text-xs text-slate-300">
+                    ИИ-поиск
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-slate-800/50 px-2.5 py-1 text-xs text-slate-300">
+                    Аналитика
+                  </span>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* ГундыревCRM */}
+            <div className="rounded-xl ring-1 ring-white/10 bg-white/[0.02] overflow-hidden hover:ring-white/20 transition-all">
+              <div className="aspect-video w-full relative overflow-hidden bg-slate-900">
+                <Image
+                  src="/gundyrev-crm-system.jpg"
+                  alt="ГундыревCRM - система управления бизнесом"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <div className="text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-2">Enterprise</div>
+                <h3 className="text-slate-100 font-semibold text-lg">ГундыревCRM</h3>
+                <p className="text-slate-400 text-sm mt-2 leading-relaxed">
+                  CRM-система с автоматизацией бизнес-процессов, шаблонами документов и планами развития в полноценную ERP
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <span className="inline-flex items-center rounded-full bg-slate-800/50 px-2.5 py-1 text-xs text-slate-300">
+                    Автоматизация
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-slate-800/50 px-2.5 py-1 text-xs text-slate-300">
+                    Документооборот
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-slate-800/50 px-2.5 py-1 text-xs text-slate-300">
+                    Складской учёт
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-slate-800/50 px-2.5 py-1 text-xs text-slate-300">
+                    Магазины
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Вебфлоу */}
+            <div className="rounded-xl ring-1 ring-white/10 bg-white/[0.02] overflow-hidden hover:ring-white/20 transition-all">
+              <div className="aspect-video w-full relative overflow-hidden bg-slate-900">
+                <Image
+                  src="/webflow-platform.jpg"
+                  alt="Вебфлоу - платформа для создания веб-приложений"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <div className="text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-2">Platform</div>
+                <h3 className="text-slate-100 font-semibold text-lg">Вебфлоу</h3>
+                <p className="text-slate-400 text-sm mt-2 leading-relaxed">
+                  Low-code платформа для создания полнофункциональных веб-приложений с визуальным конструктором и API
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <span className="inline-flex items-center rounded-full bg-slate-800/50 px-2.5 py-1 text-xs text-slate-300">
+                    Визуальный редактор
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-slate-800/50 px-2.5 py-1 text-xs text-slate-300">
+                    Backend генерация
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-slate-800/50 px-2.5 py-1 text-xs text-slate-300">
+                    REST API
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-slate-800/50 px-2.5 py-1 text-xs text-slate-300">
+                    Хостинг
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
