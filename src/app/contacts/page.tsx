@@ -71,7 +71,7 @@ export default function ContactsPage() {
                 </div>
                 <div className="rounded-lg ring-1 ring-white/10 p-3">
                   <div className="text-slate-400">E‑mail</div>
-                  <div>info@gundyrev.ru</div>
+                  <div>info@gundyrev.com</div>
                 </div>
                 <div className="rounded-lg ring-1 ring-white/10 p-3">
                   <div className="text-slate-400">Расчётный счёт</div>
